@@ -1,0 +1,1 @@
+BOARD = edu_ciaa_nxp
