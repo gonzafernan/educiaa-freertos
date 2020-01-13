@@ -1,2 +1,2 @@
-PROGRAM_PATH = firmware_v3/examples/c/sapi/gpio
-PROGRAM_NAME = led_sequences
+PROGRAM_PATH = examples
+PROGRAM_NAME = stepper
