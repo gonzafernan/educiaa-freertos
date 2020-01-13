@@ -1,5 +1,7 @@
 # RTOS en placa de desarrollo EDU-CIAA para el control de brazo robótico básico
 
+Toda la información asociada al proyecto explicada de forma más extendida y detallada en la [Wiki](https://github.com/FernandezGFG/CIAA-RTOS/wiki) del repositorio.
+
 ## Sobre el proyecto CIAA
 La **Computadora Industrial Abierta Argentina** (CIAA) es un proyecto que nace en el año 2013 como una iniciativa conjunta entre el sector académico y el industrial de Argentina.
 
