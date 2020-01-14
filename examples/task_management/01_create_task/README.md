@@ -4,9 +4,10 @@ Variación de los ejemplos del libro "Masteringthe FreeRTOS™ Real Time Kernel:
 # Manejo de Tareas: Creación de tareas
 Este ejemplo es similar al ejemplo 1 "Creating Tasks" del libro, en el capítulo 3 "Task Management", sección 3.4 "Creating Tasks", página 52.
 
-En este caso la primer tarea simplemente realiza un toggle del LEDR (rojo del led RGB), y la segunda tarea realiza un toggle simultaneo de los LEDs 1 y 2 (LED1 y LED2).
+En este caso la primer tarea simplemente realiza un toggle del LED1, y la segunda tarea realiza un toggle del LED2.
 
 ## Hardware necesario para implementar el ejemplo
 Para llevar a cabo este ejemplo solo es necesaria la placa EDU-CIAA-NXP, ya que el programa solo consiste en el toggle de los LEDs provistos en la misma.
 
 ## Resultado del ejemplo
+Una vez que se ejecuta el ejemplo, se puede observar en la placa que ambos LEDs titilan al mismo tiempo, a pesar de que las tareas no se ejecutan al mismo tiempo. Esto se debe a que las tareas pasan de estado *Running* a *Not Running* muy rapidamente.

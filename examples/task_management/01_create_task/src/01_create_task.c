@@ -9,9 +9,9 @@
     firmware_v3.
 
     En este caso consiste en la creación de dos tareas 
-    distintas: La primer realiza un toggle de LEDR, y la 
-    segunda un toggle simultaneo de los leds 1 y 2. Ambas 
-    tareas mediante un delay "forzado".
+    distintas: La primer realiza un toggle del LED1, y la 
+    segunda un toggle del LED2. Ambas tareas mediante un delay 
+    "forzado".
     -----------------------------------------------------------
     Autor: Gonzalo G. Fernández
     Fecha: 14/01/2020
@@ -31,8 +31,8 @@
 #define mainDELAY_LOOP_COUNT        ( 0xffffff )
 
 /* Tareas a crear */
-void vTaskToggleLeds( void *pvParameters );
-void vTaskBlinkLed( void *pvParameters );
+void vTaskBlinkLed1( void *pvParameters );
+void vTaskBlinkLed2( void *pvParameters );
 
 /*-----------------------------------------------------------*/
 
@@ -43,10 +43,10 @@ int main( void )
 
     /* Creación de la primer tarea. */
     xTaskCreate(
-        vTaskToggleLeds, /* Puntero a la función donde se 
+        vTaskBlinkLed1, /* Puntero a la función donde se 
         encuentra implementada la tarea. */
-        (const char *)"Task Toggle Leds",/* Un nombre 
-        descriptivo de la tarea (solo como ayuda en debugueo).
+        (const char *)"Blink LED1",/* Un nombre descriptivo de 
+        la tarea (solo como ayuda en debugueo).
          */
         configMINIMAL_STACK_SIZE*2,
         /* Tamaño del stack asignado a la tarea por el kernel 
@@ -57,7 +57,7 @@ int main( void )
     
     /* Creación de la segunda tarea. */
     xTaskCreate( 
-        vTaskBlinkLed, (const char *)"Task Blink Led",
+        vTaskBlinkLed2, (const char *)"Blink LED2",
         configMINIMAL_STACK_SIZE*2, NULL, 1, NULL );
     
     /* Se lanza el scheduler y comienzan a ejecutarse ambas 
@@ -73,14 +73,14 @@ int main( void )
 }
 
 /*-----------------------------------------------------------*/
-/* Tarea que realiza un toggle del LEDR. */
-void vTaskToggleLeds( void *pvParameters )
+/* Tarea que realiza un toggle del LED1. */
+void vTaskBlinkLed1( void *pvParameters )
 {
     volatile uint32_t ul; // Variable para loop for
 
     for( ;; )
     {
-        gpioToggle(LEDR);
+        gpioToggle(LED1);
 
         for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++)
         {
@@ -90,18 +90,14 @@ void vTaskToggleLeds( void *pvParameters )
 }
 
 /*-----------------------------------------------------------*/
-/* Tarea que realiza un toggle simulataneo de LED1 y LED2. */
-void vTaskBlinkLed( void *pvParameters )
+/* Tarea que realiza un toggle del LED2. */
+void vTaskBlinkLed2( void *pvParameters )
 {
-    gpioWrite( LED1, ON );
-    gpioWrite( LED2, OFF );
-
     volatile uint32_t ul; // Variable para loop for
 
     for( ;; )
     {
-        gpioToggle( LED1 );
-        gpioToggle( LED2 );
+        gpioToggle(LED2);
 
         for (ul = 0; ul < mainDELAY_LOOP_COUNT; ul++)
         {
