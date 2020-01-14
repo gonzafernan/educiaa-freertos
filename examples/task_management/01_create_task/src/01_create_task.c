@@ -3,7 +3,8 @@
     -----------------------------------------------------------
     El ejemplo esta basado en el ejemplo 1 del libro 
     "Masteringthe FreeRTOS™ Real Time Kernel: A Hands-On 
-    Tutorial Guide" de Richard Barry, pero con una variación para interactuar con los componentes de la placa de 
+    Tutorial Guide" de Richard Barry, pero con una variación 
+    para interactuar con los componentes de la placa de 
     desarrollo EDU-CIAA-NXP con la librería sAPI del 
     firmware_v3.
 
@@ -42,10 +43,14 @@ int main( void )
 
     /* Creación de la primer tarea. */
     xTaskCreate(
-        vTaskToggleLeds, /* Puntero a la función donde se encuentra implementada la tarea. */
-        (const char *)"Task Toggle Leds",/* Un nombre descriptivo de la tarea (solo como ayuda en debugueo). */
+        vTaskToggleLeds, /* Puntero a la función donde se 
+        encuentra implementada la tarea. */
+        (const char *)"Task Toggle Leds",/* Un nombre 
+        descriptivo de la tarea (solo como ayuda en debugueo).
+         */
         configMINIMAL_STACK_SIZE*2,
-        /* Tamaño del stack asignado a la tarea por el kernel */
+        /* Tamaño del stack asignado a la tarea por el kernel 
+        */
         NULL, /* Este ejemplo no recibe parámetros. */
         1, /* Se le asigna una prioridad 1. */
         NULL ); /* No se le pasa task handle */
@@ -55,10 +60,13 @@ int main( void )
         vTaskBlinkLed, (const char *)"Task Blink Led",
         configMINIMAL_STACK_SIZE*2, NULL, 1, NULL );
     
-    /* Se lanza el scheduler y comienzan a ejecutarse ambas tareas. */
+    /* Se lanza el scheduler y comienzan a ejecutarse ambas 
+    tareas. */
     vTaskStartScheduler();
     
-    /* La ejecución nunca debería llegar a este punto, salvo que regrese el squeduler por quedarse sin memoria disponible. */
+    /* La ejecución nunca debería llegar a este punto, salvo
+     que regrese el squeduler por quedarse sin memoria 
+     disponible. */
     for( ;; );
 
     return 0; 
