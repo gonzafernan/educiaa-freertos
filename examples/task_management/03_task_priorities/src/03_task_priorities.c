@@ -1,22 +1,21 @@
 /*
-    Ejemplo 2: Pasar parámetros a una tarea
+    Ejemplo 3: Prioridad
     -----------------------------------------------------------
-    El ejemplo esta basado en el ejemplo 2 del libro 
+    El ejemplo esta basado en el ejemplo 3 del libro 
     "Masteringthe FreeRTOS™ Real Time Kernel: A Hands-On 
     Tutorial Guide" de Richard Barry, pero con una variación 
     para interactuar con los componentes de la placa de 
     desarrollo EDU-CIAA-NXP con la librería sAPI del 
     firmware_v3.
 
-    En este caso, el ejemplo consiste en una simplificación 
-    del ejemplo 1 "Creating Tasks". Dado que las dos tareas 
-    implementadas son muy similares, se puede reemplazar por 
-    dos instancias de la misma, pasandoles como parámetro que 
-    LED hacer titilar.
+    En este caso, el ejemplo consiste en una variación del 
+    ejemplo 3 "Tasks Priorities". Consiste en el ejemplo 2 
+    "Task Parameter", pero con las tareas con distinta 
+    prioridad.
     -----------------------------------------------------------
     Autor: Gonzalo G. Fernández
     Fecha: 15/01/2020
-    Archivo: 02_task_parameter.c
+    Archivo: 03_task_priorities.c
     Licencia: MIT
 */
 
@@ -58,10 +57,10 @@ int main( void )
         1, /* Se le asigna una prioridad 1. */
         NULL ); /* No se le pasa task handle */
     
-    /* Creación de la segunda tarea. */
+    /* Creación de la segunda tarea con mayor prioridad. */
     xTaskCreate( 
         vTaskBlinkLed, (const char *)"Blink LED2",
-        configMINIMAL_STACK_SIZE*2, (void *) &iLed2, 1, NULL );
+        configMINIMAL_STACK_SIZE*2, (void *) &iLed2, 2, NULL );
     
     /* Se lanza el scheduler y comienzan a ejecutarse ambas 
     tareas. */

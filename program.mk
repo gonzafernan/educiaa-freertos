@@ -1,2 +1,2 @@
 PROGRAM_PATH = examples/task_management
-PROGRAM_NAME = 02_task_parameter
+PROGRAM_NAME = 03_task_priorities
