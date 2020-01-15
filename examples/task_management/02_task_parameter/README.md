@@ -11,4 +11,4 @@ En este caso, el ejemplo consiste en una simplificación del [ejemplo 1 "Creatin
 Para llevar a cabo este ejemplo solo es necesaria la placa EDU-CIAA-NXP, ya que el programa solo consiste en el toggle de los LEDs provistos en la misma.
 
 ## Resultado del ejemplo
-Una vez que se ejecuta el ejemplo, se puede observar en la placa que ambos LEDs titilan al mismo tiempo, a pesar de que las tareas no se ejecutan al mismo tiempo. Esto se debe a que las tareas pasan de estado *Running* a *Not Running* muy rapidamente.
+Se puede observar que los resultados obtenidos son los mismos que los del ejemplo 1.
