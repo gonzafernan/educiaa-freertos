@@ -1,3 +1,6 @@
 [submodule "firmware_v3"]
 	path = firmware_v3
 	url = https://github.com/epernia/firmware_v3
+[submodule "Ponchos"]
+	path = Ponchos
+	url = https://github.com/ciaa/Ponchos
