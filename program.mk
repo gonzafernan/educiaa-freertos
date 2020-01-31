@@ -1,2 +1,2 @@
-PROGRAM_PATH = examples
-PROGRAM_NAME = encoder
+PROGRAM_PATH = ./
+PROGRAM_NAME = app
