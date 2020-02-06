@@ -1,3 +1,10 @@
+/*
+ * app.c
+ *
+ *  Created on: Feb 1, 2020
+ *      Author: Gonzalo G. Fernández
+ */
+
 #include "app.h"
 
 /*-----------------------------------------------------------*/
@@ -7,8 +14,7 @@ int main( void )
     /* Inicializar la placa */
     boardConfig();
 
-    // Inicialización de LED vivo
-    gpioInit( LED_VIVO, GPIO_OUTPUT );
+    vEncoderInit();
 
     /* Creación de la primer tarea. */
     xTaskCreate(
@@ -23,11 +29,20 @@ int main( void )
         NULL, /* Este ejemplo no recibe parámetros.
          */
         1, /* Se le asigna una prioridad 1. */
-        NULL ); /* No se le pasa task handle */
+        &xLEDTaskHandle ); /* Se le pasa task handle */
     
-    xTaskCreate( vTaskLCDInit, (const char *)"LCD init",
-    			configMINIMAL_STACK_SIZE*2, NULL,
-    			LCD_PRIORITY, NULL );
+    xTaskCreate( vTaskBuzzer, (const char*)"BUZZER",
+    		configMINIMAL_STACK_SIZE, NULL, 1,
+			&xBuzzerTaskHandle );
+
+    /* Creación de la tarea asociada al encoder */
+    xTaskCreate( vTaskEncoder, (const char*)"ENCODER",
+        	configMINIMAL_STACK_SIZE*4, NULL,
+			ENCODER_PRIORITY, &xEncoderTaskHandle );
+
+    xTaskCreate( vTaskLCD, (const char *)"LCD init",
+    		configMINIMAL_STACK_SIZE*2, NULL,
+			LCD_PRIORITY, NULL );
 
     /* Se lanza el scheduler y comienzan a ejecutarse ambas 
      * tareas. */
@@ -45,6 +60,10 @@ int main( void )
 
 void vTaskLED( void *pvParameters )
 {
+	// Inicialización de LED vivo
+	gpioInit( LED_VIVO, GPIO_OUTPUT );
+	gpioWrite( LED_VIVO, ON ); // Colocar en alto, LED apagado
+
 	/* La variable xLastWakeTime necesita inicializarse con
 	 * la cuenta de ticks actual. Es la única vez que se
 	 * escribe explícitamente, luego se actualiza
@@ -62,3 +81,28 @@ void vTaskLED( void *pvParameters )
 	}
 }
 
+/*-----------------------------------------------------------*/
+
+void vTaskBuzzer( void *pvParameters )
+{
+	// Inicialización de buzzer
+	gpioInit( BUZZER, GPIO_OUTPUT );
+	gpioWrite( BUZZER, BUZZER_OFF );
+
+	for( ;; )
+	{
+		gpioWrite( BUZZER, BUZZER_ON );
+		vTaskDelay( pdMS_TO_TICKS( 100 ) );
+		gpioWrite( BUZZER, BUZZER_OFF );
+
+		vTaskDelay( pdMS_TO_TICKS( 200 ) );
+
+		gpioWrite( BUZZER, BUZZER_ON );
+		vTaskDelay( pdMS_TO_TICKS( 100 ) );
+		gpioWrite( BUZZER, BUZZER_OFF );
+
+		vTaskSuspend( NULL );
+	}
+}
+
+/*-----------------------------------------------------------*/

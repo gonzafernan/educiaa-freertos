@@ -9,7 +9,7 @@
 
 /*-----------------------------------------------------------*/
 
-void vTaskLCDInit( void *pvParameters )
+void vTaskLCD( void *pvParameters )
 {
 	// Esperar que se estabilice la alimentación del LCD
 	vTaskDelay( pdMS_TO_TICKS( LCD_STARTUP_WAIT_MS ) );
@@ -20,25 +20,20 @@ void vTaskLCDInit( void *pvParameters )
 	vLCDCursorSet( LCD_CURSOR_OFF );	// Apaga el cursor
 	vLCDClear();						// Borrar la pantalla
 
-	xTaskCreate( vTaskLCD, (const char *)"LCD",
-			configMINIMAL_STACK_SIZE*4, NULL,
-			LCD_PRIORITY, NULL );
+	char msg[32];
 
-	vTaskDelete( NULL );
-}
-
-/*-----------------------------------------------------------*/
-
-void vTaskLCD( void *pvParameters )
-{
 	for( ;; )
 	{
 		vLCDGoToXY( 0, 0 ); // Poner cursor en 0, 0
-		vLCDSendStringRaw( "Buen dia," );
-		vLCDGoToXY( 0, 1 ); // Poner cursor en 0, 1
-		vLCDSendStringRaw( "Gonzalo Fernandez" );
+		vLCDSendStringRaw( "Encoder:" );
 
-		vTaskDelay( pdMS_TO_TICKS( 1000 ) );
+		sprintf( msg, "%d", ENCODER_VALUE );
+
+		vLCDGoToXY( 0, 1 ); // Poner cursor en 0, 1
+		vLCDSendStringRaw( msg );
+
+		vTaskDelay( pdMS_TO_TICKS( 20 ) );
+		//vLCDClear();
 	}
 }
 

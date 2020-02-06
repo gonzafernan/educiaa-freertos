@@ -15,9 +15,9 @@
 /* sAPI library include. */
 #include "sapi.h"
 
-#define LCD_PRIORITY	2
+#include "encoder.h"
 
-void vTaskLCDInit( void *pvParameters );
+#define LCD_PRIORITY	2
 
 void vTaskLCD( void *pvParameters );
 

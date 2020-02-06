@@ -102,6 +102,15 @@ extern int DbgConsole_Printf( const char *fmt_s, ... );
 #define INCLUDE_xTimerPendFunctionCall               1
 #define INCLUDE_xSemaphoreGetMutexHolder             1
 
+/*-----------------------------------------------------------*/
+
+/* Added xTaskGetHandle() API */
+#define INCLUDE_xTaskGetHandle						1
+
+#define configUSE_TASK_NOTIFICATIONS 					1
+
+/*-----------------------------------------------------------*/
+
 /* Cortex-M specific definitions. */
 #ifdef __NVIC_PRIO_BITS
 /* __BVIC_PRIO_BITS will be specified when CMSIS is being used. */
