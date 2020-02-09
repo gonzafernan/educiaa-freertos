@@ -67,8 +67,8 @@ void vTaskEncoder( void *pvParameters )
 {
 	// vEncoderInit();
 
-	/* Parámetros asociados a la gestión de particiones a través
-	 * de task notifications */
+	/* Parámetros asociados a la gestión de interrupciones a
+	 * través de task notifications */
 	const TickType_t xMaxExpectedBlockTime = portMAX_DELAY;
 
 	uint32_t ulEventToProcess;
@@ -100,16 +100,16 @@ void PININT2_IRQ_HANDLER( void )
 	// Se da aviso que se trato la interrupcion
 	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 
-	// BaseType_t xHigherPriorityTaskWoken;
+	BaseType_t xHigherPriorityTaskWoken;
 
-	// xHigherPriorityTaskWoken = pdFALSE;
+	xHigherPriorityTaskWoken = pdFALSE;
 
 	gpioToggle( LED2 );
 
-	// vTaskNotifyGiveFromISR( xEncoderTaskHandle, &xHigherPriorityTaskWoken );
+	vTaskNotifyGiveFromISR( xServoTaskHandle, &xHigherPriorityTaskWoken );
 
 	//portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
-	// portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
 }
 
 /*-----------------------------------------------------------*/

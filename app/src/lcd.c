@@ -20,19 +20,20 @@ void vTaskLCD( void *pvParameters )
 	vLCDCursorSet( LCD_CURSOR_OFF );	// Apaga el cursor
 	vLCDClear();						// Borrar la pantalla
 
+	vLCDGoToXY( 0, 0 ); // Poner cursor en 0, 0
+	vLCDSendStringRaw( "Encoder:" );
+
 	char msg[32];
 
 	for( ;; )
 	{
-		vLCDGoToXY( 0, 0 ); // Poner cursor en 0, 0
-		vLCDSendStringRaw( "Encoder:" );
 
 		sprintf( msg, "%d", ENCODER_VALUE );
 
 		vLCDGoToXY( 0, 1 ); // Poner cursor en 0, 1
 		vLCDSendStringRaw( msg );
 
-		vTaskDelay( pdMS_TO_TICKS( 20 ) );
+		vTaskDelay( pdMS_TO_TICKS( 50 ) );
 		//vLCDClear();
 	}
 }

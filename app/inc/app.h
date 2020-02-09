@@ -21,6 +21,9 @@
 /* Encoder source code */
 #include "encoder.h"
 
+/*Servo source code */
+#include "servo.h"
+
 /* Definición de LED vivo en GPIO0 */
 #define LED_VIVO	GPIO0
 

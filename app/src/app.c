@@ -15,6 +15,7 @@ int main( void )
     boardConfig();
 
     vEncoderInit();
+    vServoInit();
 
     /* Creación de la primer tarea. */
     xTaskCreate(
@@ -43,6 +44,10 @@ int main( void )
     xTaskCreate( vTaskLCD, (const char *)"LCD init",
     		configMINIMAL_STACK_SIZE*2, NULL,
 			LCD_PRIORITY, NULL );
+
+    xTaskCreate( vTaskServo, (const char *)"SERVO",
+        	configMINIMAL_STACK_SIZE*2, NULL,
+    		SERVO_PRIORITY, &xServoTaskHandle );
 
     /* Se lanza el scheduler y comienzan a ejecutarse ambas 
      * tareas. */
