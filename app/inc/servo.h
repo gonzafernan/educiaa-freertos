@@ -24,6 +24,11 @@
 #include "board.h"
 #include "encoder.h"
 
+/* FreeRTOS.org includes. */
+#include "FreeRTOS.h"
+#include "FreeRTOSConfig.h"
+#include "task.h"
+
 /*-----------------------------------------------------------*/
 
 #define SERVO_ANGLE_MIN		-90		// Mínimo ángulo permitido
@@ -44,7 +49,7 @@ volatile uint16_t SERVO_VALUE;
 
 void vServoInit( void );
 void vServoStop( void );
-void vServoSetPosition( int32_t ulValue );
+int8_t isServoSetPosition( int32_t ilValue );
 
 /*-----------------------------------------------------------*/
 

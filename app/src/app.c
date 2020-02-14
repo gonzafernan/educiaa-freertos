@@ -14,6 +14,8 @@ int main( void )
     /* Inicializar la placa */
     boardConfig();
 
+    vUARTInit();
+
     vEncoderInit();
     vServoInit();
 
@@ -45,9 +47,11 @@ int main( void )
     		configMINIMAL_STACK_SIZE*2, NULL,
 			LCD_PRIORITY, NULL );
 
+    /*
     xTaskCreate( vTaskServo, (const char *)"SERVO",
         	configMINIMAL_STACK_SIZE*2, NULL,
     		SERVO_PRIORITY, &xServoTaskHandle );
+	*/
 
     /* Se lanza el scheduler y comienzan a ejecutarse ambas 
      * tareas. */

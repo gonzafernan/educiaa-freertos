@@ -19,7 +19,8 @@
 
 /**
  * @brief	Configuración para inicializar el SCT como
- * 			salida PWM
+ * 			salida PWM y creación de tarea RTOS vinculada
+ * 			al servo motor
  * @param	None
  * @return	None
  */
@@ -48,6 +49,12 @@ void vServoInit( void )
 	Chip_SCTPWM_Start( SCT_PWM );
 
 	SERVO_VALUE = 0;
+
+	/* Creación de tarea para procesamiento asociado
+	 * al servo motor */
+	xTaskCreate( vTaskServo, (const char *)"SERVO",
+	        	configMINIMAL_STACK_SIZE*2, NULL,
+	    		SERVO_PRIORITY, &xServoTaskHandle );
 }
 
 /**
@@ -71,7 +78,7 @@ void vServoStop( void )
  * 			por defecto el valor extremo más cercano.
  *
  */
-int vServoSetPosition( int32_t ilValue )
+int8_t isServoSetPosition( int32_t ilValue )
 {
 	int32_t ilPosition;
 
@@ -143,6 +150,7 @@ void vTaskServo( void *pvParameters )
 	const TickType_t xMaxExpectedBlockTime = portMAX_DELAY;
 
 	uint32_t ulEventToProcess;
+	int8_t flag;
 
 	for( ;; )
 	{
@@ -150,7 +158,7 @@ void vTaskServo( void *pvParameters )
 
 		if( ulEventToProcess != 0 )
 		{
-			vServoSetPosition( (int16_t) ENCODER_VALUE );
+			flag = isServoSetPosition( (int32_t) ENCODER_VALUE );
 		}
 	}
 }

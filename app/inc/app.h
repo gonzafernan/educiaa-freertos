@@ -10,10 +10,14 @@
 
 /* FreeRTOS.org includes. */
 #include "FreeRTOS.h"
+#include "FreeRTOSConfig.h"
 #include "task.h"
 
 /* sAPI library include. */
 #include "sapi.h"
+
+/* UART source code */
+#include "uart.h"
 
 /* LCD source code */
 #include "lcd.h"
