@@ -1,0 +1,29 @@
+os: linux
+sudo: enabled
+
+language:
+  - c
+compiler:
+  - gcc
+cache:
+  directories:
+    - "${HOME}/persist"
+env:
+  global:
+    - MAKEOPTS="-j4"
+
+# define the successive stages
+stages:
+  - name: test
+
+jobs:
+  include:
+    - stage: test
+      env: NAME="build all test"
+      install:
+        - wget https://github.com/gnu-mcu-eclipse/arm-none-eabi-gcc/releases/download/v8.2.1-1.7/gnu-mcu-eclipse-arm-none-eabi-gcc-8.2.1-1.7-20190524-0603-centos64.tgz -O /tmp/gcc.tar.gz
+        - sudo tar -xvf /tmp/gcc.tar.gz -C /opt
+        - export PATH=$PATH:/opt/gnu-mcu-eclipse/arm-none-eabi-gcc/8.2.1-1.7-20190524-0603/bin
+        - arm-none-eabi-gcc --version
+      script:
+        - bash scripts/test/test-build-all.sh
