@@ -70,13 +70,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  25 .debug_line   0000d54d  00000000  00000000  00051609  2**0
                   CONTENTS, READONLY, DEBUGGING
- 26 .debug_str    000277d5  00000000  00000000  0005eb56  2**0
+ 26 .debug_str    000277ea  00000000  00000000  0005eb56  2**0
                   CONTENTS, READONLY, DEBUGGING
- 27 .comment      0000001d  00000000  00000000  0008632b  2**0
+ 27 .comment      0000001d  00000000  00000000  00086340  2**0
                   CONTENTS, READONLY
- 28 .ARM.attributes 00000032  00000000  00000000  00086348  2**0
+ 28 .ARM.attributes 00000032  00000000  00000000  0008635d  2**0
                   CONTENTS, READONLY
- 29 .debug_frame  00001598  00000000  00000000  0008637c  2**2
+ 29 .debug_frame  00001598  00000000  00000000  00086390  2**2
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 1a000000 l    d  .text	00000000 .text
@@ -664,8 +664,8 @@ int main(void){
 1a000370:	3401      	adds	r4, #1
         }
 
-        delay(50);
-1a000372:	2032      	movs	r0, #50	; 0x32
+        delay(1);
+1a000372:	2001      	movs	r0, #1
 1a000374:	2100      	movs	r1, #0
 1a000376:	f001 f92b 	bl	1a0015d0 <delay>
             switch (iter){

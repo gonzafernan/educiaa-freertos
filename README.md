@@ -1,8 +1,12 @@
-# RTOS en placa de desarrollo EDU-CIAA para el control de brazo robótico básico
+RTOS en placa de desarrollo EDU-CIAA para el control de un accionamiento electromecánico básico
+---
 
-Toda la información asociada al proyecto explicada de forma más extendida y detallada en la [Wiki](https://github.com/FernandezGFG/CIAA-RTOS/wiki) del repositorio.
+# Objetivos
+El objetivo del trabajo es la implementación de una aplicación basada en el sistema operativo de tiempo real freeRTOS, sobre la placa de desarrollo EDU-CIAA, para el control de un sistema electromecánico básico que tiene como fin únicamente la demostración visual de lo que sucede en la electrónica. Se busca implementar todos los conceptos fundamentales de freeRTOS, basándose en el libro *Mastering the freeRTOS Real Time Kernel*, por más que algunos de estos conceptos tengan una aplicación forzada y se alejen de lo práctico o lo más conveniente. Esto es porque la principal finalidad del proyecto es aprender a utilizar freeRTOS por sobre obtener un controlador del sistema con buen criterio de diseño y eficiente.
 
-## Sobre el proyecto CIAA
+Además, el proyecto también busca una introducción al flujo de trabajo del proyecto CIAA (Computadora Industrial Abierta Argentina). Salvo algunas excepciones, no se profundizó en la programación de los microcontroladores a nivel de registros, sino que se utilizó la capa de abstracción proveída por la librería sAPI, incluida en el firmware de dicho proyecto CIAA.
+
+# Computadora Industrial Abierta Argentina
 La **Computadora Industrial Abierta Argentina** (CIAA) es un proyecto que nace en el año 2013 como una iniciativa conjunta entre el sector académico y el industrial de Argentina.
 
 La primera versión de la CIAA es denominada CIAA-NXP, por estar basada en un procesador de la empresa *NXP Semiconductors*. Luego se desarrollaron otras versiones basadas en procesadores de otras marcas, como la CIAA-FSL, la CIAA-INTEL, la CIAA-PIC, etc. Esto convierte a la CIAA no solo en la primer y única computadora **industrial** y **abierta**, sino también en la primera realmente **libre**, ya que su diseño no está atado a los procesadores de una determinada compañía.
@@ -70,7 +74,3 @@ PROGRAM_PATH = firmware_v3/examples/c/sapi/gpio
 PROGRAM_NAME = blinky
 ```
 
-# Ejemplos
-Con el objetivo de testear el funcionamiento de cada elemento del brazo robótico por separado, se desarrollaron una serie de ejemplos que pueden compilarse y ejecutarlos individualmente.
-
-## Movimiento de motores paso a paso

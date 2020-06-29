@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name miPoncho-rescue)(type Legacy)(uri ${KIPRJMOD}/miPoncho-rescue.lib)(options "")(descr ""))
+)

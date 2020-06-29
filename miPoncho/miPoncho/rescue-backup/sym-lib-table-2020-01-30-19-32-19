@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Misc_Poncho_Grande)(type Legacy)(uri /home/ggf/CIAA-RTOS/Ponchos/kicad/libModelos/Misc_Poncho_Grande.lib)(options "")(descr ""))
+  (lib (name Poncho_Esqueleto)(type Legacy)(uri /home/ggf/CIAA-RTOS/Ponchos/kicad/libPonchos/Poncho_Esqueleto.lib)(options "")(descr ""))
+)

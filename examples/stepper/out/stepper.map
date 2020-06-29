@@ -2838,154 +2838,6 @@ Discarded input sections
  .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpiogroup_18xx_43xx.o
  .ARM.attributes
                 0x0000000000000000       0x39 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpiogroup_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.convertTimmingParam
-                0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.getColsLen
-                0x0000000000000000       0x26 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.initDynMem
-                0x0000000000000000      0x1ac examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.initStaticMem
-                0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Dynamic_Init
-                0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Dynamic_Enable
-                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Static_Init
-                0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Mirror
-                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Enable
-                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_LowPowerMode
-                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .text.Chip_EMC_Init
-                0x0000000000000000       0x24 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_info    0x0000000000000000      0xc94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_abbrev  0x0000000000000000      0x246 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_loc     0x0000000000000000      0x46b examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_aranges
-                0x0000000000000000       0x70 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_ranges  0x0000000000000000       0x78 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x31b examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_line    0x0000000000000000      0xb67 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_str     0x0000000000000000    0x16e13 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .debug_frame   0x0000000000000000       0xf0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
- .ARM.attributes
-                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/dac_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/dac_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/dac_18xx_43xx.o
@@ -3814,152 +3666,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
  .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
  .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_Init
-                0x0000000000000000       0x54 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_Start
-                0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_TicksPerSecond
-                0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_TicksToMs
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_TicksToUs
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_MsToTicks
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .text.StopWatch_UsToTicks
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .bss.ticksPerMs
-                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .bss.ticksPerSecond
-                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .bss.ticksPerUs
-                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_info    0x0000000000000000      0x8e7 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_abbrev  0x0000000000000000      0x251 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_loc     0x0000000000000000       0xf8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_aranges
-                0x0000000000000000       0x50 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_ranges  0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x31f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_line    0x0000000000000000      0x75a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_str     0x0000000000000000    0x17395 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .debug_frame   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
- .ARM.attributes
-                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
@@ -4517,6 +4223,136 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/otp_18xx_43xx.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/otp_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .text.Chip_SCTPWM_SetOutPin
+                0x0000000000000000       0x48 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .text.Chip_SCTPWM_SetRate
+                0x0000000000000000       0x4a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_info    0x0000000000000000      0xc02 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_abbrev  0x0000000000000000      0x2a4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_loc     0x0000000000000000      0x1c5 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_aranges
+                0x0000000000000000       0x28 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_ranges  0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x315 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_line    0x0000000000000000      0x75f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_str     0x0000000000000000    0x16f05 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .debug_frame   0x0000000000000000       0x48 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+ .ARM.attributes
+                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/aes_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/aes_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/aes_18xx_43xx.o
@@ -4942,6 +4778,152 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x30 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/atimer_18xx_43xx.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/atimer_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_Init
+                0x0000000000000000       0x54 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_Start
+                0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_TicksPerSecond
+                0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_TicksToMs
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_TicksToUs
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_MsToTicks
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .text.StopWatch_UsToTicks
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .bss.ticksPerMs
+                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .bss.ticksPerSecond
+                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .bss.ticksPerUs
+                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_info    0x0000000000000000      0x8e7 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_abbrev  0x0000000000000000      0x251 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_loc     0x0000000000000000       0xf8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_aranges
+                0x0000000000000000       0x50 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_ranges  0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x31f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_line    0x0000000000000000      0x75a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_str     0x0000000000000000    0x17395 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .debug_frame   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+ .ARM.attributes
+                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdif_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdif_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdif_18xx_43xx.o
@@ -6444,6 +6426,332 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x6c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_18xx_43xx.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.convertTimmingParam
+                0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.getColsLen
+                0x0000000000000000       0x26 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.initDynMem
+                0x0000000000000000      0x1ac examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.initStaticMem
+                0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Dynamic_Init
+                0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Dynamic_Enable
+                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Static_Init
+                0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Mirror
+                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Enable
+                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_LowPowerMode
+                0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .text.Chip_EMC_Init
+                0x0000000000000000       0x24 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_info    0x0000000000000000      0xc94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_abbrev  0x0000000000000000      0x246 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_loc     0x0000000000000000      0x46b examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_aranges
+                0x0000000000000000       0x70 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_ranges  0x0000000000000000       0x78 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x31b examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_line    0x0000000000000000      0xb67 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_str     0x0000000000000000    0x16e13 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .debug_frame   0x0000000000000000       0xf0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .ARM.attributes
+                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.prv_card_acquired
+                0x0000000000000000       0x14 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.prv_get_bits
+                0x0000000000000000       0x3e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.sdmmc_execute_command
+                0x0000000000000000      0x178 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.prv_set_trans_state
+                0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.prv_set_card_params
+                0x0000000000000000       0x50 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.prv_process_csd
+                0x0000000000000000      0x120 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_GetState
+                0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_Acquire
+                0x0000000000000000      0x29c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_GetDeviceSize
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_GetDeviceBlocks
+                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_ReadBlocks
+                0x0000000000000000       0x98 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .text.Chip_SDMMC_WriteBlocks
+                0x0000000000000000       0xa8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .bss.g_card_info
+                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_info    0x0000000000000000     0x1fe9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_abbrev  0x0000000000000000      0x423 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_loc     0x0000000000000000      0xdb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_aranges
+                0x0000000000000000       0x78 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_ranges  0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x3c8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x5e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x16d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x1f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x43 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x18e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000      0x356 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_line    0x0000000000000000      0xfe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_str     0x0000000000000000    0x1a7b2 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .debug_frame   0x0000000000000000      0x164 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
+ .ARM.attributes
+                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/spi_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/spi_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/spi_18xx_43xx.o
@@ -6707,184 +7015,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
  .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
  .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.prv_card_acquired
-                0x0000000000000000       0x14 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.prv_get_bits
-                0x0000000000000000       0x3e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.sdmmc_execute_command
-                0x0000000000000000      0x178 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.prv_set_trans_state
-                0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.prv_set_card_params
-                0x0000000000000000       0x50 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.prv_process_csd
-                0x0000000000000000      0x120 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_GetState
-                0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_Acquire
-                0x0000000000000000      0x29c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_GetDeviceSize
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_GetDeviceBlocks
-                0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_ReadBlocks
-                0x0000000000000000       0x98 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .text.Chip_SDMMC_WriteBlocks
-                0x0000000000000000       0xa8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .bss.g_card_info
-                0x0000000000000000        0x4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_info    0x0000000000000000     0x1fe9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_abbrev  0x0000000000000000      0x423 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_loc     0x0000000000000000      0xdb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_aranges
-                0x0000000000000000       0x78 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_ranges  0x0000000000000000       0x68 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x3c8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x5e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x16d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x43 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x18e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x356 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_line    0x0000000000000000      0xfe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_str     0x0000000000000000    0x1a7b2 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .debug_frame   0x0000000000000000      0x164 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
- .ARM.attributes
-                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpdma_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpdma_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpdma_18xx_43xx.o
@@ -7183,136 +7313,6 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x50 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/evrt_18xx_43xx.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/evrt_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .text          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .data          0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .bss           0x0000000000000000        0x0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .text.Chip_SCTPWM_SetOutPin
-                0x0000000000000000       0x48 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .text.Chip_SCTPWM_SetRate
-                0x0000000000000000       0x4a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_info    0x0000000000000000      0xc02 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_abbrev  0x0000000000000000      0x2a4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_loc     0x0000000000000000      0x1c5 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_aranges
-                0x0000000000000000       0x28 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_ranges  0x0000000000000000       0x38 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x315 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_line    0x0000000000000000      0x75f examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_str     0x0000000000000000    0x16f05 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .comment       0x0000000000000000       0x1e examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .debug_frame   0x0000000000000000       0x48 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
- .ARM.attributes
-                0x0000000000000000       0x34 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/enet_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/enet_18xx_43xx.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/enet_18xx_43xx.o
@@ -8597,6 +8597,184 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0x44 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_dac.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_dac.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .text          0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .data          0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .bss           0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .text.rtcInit  0x0000000000000000       0x24 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .text.rtcRead  0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .text.rtcWrite
+                0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_info    0x0000000000000000      0xd8a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_abbrev  0x0000000000000000      0x284 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_loc     0x0000000000000000       0x57 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_aranges
+                0x0000000000000000       0x30 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_ranges  0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x465 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x5e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x97 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x356 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xf6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x1f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x43 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x18e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xb6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000      0x129 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0xee examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x46 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x52 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_line    0x0000000000000000      0x92f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_str     0x0000000000000000    0x1a7a8 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .comment       0x0000000000000000       0x1e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .debug_frame   0x0000000000000000       0x64 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
+ .ARM.attributes
+                0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
@@ -9172,184 +9350,6 @@ Discarded input sections
  .debug_frame   0x0000000000000000       0xb4 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_pwm.o
  .ARM.attributes
                 0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_pwm.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .text          0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .data          0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .bss           0x0000000000000000        0x0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .text.rtcInit  0x0000000000000000       0x24 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .text.rtcRead  0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .text.rtcWrite
-                0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_info    0x0000000000000000      0xd8a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_abbrev  0x0000000000000000      0x284 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_loc     0x0000000000000000       0x57 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_aranges
-                0x0000000000000000       0x30 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_ranges  0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x465 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0xac0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x56 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x51 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xef examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x6a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x1df examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x73 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xdf examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000     0x102d examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x11f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x2c3 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x112 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x11 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x2a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x2e6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x82 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x13d examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x198 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x236 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x572 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x18a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x88 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x1b9 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x1da examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x1c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x2e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x201 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xe0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x34c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xdc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xc4 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x8f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x94 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xb8 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x4c examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x328 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x3a examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xd0 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x40 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x5e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x18 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x35 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x97 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x356 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xf6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x58 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x1f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x43 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x18e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x10 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xb6 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x16 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000      0x129 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x20 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0xee examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x46 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x52 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_macro   0x0000000000000000       0x22 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_line    0x0000000000000000      0x92f examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_str     0x0000000000000000    0x1a7a8 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .comment       0x0000000000000000       0x1e examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .debug_frame   0x0000000000000000       0x64 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
- .ARM.attributes
-                0x0000000000000000       0x34 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
  .group         0x0000000000000000        0xc examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
@@ -16433,21 +16433,21 @@ LOAD examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
 LOAD examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ccan_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpiogroup_18xx_43xx.o
-LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/dac_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ritimer_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2s_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/lcd_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
-LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/pmc_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/otp_18xx_43xx.o
+LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/aes_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/atimer_18xx_43xx.o
+LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdif_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/timer_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/iap_18xx_43xx.o
@@ -16459,12 +16459,12 @@ LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdio_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/eeprom_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/rtc_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_18xx_43xx.o
+LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/emc_18xx_43xx.o
+LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/spi_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
-LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sdmmc_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpdma_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/evrt_18xx_43xx.o
-LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/enet_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
 LOAD examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
@@ -16475,10 +16475,10 @@ LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/base/src/sapi_datatypes.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_sleep.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_dac.o
+LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_uart.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_spi.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_pwm.o
-LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_rtc.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_sct.o
 LOAD examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_i2c.o
@@ -17366,50 +17366,50 @@ OUTPUT(examples/stepper/out/stepper.elf elf32-littlearm)
  .debug_line    0x000000000000c265      0x86f examples/stepper/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
  .debug_line    0x000000000000cad4      0xa79 examples/stepper/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o
 
-.debug_str      0x0000000000000000    0x277d5
- .debug_str     0x0000000000000000    0x22a96 examples/stepper/out/examples/stepper/src/stepper.o
-                                      0x22e76 (size before relaxing)
- .debug_str     0x0000000000022a96      0x212 examples/stepper/out/libs/cmsis_core//src/armv7m_startup.o
+.debug_str      0x0000000000000000    0x277ea
+ .debug_str     0x0000000000000000    0x22a97 examples/stepper/out/examples/stepper/src/stepper.o
+                                      0x22e77 (size before relaxing)
+ .debug_str     0x0000000000022a97      0x226 examples/stepper/out/libs/cmsis_core//src/armv7m_startup.o
                                        0x2fd3 (size before relaxing)
- .debug_str     0x0000000000022ca8      0x8e4 examples/stepper/out/libs/sys_newlib//src/system.o
+ .debug_str     0x0000000000022cbd      0x8e4 examples/stepper/out/libs/sys_newlib//src/system.o
                                        0x6ca3 (size before relaxing)
- .debug_str     0x000000000002358c     0x13d1 examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
+ .debug_str     0x00000000000235a1     0x13d1 examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board.o
                                       0x1b6e2 (size before relaxing)
- .debug_str     0x000000000002495d      0x352 examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
+ .debug_str     0x0000000000024972      0x352 examples/stepper/out/libs/lpc_open/boards/edu_ciaa_nxp/src/board_sysinit.o
                                       0x1b05d (size before relaxing)
- .debug_str     0x0000000000024caf      0x3cf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
+ .debug_str     0x0000000000024cc4      0x3cf examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
                                       0x1771a (size before relaxing)
- .debug_str     0x000000000002507e      0x14a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
+ .debug_str     0x0000000000025093      0x14a examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
                                       0x170b5 (size before relaxing)
- .debug_str     0x00000000000251c8      0x5d1 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
+ .debug_str     0x00000000000251dd      0x5d1 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
                                       0x17add (size before relaxing)
- .debug_str     0x0000000000025799       0x76 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
+ .debug_str     0x00000000000257ae       0x76 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
                                       0x1760a (size before relaxing)
- .debug_str     0x000000000002580f       0xbc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
+ .debug_str     0x0000000000025824       0xbc examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sysinit_18xx_43xx.o
                                       0x1756b (size before relaxing)
- .debug_str     0x00000000000258cb       0x42 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
+ .debug_str     0x00000000000258e0       0x42 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/gpio_18xx_43xx.o
                                       0x1686c (size before relaxing)
- .debug_str     0x000000000002590d      0x3e8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
+ .debug_str     0x0000000000025922      0x3e8 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
                                       0x172ab (size before relaxing)
- .debug_str     0x0000000000025cf5      0x584 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
+ .debug_str     0x0000000000025d0a      0x584 examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
                                       0x1784c (size before relaxing)
- .debug_str     0x0000000000026279       0x43 examples/stepper/out/libs/lpc_open/lpc_startup/src/crp.o
+ .debug_str     0x000000000002628e       0x43 examples/stepper/out/libs/lpc_open/lpc_startup/src/crp.o
                                        0x2dd3 (size before relaxing)
- .debug_str     0x00000000000262bc       0xb9 examples/stepper/out/libs/lpc_open/lpc_startup/src/sysinit.o
+ .debug_str     0x00000000000262d1       0xb9 examples/stepper/out/libs/lpc_open/lpc_startup/src/sysinit.o
                                       0x1a32f (size before relaxing)
- .debug_str     0x0000000000026375       0x8c examples/stepper/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
+ .debug_str     0x000000000002638a       0x8c examples/stepper/out/libs/lpc_open/lpc_startup/src/vendor_interrupt.o
                                        0x2e42 (size before relaxing)
- .debug_str     0x0000000000026401       0xcd examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
+ .debug_str     0x0000000000026416       0xcd examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/core/src/sapi_cyclesCounter.o
                                       0x1b051 (size before relaxing)
- .debug_str     0x00000000000264ce      0x496 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
+ .debug_str     0x00000000000264e3      0x496 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_tick.o
                                       0x1b52d (size before relaxing)
- .debug_str     0x0000000000026964      0x133 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
+ .debug_str     0x0000000000026979      0x133 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/src/sapi_gpio.o
                                       0x1b35c (size before relaxing)
- .debug_str     0x0000000000026a97      0x771 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
+ .debug_str     0x0000000000026aac      0x771 examples/stepper/out/libs/sapi/sapi_v0.5.2/soc/peripherals/usb/device/src/sapi_usb_device.o
                                       0x211dd (size before relaxing)
- .debug_str     0x0000000000027208       0x2d examples/stepper/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
+ .debug_str     0x000000000002721d       0x2d examples/stepper/out/libs/sapi/sapi_v0.5.2/board/src/sapi_board.o
                                       0x1a87e (size before relaxing)
- .debug_str     0x0000000000027235      0x5a0 examples/stepper/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o
+ .debug_str     0x000000000002724a      0x5a0 examples/stepper/out/libs/sapi/sapi_v0.5.2/abstract_modules/src/sapi_delay.o
                                       0x1abef (size before relaxing)
 
 .comment        0x0000000000000000       0x1d
@@ -17670,12 +17670,12 @@ Chip_Clock_GetPLLStatus                           examples/stepper/out/libs/lpc_
 Chip_Clock_GetRate                                examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/clock_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2c_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/ssp_18xx_43xx.o
-                                                  examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/spi_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/eeprom_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2cm_18xx_43xx.o
-                                                  examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/stopwatch_18xx_43xx.o
+                                                  examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/sct_pwm_18xx_43xx.o
+                                                  examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/chip_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/adc_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/uart_18xx_43xx.o
                                                   examples/stepper/out/libs/lpc_open/lpc_chip_43xx/src/i2s_18xx_43xx.o
