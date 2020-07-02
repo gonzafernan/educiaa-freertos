@@ -1,2 +1,2 @@
-PROGRAM_PATH = examples
-PROGRAM_NAME = uart_rtos
+PROGRAM_PATH = ./
+PROGRAM_NAME = app
