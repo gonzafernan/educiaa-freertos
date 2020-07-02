@@ -139,7 +139,6 @@ void uartRxISR( void* pvParameters )
     xHigherPriorityTaskWoken se setea a pdTRUE. Si ese es el caso,
     portYIELD_FROM_ISR solicita el cambio de contesto.
     */
-    gpioToggle( LEDB );
     portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 
