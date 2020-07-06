@@ -7,7 +7,9 @@ DEFINES+=USE_FREERTOS
 
 on config.mk to tell SAPI to use FreeRTOS Systick
 
-TO DO: Implementación de warnings mediante LEDs
+TO DO: 
+- Implementación de warnings mediante LEDs
+- Verificación de tareas creadas con éxito
 
 */
 
@@ -26,20 +28,20 @@ QueueHandle_t uartTxQueue;
  */
  void sendCmd( char* buffer, uint8_t length )
  {
-     BaseType_t xStatus;
-     const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
-     for ( uint8_t i=0; i<length; i++ ) {
-         xStatus = xQueueSendToBack( 
-            uartTxQueue,    // Handle de la cola a escribir
-            &buffer[i],     // Puntero a la información a escribir
-            xTicksToWait    // Máxima cantidad de tiempo que la tarea permanecerá bloqueada hasta que la cola se encuentre disponible
-            );
-        
+    BaseType_t xStatus;
+    const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
+    for ( uint8_t i=0; i<length; i++ ) {
+        xStatus = xQueueSendToBack( 
+        uartTxQueue,    // Handle de la cola a escribir
+        &buffer[i],     // Puntero a la información a escribir
+        xTicksToWait    // Máxima cantidad de tiempo que la tarea permanecerá bloqueada hasta que la cola se encuentre disponible
+        );
+    
         if ( xStatus != pdPASS ) {
             // Escritura fallida, cola completa
             i--;
         }
-     }
+    }
  }
 
 /*
