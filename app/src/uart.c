@@ -57,9 +57,18 @@ void uartRxTask( void* pvParameters )
     char bufferRx[50];
 
     BaseType_t xStatus;
-    const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
+
     for ( ;; ) {
-        xStatus = xQueueReceive( uartRxQueue, &cRx, xTicksToWait );
+        /* Lectura de cola de recepción */
+        xStatus = xQueueReceive(
+            /* Handle de la cola a leer */
+            uartRxQueue,
+            /* Puntero a la memoria donde guardar lectura */
+            &cRx,
+            /* Máximo tiempo que la tarea puede estar bloqueada
+            esperando que haya información a leer */
+            portMAX_DELAY // Tiempo de espera indefinido
+        );
         
         if ( xStatus == pdPASS ) {
             // Lectura exitosa, verificación de caracter final
@@ -76,8 +85,6 @@ void uartRxTask( void* pvParameters )
                     index = 0;
                 }
             }
-        } else {
-            // Lectura fallida, la cola se encuentra vacía
         }
     }
 }
@@ -90,20 +97,22 @@ void uartTxTask( void* pvParameters )
     // Variable que contendrá el caracter a enviar
     char cTx;
     BaseType_t xStatus;
-    const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
 
-    for (;;) {
+    for ( ;; ) {
+        /* Lectura de cola de recepción */
         xStatus = xQueueReceive(
-            uartTxQueue,    // Handle de la cola a leer
-            &cTx,           // Puntero a la estructura que guardará la lectura
-            xTicksToWait    // Máxima cantidad de tiempo que la tarea permanecerá bloqueada hasta que la cola se encuentre disponible
-            );
+            /* Handle de la cola a leer */
+            uartTxQueue,
+            /* Puntero a la memoria donde guardar lectura */
+            &cTx,
+            /* Máximo tiempo que la tarea puede estar bloqueada
+            esperando que haya información a leer */
+            portMAX_DELAY // Tiempo de espera indefinido
+        );
         
         if ( xStatus == pdPASS ) {
             // Lectura exitosa, enviar dato
             uartWriteByte( UART_USB, cTx );
-        } else {
-            // Lectura fallida, la cola se encuentra vacía
         }
     }
 }
