@@ -1,30 +1,72 @@
-/*
- *
- */
+/*! \file simple_stepper.c
+    \brief Ejemplo sencillo de la implementación del control de motores paso a paso en el proyecto.
+    \author Gonzalo G. Fernández
+    \version 1.0
+    \date 2020
 
+    Detalle.
+*/
+
+/* Utilidades includes */
+#include <string.h>
+
+/* FreeRTOS includes */
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
-
 #include "timers.h"
 
+/* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
 
-struct xStepperData {
+/*! \def stepperAPP_NUM
+    \brief Cantidad de motores en la aplicación
+*/
+#define stepperAPP_NUM  1
+
+/*! \def stepperTIMER_PERIOD
+    \brief Periodo de pasos de los motores (velocidad del motor)
+*/
+#define stepperTIMER_PERIOD 2
+
+/*! \def stepperDIR_NEGATIVE
+    \brief Dirección negativa del motor (depende de conexión del driver)
+*/
+#define stepperDIR_NEGATIVE 0
+
+/*! \def stepperDIR_POSITIVE
+    \brief Dirección negativa del motor (depende de conexión del driver)
+*/
+#define stepperDIR_POSITIVE 1
+
+/*! \var typedef char StepperDir_t
+    \brief Definición de tipo para dirección de motores stepper.
+*/
+typedef char StepperDir_t;
+
+/*! \var typedef struct xStepperData StepperData_t
+    \brief Estructura de datos con información del stepper 
+*/
+typedef struct xStepperData {
     /* Estado actual de entradas al driver */
     char cDriverState;
     /* Cantidad de pasos pendientes */
     uint32_t ulPendingSteps;
     /* Dirección en que se deben realizar los
     pasos pendientes */
-    uint8_t cDir;
+    StepperDir_t xDir;
     /* Posición absoluta del motor */
     int32_t lAbsPosition;
-};
+} StepperData_t;
 
-struct xStepperData xStepperData1;
+/*! \var StepperData_t xStepperDataID[stepperAPP_NUM]
+    \brief Instanciación de información de motores 
+*/
+StepperData_t xStepperDataID[stepperAPP_NUM];
 
-uint8_t iter = 0;
-
+/*! \fn void vStepperDriverUpdate( uint8_t cState )
+    \brief Escritura en driver de motor stepper dado un determinado estado.
+    \param cState Estado a escribir en el driver.
+*/
 void vStepperDriverUpdate( uint8_t cState )
 {
     switch ( cState ) {
@@ -86,24 +128,40 @@ void vStepperDriverUpdate( uint8_t cState )
     }
 }
 
-void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
+/*! \fn void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
+    \brief Función de callback que ejecutará cada timer al entrar en estado Running.
+*/
+static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
 {
-    struct xStepperData *xStepperDataID;
-    xStepperDataID = ( struct xStepperData * ) pvTimerGetTimerID( xStepperTimer );
-
+    /* Estructura de datos a obtener del timer ID */
+    StepperData_t *xStepperDataID;
+    xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer );
+    /* Verificación de existencia de pasos pendientes */
     if ( xStepperDataID->ulPendingSteps == 0 ) {
+        /* Detener timer si no existen pasos pendientes */
         xTimerStop( xStepperTimer, 0 );
         return;
     }
-    xStepperDataID->ulPendingSteps--;
-    vTimerSetTimerID( xStepperTimer, ( void * ) xStepperDataID );
-    
-    vStepperDriverUpdate( iter );
-    if ( iter == 7 ) {
-        iter = 0;
-    } else {
-        iter++;
+    /* Cálculo de nuevo estado del driver según dirección */
+    if ( xStepperDataID->xDir == stepperDIR_NEGATIVE ) {
+        if ( xStepperDataID->cDriverState == 0 ) {
+            xStepperDataID->cDriverState = 7;
+        } else {
+            xStepperDataID->cDriverState--;
+        }
+    } else if ( xStepperDataID->xDir == stepperDIR_POSITIVE ) {
+        if ( xStepperDataID->cDriverState == 7 ) {
+            xStepperDataID->cDriverState = 0;
+        } else {
+            xStepperDataID->cDriverState++;
+        }
     }
+    /* Actualización del driver */
+    vStepperDriverUpdate( xStepperDataID->cDriverState );
+    /* Decremento de pasos pendientes a realizar */
+    xStepperDataID->ulPendingSteps--;
+    /* Actualización del timer ID */
+    vTimerSetTimerID( xStepperTimer, ( void * ) xStepperDataID );
 }
 
 uint8_t main( void )
@@ -118,32 +176,42 @@ uint8_t main( void )
     gpioInit( GPIO3, GPIO_OUTPUT );
 
     /* Inicialización de información del stepper */
-    xStepperData1.ulPendingSteps = 5000;
+    xStepperDataID[0].ulPendingSteps = 5000;
+    xStepperDataID[0].xDir = stepperDIR_POSITIVE;
+    xStepperDataID[0].cDriverState = 0;
+    xStepperDataID[0].lAbsPosition = 0;
 
     /* Handle de los timers */
-    TimerHandle_t xStepperTimer;
-    BaseType_t xStepperTimerStarted;
+    TimerHandle_t xStepperTimer[stepperAPP_NUM];
+    BaseType_t xStepperTimerStarted[stepperAPP_NUM];
 
-    /* Creación de los software timers */
-    xStepperTimer = xTimerCreate(
-        /* Nombre descriptivo del timer */
-        (const char *)"StepperTimer",
-        /* Periodo del timer especificado en ticks */
-        pdMS_TO_TICKS( 2 ),
-        /* pdTRUE para timer tipo auto-reload y pdFALSE para tipo one-shoot */
-        pdTRUE,
-        /* Valor de ID del timer */
-        ( void * ) &xStepperData1,
-        /* Función de callback del timer */
-        prvStepperTimerCallback
-    );
+    //char pcAuxTimerName[15];
+    //strcpy( pcAuxTimerName, "StepperTimer" );
+    for (uint8_t i=0; i<stepperAPP_NUM; i++) {
+        //strcat( pcAuxTimerName, "0" + i );
+        /* Creación de los software timers */
+        xStepperTimer[i] = xTimerCreate(
+            /* Nombre descriptivo del timer */
+            (const char *) "StepperTimer",
+            /* Periodo del timer especificado en ticks */
+            pdMS_TO_TICKS( stepperTIMER_PERIOD ),
+            /* pdTRUE para timer tipo auto-reload y pdFALSE para tipo one-shoot */
+            pdTRUE,
+            /* Valor de ID del timer */
+            ( void * ) &xStepperDataID[i],
+            /* Función de callback del timer */
+            prvStepperTimerCallback
+        );
 
-    if ( xStepperTimer != NULL ) {
-        xStepperTimerStarted = xTimerStart( xStepperTimer, 0 );
-        if ( xStepperTimerStarted == pdPASS ) {
-            vTaskStartScheduler();
+        if ( xStepperTimer[i] == NULL ) {
+            /* Error al crear timer */
+            return 1;
+        } else {
+            xTimerStart( xStepperTimer[i], 0 );
         }
     }
+
+    vTaskStartScheduler();
 
     for ( ;; );
     return 0;
