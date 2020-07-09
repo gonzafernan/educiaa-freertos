@@ -1,63 +1,64 @@
-/*
- *
- */
+/*! \file app.c
+    \brief Descripción del archivo.
+    \author Gonzalo G. Fernández
+    \version 1.0
+    \date Julio 2020
 
+    Detalle.
+*/
+
+/* FreeRTOS includes */
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
-#include "timers.h"
 
+/* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
+
+/* Aplicación includes */
 #include "uart.h"
+#include "stepper.h"
 
-#define AUTO_RELOAD_TIMER_PERIOD    pdMS_TO_TICKS( 1000 )
-
-static void prvAutoReloadTimerCallback( TimerHandle_t xTimer )
+void vAppSyncTask( void *pvParameters )
 {
-    BaseType_t xStatus;
-    const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
-    char cTick = 'T';
-    xStatus = xQueueSendToBack( uartTxQueue, &cTick, xTicksToWait );
+    for ( ;; ) {
+        
+    }
 }
+
 
 uint8_t main( void )
 {
     /* Inicialización de la placa */
     boardConfig();
 
-    TimerHandle_t xAutoReloadTimer;
-    BaseType_t xTimerStarted;
+    /* Flags de estado de los diferentes módulos */
+    BaseType_t xUartStatus, xStepperStatus;
+    /* Inicialización de UART */
 
-    xAutoReloadTimer = xTimerCreate(
-        /* Nombre descriptivo del timer */
-        "AutoReload",
-        /* Periodo del timer especificado en ticks */
-        AUTO_RELOAD_TIMER_PERIOD,
-        /* pdTRUE para timer tipo auto-reload y pdFALSE para tipo one-shoot */
-        pdTRUE,
-        /* Valor de ID del timer */
-        NULL,
-        /* Función de callback del timer */
-        prvAutoReloadTimerCallback
-    );
-
-    if ( xAutoReloadTimer != NULL ) {
-        // Inicialización de timer
-        xTimerStarted = xTimerStart(
-            /* Handle del timer a iniciar o resetear */
-            xAutoReloadTimer,
-            /* Máximo tiempo de espera en estado bloqueado a que haya espacio en la cola de timers */
-            0
-        );
-        // Chequeo de falla si cola de timers esta completa
-        if ( xTimerStarted != pdPASS ) {
-            // TO DO: Warning con LED
-        }
-    }
+    /* Inicialización de motor stepper */
+    xStepperStatus = xStepperInit();
 
     // Inicialización de UART
     if ( uartAppInit() ) {
         // TO DO: Warning con LED
     }
+
+    /* Creación de tarea de control de flujo de trabajo del programa */
+    BaseType_t xStatus;
+    xStatus = xTaskCreate(
+        /* Puntero a la función que implementa la tarea */
+        vAppSyncTask,
+        /* Nombre de la tarea amigable para el usuario */
+        ( const char * ) "AppSyncTask",
+        /* Tamaño de stack de la tarea */
+        configMINIMAL_STACK_SIZE*2,
+        /* Parámetros de la tarea */
+        NULL,
+        /* Prioridad de la tarea */
+        tskIDLE_PRIORITY+5,
+        /* Handle de la tarea creada */
+        NULL
+    );
 
     // Inicialización de Scheduler
     vTaskStartScheduler();
