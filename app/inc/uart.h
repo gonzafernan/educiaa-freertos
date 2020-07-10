@@ -3,6 +3,7 @@
 
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
+#include "FreeRTOSPriorities.h"
 
 #include "task.h"
 #include "queue.h"
@@ -20,6 +21,8 @@
 extern QueueHandle_t uartRxQueue;
 // Declaración global de cola de transmisión de caracteres por UART
 extern QueueHandle_t uartTxQueue;
+
+extern QueueHandle_t xMsgQueue;
 
 /*
  *  Función para comunicación del comando.

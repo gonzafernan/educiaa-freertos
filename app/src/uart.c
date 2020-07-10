@@ -1,17 +1,13 @@
-/*
+/*! \file uart.c
+    \brief Descripción del archivo.
+    \author Gonzalo G. Fernández
+    \version 1.0
+    \date Julio 2020
 
-You need to add
-
-DEFINES+=TICK_OVER_RTOS
-DEFINES+=USE_FREERTOS
-
-on config.mk to tell SAPI to use FreeRTOS Systick
-
-TO DO: 
-- Implementación de warnings mediante LEDs
-- Verificación de tareas creadas con éxito
-
+    Detalle.
 */
+
+#include "stdlib.h"
 
 #include "uart.h"
 
@@ -20,29 +16,36 @@ QueueHandle_t uartRxQueue;
 // Declaración global de cola de transmisión de caracteres por UART
 QueueHandle_t uartTxQueue;
 
+/*! \var QueueHandle_t xMsgQueue
+    \brief Cola de mensajes recibidos.
+*/
+QueueHandle_t xMsgQueue;
+
 /*
  *  Función para comunicación del comando.
  *  Debe adaptarse a la aplicación. En este ejemplo sencillamente 
  *  se escriben todos los caracteres hasta el final de línea en la
  *  cola de transmisión.
  */
- void sendCmd( char* buffer, uint8_t length )
- {
-    BaseType_t xStatus;
-    const TickType_t xTicksToWait = pdMS_TO_TICKS( 100 );
-    for ( uint8_t i=0; i<length; i++ ) {
-        xStatus = xQueueSendToBack( 
-        uartTxQueue,    // Handle de la cola a escribir
-        &buffer[i],     // Puntero a la información a escribir
-        xTicksToWait    // Máxima cantidad de tiempo que la tarea permanecerá bloqueada hasta que la cola se encuentre disponible
-        );
-    
-        if ( xStatus != pdPASS ) {
-            // Escritura fallida, cola completa
-            i--;
-        }
-    }
- }
+void sendCmd( char* buffer, uint8_t length )
+{
+	/* Asignación de memoria dinámica del mensaje */
+    char *pcMsg;
+    pcMsg = ( char * ) malloc( length * sizeof( char ) );
+    pcMsg = buffer;
+    /* Delimitador final de string */
+    pcMsg[length] = '\0';
+
+    /* Escribir caracter en cola de recepción */
+	xQueueSendToBack(
+		/* Handle de la cola a escribir */
+		xMsgQueue,
+		/* Puntero al dato a escribir */
+		&pcMsg,
+		/* Máximo tiempo a esperar una escritura */
+		portMAX_DELAY
+	);
+}
 
 /*
  *  Tarea para el procesamiento de caracteres recibidos por UART.
@@ -60,7 +63,7 @@ void uartRxTask( void* pvParameters )
 
     for ( ;; ) {
         /* Lectura de cola de recepción */
-        xStatus = xQueueReceive(
+        xQueueReceive(
             /* Handle de la cola a leer */
             uartRxQueue,
             /* Puntero a la memoria donde guardar lectura */
@@ -70,22 +73,19 @@ void uartRxTask( void* pvParameters )
             portMAX_DELAY // Tiempo de espera indefinido
         );
         
-        if ( xStatus == pdPASS ) {
-            // Lectura exitosa, verificación de caracter final
-            if ( cRx == '\n' ) {
-                // Rutina de comunicación de comando
-                sendCmd( bufferRx, index );
-                index = 0;
-            } else {
-                // Guardar dato en buffer
-                bufferRx[index] = cRx;
-                index++;
-                if ( index >= L_BUFFER_RX ) {
-                    // TO DO: Warning buffer lleno (sobreescritura)
-                    index = 0;
-                }
-            }
-        }
+		if ( cRx == '\n' ) {
+			// Rutina de comunicación de comando
+			sendCmd( bufferRx, index );
+			index = 0;
+		} else {
+			// Guardar dato en buffer
+			bufferRx[index] = cRx;
+			index++;
+			if ( index >= L_BUFFER_RX ) {
+				// TO DO: Warning buffer lleno (sobreescritura)
+				index = 0;
+			}
+		}
     }
 }
 
@@ -157,9 +157,11 @@ uint8_t uartAppInit(void)
     uartRxQueue = xQueueCreate(
         L_QUEUE_RX,     // Longitud de la cola
         sizeof( char )  // Tamaño en bytes del tipo de información a guardar en la cola
-        );
+    );
     
     uartTxQueue = xQueueCreate( L_QUEUE_TX, sizeof( char ) );
+
+    xMsgQueue = xQueueCreate( 50, sizeof( char * ) );
 
     // Verificación de colas creadas con éxito
     if ( (uartRxQueue != NULL) && (uartTxQueue != NULL) ) {
@@ -168,13 +170,13 @@ uint8_t uartAppInit(void)
             (const char *)"uartRxTask", // Nombre de la tarea como String amigable para el usuario
             configMINIMAL_STACK_SIZE*2, // Cantidad de stack de la tarea
             NULL,                       // Parametros de tarea
-            tskIDLE_PRIORITY+1,         // Prioridad de la tarea
+			priorityUartRxTask,         // Prioridad de la tarea
             NULL                        // Puntero a la tarea creada en el sistema
         );
 
         xTaskCreate( uartTxTask, (const char *)"uartTxTask",
             configMINIMAL_STACK_SIZE*2, NULL,
-            tskIDLE_PRIORITY+1, NULL );
+			priorityUartTxTask, NULL );
         
     } else {
         // Error al crear colas de UART

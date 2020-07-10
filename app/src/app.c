@@ -10,6 +10,7 @@
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
+#include "FreeRTOSPriorities.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
@@ -20,11 +21,33 @@
 
 void vAppSyncTask( void *pvParameters )
 {
+    /* Puntero al mensaje leído */
+    char *pcMsgReceived;
+
     for ( ;; ) {
-        
+        xQueueReceive(
+            /* Handle de la cola a leer */
+            xMsgQueue,
+            /* Puntero a la memoria donde guardar lectura */
+            &pcMsgReceived,
+            /* Máximo tiempo que la tarea puede estar bloqueada
+            esperando que haya información a leer */
+            portMAX_DELAY
+        );
+
+		printf( "AppSync:%s\n", pcMsgReceived );
+
+		/* Escribir caracter en cola de consignas */
+		xQueueSendToBack(
+			/* Handle de la cola a escribir */
+			xStepperSetPointQueue,
+			/* Puntero al dato a escribir */
+			&pcMsgReceived,
+			/* Máximo tiempo a esperar una escritura */
+			portMAX_DELAY
+		);
     }
 }
-
 
 uint8_t main( void )
 {
@@ -55,7 +78,7 @@ uint8_t main( void )
         /* Parámetros de la tarea */
         NULL,
         /* Prioridad de la tarea */
-        tskIDLE_PRIORITY+5,
+		priorityAppSyncTask,
         /* Handle de la tarea creada */
         NULL
     );

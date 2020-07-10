@@ -34,6 +34,12 @@ typedef struct xStepperData {
     int32_t lAbsPosition;
 } StepperData_t;
 
+/*! \var TaskHandle_t xStepperControlTaskHandle
+	\brief Handle de la tarea que controla el flujo de trabajo
+	de los motores.
+*/
+TaskHandle_t xStepperControlTaskHandle = NULL;
+
 /*! \var TimerHandle_t xStepperTimer[stepperAPP_NUM]
     \brief Array de handles de los timers asociados a los motores.
 */
@@ -152,6 +158,8 @@ static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
     if ( xStepperDataID->ulPendingSteps == 0 ) {
         /* Detener timer si no existen pasos pendientes */
         xTimerStop( xStepperTimer, 0 );
+        /* Enviar notificación a tarea de control, avisando consigna finalizada */
+        xTaskNotifyGive( xStepperControlTaskHandle );
         return;
     }
     /* Cálculo de nuevo estado del driver según dirección */
@@ -200,23 +208,25 @@ void vStepperControlTask( void *pvParameters )
     uint32_t ulAngle;
 
     for ( ;; ) {
-        // /* Lectura de cola de consignas */
-        // xQueueReceive(
-        //     /* Handle de la cola a leer */
-        //     xStepperSetPointQueue,
-        //     /* Elemento donde guardar información leída */
-        //     &pcReceivedSetPoint,
-        //     /* Máxima cantidad de tiempo a esperar por una lectura */
-        //     portMAX_DELAY
-        // );
+         /* Lectura de cola de consignas */
+         xQueueReceive(
+             /* Handle de la cola a leer */
+             xStepperSetPointQueue,
+             /* Elemento donde guardar información leída */
+             &pcReceivedSetPoint,
+             /* Máxima cantidad de tiempo a esperar por una lectura */
+             portMAX_DELAY
+         );
 
         // cID = atoi( &pcReceivedSetPoint[3] );
-        // xDir = atoi( &pcReceivedSetPoint[5] );
-        // ulAngle = atoi( &pcReceivedSetPoint[7] );
+        xDir = atoi( &pcReceivedSetPoint[2] );
+        ulAngle = atoi( &pcReceivedSetPoint[4] );
         // ulAngle = stepperANGLE_TO_STEPS( ulAngle );
-        xStepperRelativeSetPoint( xStepperTimer[0], stepperANGLE_TO_STEPS( 45 ), stepperDIR_POSITIVE );
+        xStepperRelativeSetPoint( xStepperTimer[0], stepperANGLE_TO_STEPS( ulAngle ), xDir );
 
-        vTaskDelay( pdMS_TO_TICKS(20000) );
+        /* Esperar finalización de ejecución de consigna */
+        ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
+        printf(":END\n");
     }
 }
 
@@ -243,9 +253,9 @@ BaseType_t xStepperInit( void )
         /* Parámetros de la tarea */
         NULL,
         /* Prioridad de la tarea */
-        tskIDLE_PRIORITY+5,
+		priorityStepperControlTask,
         /* Handle de la tarea creada */
-        NULL
+        &xStepperControlTaskHandle
     );
 
     if ( xStatus == pdFAIL ) {

@@ -12,6 +12,8 @@
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
+#include "FreeRTOSPriorities.h"
+#include "task.h"
 #include "timers.h"
 #include "queue.h"
 
