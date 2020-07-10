@@ -7,10 +7,14 @@
     Detalle.
 */
 
+/* Utilidades includes */
+#include <string.h>
+
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
 #include "FreeRTOSPriorities.h"
+#include "queue.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
@@ -19,10 +23,57 @@
 #include "uart.h"
 #include "stepper.h"
 
+/*! \def appQUEUE_MSG_LENGTH
+	\brief Longitud de cola de mensajes recibidos.
+*/
+#define appQUEUE_MSG_LENGTH	50
+
+/*! \var TaskHandle_t xAppSyncTaskHandle
+	\brief Handle de la tarea que sincroniza mensajes.
+*/
+TaskHandle_t xAppSyncTaskHandle = NULL;
+
+/*! \var QueueHandle_t xMsgQueue
+    \brief Cola de mensajes recibidos.
+*/
+QueueHandle_t xMsgQueue;
+
+/*! \fn vErrorNotifHandling( uint32_t ulNotifError )
+	\brief Gestió de errores obtenidos por notificación de tarea.
+*/
+void vErrorNotifHandling( uint32_t ulNotifError )
+{
+	if ( ulNotifError > 0x00 ) {
+		/* Error en stepper ID */
+		if ( ulNotifError & (1 << stepperERROR_NOTIF_ID ) ) {
+			vUartSendMsg( "AST:ERR:STPID" );
+		}
+		/* Error en stepper DIR */
+		if ( ulNotifError & (1 << stepperERROR_NOTIF_DIR ) ) {
+			vUartSendMsg( "AST:ERR:STPDIR" );
+		}
+		/* Error en stepper VEL */
+		if ( ulNotifError & (1 << stepperERROR_NOTIF_VEL ) ) {
+			vUartSendMsg( "AST:ERR:STPVEL" );
+		}
+		/* Error en stepper ID */
+		if ( ulNotifError & (1 << stepperERROR_NOTIF_ANG ) ) {
+			vUartSendMsg( "AST:ERR:STPANG" );
+		}
+	}
+}
+
+/*! \fn vAppSyncTask( void *pvParameters )
+	\brief Tarea de sincronización de mensajes.
+*/
 void vAppSyncTask( void *pvParameters )
 {
     /* Puntero al mensaje leído */
     char *pcMsgReceived;
+    /* Valor de notificaciones pendientes */
+    uint32_t ulNotifError;
+    /* Mensaje de error */
+    char *pcErrorMsg = "Error en mensaje previo";
 
     for ( ;; ) {
         xQueueReceive(
@@ -35,21 +86,32 @@ void vAppSyncTask( void *pvParameters )
             portMAX_DELAY
         );
 
-		printf( "AppSync:%s\n", pcMsgReceived );
-
-		/* Escribir caracter en cola de consignas */
-		xQueueSendToBack(
-			/* Handle de la cola a escribir */
-			xStepperSetPointQueue,
-			/* Puntero al dato a escribir */
-			&pcMsgReceived,
-			/* Máximo tiempo a esperar una escritura */
-			portMAX_DELAY
-		);
+        /* Verificación de inicio de trama */
+        if ( pcMsgReceived[0] != ':' ) {
+        	/* Mensaje de comando inválido */
+        	strcat( pcMsgReceived, " - error" );
+        	vUartSendMsg( pcMsgReceived );
+        	continue;
+        }
+        /* Consigna a motores stepper */
+        if ( pcMsgReceived[1] == 'S' ) {
+        	/* Escribir mensaje en cola de consignas */
+			xQueueSendToBack(
+				/* Handle de la cola a escribir */
+				xStepperSetPointQueue,
+				/* Puntero al dato a escribir */
+				&pcMsgReceived,
+				/* Máximo tiempo a esperar una escritura */
+				portMAX_DELAY
+			);
+        }
+        /* Verificación de notificación de error */
+        ulNotifError = ulTaskNotifyTake( pdTRUE, 0 );
+        vErrorNotifHandling( ulNotifError );
     }
 }
 
-uint8_t main( void )
+int main( void )
 {
     /* Inicialización de la placa */
     boardConfig();
@@ -57,14 +119,12 @@ uint8_t main( void )
     /* Flags de estado de los diferentes módulos */
     BaseType_t xUartStatus, xStepperStatus;
     /* Inicialización de UART */
-
+    xUartStatus = xUartInit();
     /* Inicialización de motor stepper */
     xStepperStatus = xStepperInit();
 
-    // Inicialización de UART
-    if ( uartAppInit() ) {
-        // TO DO: Warning con LED
-    }
+    /* Creación de cola de mensajes recibidos */
+    xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );
 
     /* Creación de tarea de control de flujo de trabajo del programa */
     BaseType_t xStatus;
@@ -80,10 +140,10 @@ uint8_t main( void )
         /* Prioridad de la tarea */
 		priorityAppSyncTask,
         /* Handle de la tarea creada */
-        NULL
+        &xAppSyncTaskHandle
     );
 
-    // Inicialización de Scheduler
+    /* Inicialización de Scheduler */
     vTaskStartScheduler();
 
     for ( ;; );

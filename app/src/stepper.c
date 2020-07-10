@@ -13,6 +13,7 @@
 
 /* Aplicación includes */
 #include "stepper.h"
+#include "uart.h"
 
 /*! \def stepperANGLE_TO_STEPS( X )
     \brief Macro para convertir ángulos en cantidad de pasos del motor.
@@ -39,6 +40,11 @@ typedef struct xStepperData {
 	de los motores.
 */
 TaskHandle_t xStepperControlTaskHandle = NULL;
+
+/*! \var TaskHandle_t xAppSyncTaskHandle
+	\brief Handle de la tarea que sincroniza mensajes.
+*/
+extern TaskHandle_t xAppSyncTaskHandle;
 
 /*! \var TimerHandle_t xStepperTimer[stepperAPP_NUM]
     \brief Array de handles de los timers asociados a los motores.
@@ -200,33 +206,99 @@ void vStepperControlTask( void *pvParameters )
     /* Puntero a consignas recibidas */
     char *pcReceivedSetPoint;
 
-    /* ID del motor recibida */
-    uint8_t cID;
+    /* ID y velocidad del motor recibida */
+    uint8_t cID, cVel;
     /* Dirección */
     StepperDir_t xDir;
     /* Ángulo a realizar */
-    uint32_t ulAngle;
+    int32_t lAngle;
 
     for ( ;; ) {
-         /* Lectura de cola de consignas */
-         xQueueReceive(
-             /* Handle de la cola a leer */
-             xStepperSetPointQueue,
-             /* Elemento donde guardar información leída */
-             &pcReceivedSetPoint,
-             /* Máxima cantidad de tiempo a esperar por una lectura */
-             portMAX_DELAY
-         );
+    	/* Lectura de cola de consignas */
+        xQueueReceive(
+            /* Handle de la cola a leer */
+            xStepperSetPointQueue,
+            /* Elemento donde guardar información leída */
+            &pcReceivedSetPoint,
+            /* Máxima cantidad de tiempo a esperar por una lectura */
+            portMAX_DELAY
+        );
 
-        // cID = atoi( &pcReceivedSetPoint[3] );
-        xDir = atoi( &pcReceivedSetPoint[2] );
-        ulAngle = atoi( &pcReceivedSetPoint[4] );
-        // ulAngle = stepperANGLE_TO_STEPS( ulAngle );
-        xStepperRelativeSetPoint( xStepperTimer[0], stepperANGLE_TO_STEPS( ulAngle ), xDir );
+        /* Lectura de ID del motor a setear */
+        cID = atoi( &pcReceivedSetPoint[2] );
+        /* Verificación de ID válida */
+        if ( ( cID < 0 ) || ( cID > stepperAPP_NUM ) ) {
+        	xTaskNotify(
+        		/* Handle de la tarea a notificar */
+        		xAppSyncTaskHandle,
+				/* Valor dependiente de eNotifyAction */
+				( 1 << stepperERROR_NOTIF_ID ),
+				/* Tipo enumerate que define cómo actualizar el valor
+				de notificación en la tarea que recibe */
+				eSetBits
+        	);
+        	continue;
+        }
+        /* Lectura de dirección del motor */
+        if ( pcReceivedSetPoint[3] == 'D' ) {
+        	xDir = atoi( &pcReceivedSetPoint[4] );
+        	/* Verificación de valor de dirección */
+        	if ( ( xDir < 0 ) || ( xDir > 1 ) ) {
+        		/* Error en dirección */
+				xTaskNotify( xAppSyncTaskHandle,
+					( 1 << stepperERROR_NOTIF_DIR ), eSetBits );
+        		continue;
+        	}
+        } else if ( pcReceivedSetPoint[3] == 'V' ) {
+        	cVel = atoi( &pcReceivedSetPoint[4] );
+        	/* Verificación de valor de velocidad */
+        	if ( ( cVel < stepperTIMER_MIN_PERIOD ) | ( cVel > stepperTIMER_MAX_PERIOD ) ) {
+        		/* Error en velocidad */
+        		xTaskNotify( xAppSyncTaskHandle,
+        			( 1 << stepperERROR_NOTIF_VEL ), eSetBits );
+        		continue;
+        	}
+        	/* Cambio de periodo del timer */
+			xTimerChangePeriod(
+				/* Handle del timer a modificar */
+				xStepperTimer[cID],
+				/* Nuevo periodo en ticks */
+				pdMS_TO_TICKS( cVel ),
+				/* Máximo tiempo a esperar bloqueado */
+				portMAX_DELAY
+				);
+			continue;
+        } else {
+        	/* Error en dirección o velocidad */
+        	xTaskNotify( xAppSyncTaskHandle,
+        		( ( 1 << stepperERROR_NOTIF_DIR ) | ( 1 << stepperERROR_NOTIF_VEL ) ),
+				eSetBits );
+        	continue;
+        }
 
-        /* Esperar finalización de ejecución de consigna */
-        ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
-        printf(":END\n");
+        /* Lectura de ángulo */
+        if ( pcReceivedSetPoint[5] == 'A' ) {
+        	lAngle = atoi( &pcReceivedSetPoint[6] );
+        	/* Verificación de ángulo positivo */
+        	if ( lAngle < 0 ) {
+        		/* Error en ángulo */
+				xTaskNotify( xAppSyncTaskHandle,
+					( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
+				continue;
+        	}
+        	/* Seteo de consigna */
+        	lAngle = stepperANGLE_TO_STEPS( lAngle );
+        	xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
+        	/* Esperar finalización de ejecución de consigna */
+			ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
+			/* Enviar mensaje de finalización de consigna */
+			vUartSendMsg( "SCT:END" );
+        } else {
+        	/* Error en ángulo */
+    		xTaskNotify( xAppSyncTaskHandle,
+    			( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
+    		continue;
+        }
     }
 }
 

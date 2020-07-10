@@ -30,6 +30,17 @@
 */
 #define stepperTIMER_PERIOD 2
 
+/*! \def stepperTIMER_MIN_PERIOD
+	\brief Período mínimo de timer.
+*/
+#define stepperTIMER_MIN_PERIOD	1
+
+/*! \def stepperTIMER_MAX_PERIOD
+	\brief Período máximo de timer.
+*/
+#define stepperTIMER_MAX_PERIOD	4
+
+
 /*! \def stepperDIR_NEGATIVE
     \brief Dirección negativa del motor (depende de conexión del driver)
 */
@@ -44,6 +55,14 @@
     \brief Máxima cantidad de consignas que se puede almacenar en buffer.
 */
 #define stepperMAX_SETPOINT_QUEUE_LENGTH    10
+
+/*! \def stepperERROR_NOTIF_VALUE
+	\brief Código de error que interpretará la tarea de sincronización.
+*/
+#define stepperERROR_NOTIF_ID	1
+#define stepperERROR_NOTIF_DIR	2
+#define stepperERROR_NOTIF_VEL	3
+#define stepperERROR_NOTIF_ANG	4
 
 /*! \var typedef char StepperDir_t
     \brief Definición de tipo para dirección de motores stepper.

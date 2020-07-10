@@ -13,13 +13,33 @@
 
 // Declaración global de cola de recepción de caracteres por UART
 QueueHandle_t uartRxQueue;
-// Declaración global de cola de transmisión de caracteres por UART
-QueueHandle_t uartTxQueue;
+
+/*! \var QueueHandle_t xUartTxQueue
+	\brief Declaración global de cola de transmisión de
+	caracteres por UART
+*/
+QueueHandle_t xUartTxQueue;
 
 /*! \var QueueHandle_t xMsgQueue
     \brief Cola de mensajes recibidos.
 */
-QueueHandle_t xMsgQueue;
+extern QueueHandle_t xMsgQueue;
+
+/*! \fn void vUartSendMsg( char *pcMsg )
+	\brief Enviar mensaje a la cola de transmisión.
+*/
+void vUartSendMsg( char *pcMsg )
+{
+	/* Escribir mensaje en cola de transmisión */
+	xQueueSendToBack(
+		/* Handle de la cola a escribir */
+		xUartTxQueue,
+		/* Puntero al dato a escribir */
+		&pcMsg,
+		/* Máximo tiempo a esperar una escritura */
+		portMAX_DELAY
+	);
+}
 
 /*
  *  Función para comunicación del comando.
@@ -47,10 +67,11 @@ void sendCmd( char* buffer, uint8_t length )
 	);
 }
 
-/*
- *  Tarea para el procesamiento de caracteres recibidos por UART.
- */
-void uartRxTask( void* pvParameters )
+/*! \fn void vUartRxTask( void* pvParameters )
+	\brief Tarea para el procesamiento de caracteres
+	recibidos por UART.
+*/
+void vUartRxTask( void* pvParameters )
 {
     // Índice de buffer
     uint8_t index = 0;
@@ -89,31 +110,29 @@ void uartRxTask( void* pvParameters )
     }
 }
 
-/*
- *  Tarea para el procesamiento de caracteres enviados por UART.
- */
-void uartTxTask( void* pvParameters )
+/*! \fn void vUartTxTask( void* pvParameters )
+	\brief Tarea para el procesamiento de caracteres
+	enviados por UART.
+*/
+void vUartTxTask( void* pvParameters )
 {
-    // Variable que contendrá el caracter a enviar
-    char cTx;
-    BaseType_t xStatus;
+    /* Variable que contendrá el string a enviar */
+    char *pcMsgToSend;
 
     for ( ;; ) {
         /* Lectura de cola de recepción */
-        xStatus = xQueueReceive(
+        xQueueReceive(
             /* Handle de la cola a leer */
-            uartTxQueue,
+            xUartTxQueue,
             /* Puntero a la memoria donde guardar lectura */
-            &cTx,
+            &pcMsgToSend,
             /* Máximo tiempo que la tarea puede estar bloqueada
             esperando que haya información a leer */
             portMAX_DELAY // Tiempo de espera indefinido
         );
         
-        if ( xStatus == pdPASS ) {
-            // Lectura exitosa, enviar dato
-            uartWriteByte( UART_USB, cTx );
-        }
+        /* Envío del mensaje */
+        printf( "%s\n", pcMsgToSend );
     }
 }
 
@@ -141,10 +160,10 @@ void uartRxISR( void* pvParameters )
     portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 
-/*
- *  Inicialización de módulo UART para la aplicación.
- */
-uint8_t uartAppInit(void)
+/*! \fn BaseType_t uartAppInit(void)
+	\brief Inicialización de módulo UART con sus respectivas colas.
+*/
+BaseType_t xUartInit( void )
 {
     /* Inicialización de UART_USB junto con las interrupciones de Tx y Rx */
     uartConfig(UART_USB, 115200);     
@@ -159,29 +178,28 @@ uint8_t uartAppInit(void)
         sizeof( char )  // Tamaño en bytes del tipo de información a guardar en la cola
     );
     
-    uartTxQueue = xQueueCreate( L_QUEUE_TX, sizeof( char ) );
-
-    xMsgQueue = xQueueCreate( 50, sizeof( char * ) );
+    /* Creación de cola de mensajes a enviar */
+    xUartTxQueue = xQueueCreate( uartQUEUE_TX_LENGTH, sizeof( char * ) );
 
     // Verificación de colas creadas con éxito
-    if ( (uartRxQueue != NULL) && (uartTxQueue != NULL) ) {
+    if ( (uartRxQueue != NULL) && ( xUartTxQueue != NULL ) ) {
         xTaskCreate(
-            uartRxTask,                 // Funcion de la tarea a ejecutar
-            (const char *)"uartRxTask", // Nombre de la tarea como String amigable para el usuario
+            vUartRxTask,                 // Funcion de la tarea a ejecutar
+            (const char *)"UartRxTask", // Nombre de la tarea como String amigable para el usuario
             configMINIMAL_STACK_SIZE*2, // Cantidad de stack de la tarea
             NULL,                       // Parametros de tarea
 			priorityUartRxTask,         // Prioridad de la tarea
             NULL                        // Puntero a la tarea creada en el sistema
         );
 
-        xTaskCreate( uartTxTask, (const char *)"uartTxTask",
+        xTaskCreate( vUartTxTask, (const char *)"UartTxTask",
             configMINIMAL_STACK_SIZE*2, NULL,
 			priorityUartTxTask, NULL );
         
     } else {
         // Error al crear colas de UART
-        return 1;
+        return pdFAIL;
     }
     // Inicialización de UART con éxito
-    return 0;
+    return pdPASS;
 }
