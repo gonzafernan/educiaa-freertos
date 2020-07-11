@@ -13,6 +13,8 @@
 
 /* Aplicación includes */
 #include "stepper.h"
+
+#include "../inc/driver_uln2003.h"
 #include "uart.h"
 
 /*! \def stepperANGLE_TO_STEPS( X )
@@ -24,6 +26,8 @@
     \brief Estructura de datos con información del stepper.
 */
 typedef struct xStepperData {
+	/* Conjunto de entradas al driver correspondiente */
+	DriverIn_t pxDriverInput[4];
     /* Estado actual de entradas al driver */
     char cDriverState;
     /* Cantidad de pasos pendientes */
@@ -58,71 +62,6 @@ StepperData_t xStepperDataID[stepperAPP_NUM];
     \brief Cola de consignas recibidas a ejecutar.
 */
 QueueHandle_t xStepperSetPointQueue;
-
-/*! \fn void vStepperDriverUpdate( uint8_t cState )
-    \brief Escritura en driver de motor stepper dado un determinado estado.
-    \param cState Estado a escribir en el driver.
-*/
-void vStepperDriverUpdate( uint8_t cState )
-{
-    switch ( cState ) {
-        case 0:
-            gpioWrite(GPIO0, ON);
-            gpioWrite(GPIO1, ON);
-            gpioWrite(GPIO2, OFF);
-            gpioWrite(GPIO3, OFF);
-            break;
-
-        case 1:
-            gpioWrite(GPIO0, OFF);
-            gpioWrite(GPIO1, ON);
-            gpioWrite(GPIO2, OFF);
-            gpioWrite(GPIO3, OFF);
-            break;
-
-        case 2:
-            gpioWrite(GPIO0, OFF);
-            gpioWrite(GPIO1, ON);
-            gpioWrite(GPIO2, ON);
-            gpioWrite(GPIO3, OFF);
-            break;
-
-        case 3:
-            gpioWrite(GPIO0, OFF);
-            gpioWrite(GPIO1, OFF);
-            gpioWrite(GPIO2, ON);
-            gpioWrite(GPIO3, OFF);
-            break;
-
-        case 4:
-            gpioWrite(GPIO0, OFF);
-            gpioWrite(GPIO1, OFF);
-            gpioWrite(GPIO2, ON);
-            gpioWrite(GPIO3, ON);
-            break;
-
-        case 5:
-            gpioWrite(GPIO0, OFF);
-            gpioWrite(GPIO1, OFF);
-            gpioWrite(GPIO2, OFF);
-            gpioWrite(GPIO3, ON);
-            break;
-
-        case 6:
-            gpioWrite(GPIO0, ON);
-            gpioWrite(GPIO1, OFF);
-            gpioWrite(GPIO2, OFF);
-            gpioWrite(GPIO3, ON);
-            break;
-
-        case 7:
-            gpioWrite(GPIO0, ON);
-            gpioWrite(GPIO1, OFF);
-            gpioWrite(GPIO2, OFF);
-            gpioWrite(GPIO3, OFF);
-            break;
-    }
-}
 
 /*! \fn void vStepperRelativeSetPoint( TimerHandle_t xStepperTimer, int32_t lRelativeSetPoint )
     \brief Setear una nueva consigna en motor stepper relativa a la posición actual.
@@ -177,7 +116,8 @@ static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
         }
     }
     /* Actualización del driver */
-    vStepperDriverUpdate( xStepperDataID->cDriverState );
+    vDriverUpdate( xStepperDataID->pxDriverInput,
+    	xStepperDataID->cDriverState );
     /* Decremento de pasos pendientes a realizar */
     xStepperDataID->ulPendingSteps--;
     /* Actualización del timer ID */
@@ -317,12 +257,6 @@ void vStepperControlTask( void *pvParameters )
 */
 BaseType_t xStepperInit( void )
 {
-    /* Inicialización de salidas a driver del stepper */
-    gpioInit( GPIO0, GPIO_OUTPUT );
-    gpioInit( GPIO1, GPIO_OUTPUT );
-    gpioInit( GPIO2, GPIO_OUTPUT );
-    gpioInit( GPIO3, GPIO_OUTPUT );
-
     /* Creación de tarea de control de flujo de trabajo de los motores stepper */
     BaseType_t xStatus;
     xStatus = xTaskCreate(
@@ -346,8 +280,18 @@ BaseType_t xStepperInit( void )
     
     char pcAuxTimerName[15];
     for (uint8_t i=0; i<stepperAPP_NUM; i++) {
-        strcpy( pcAuxTimerName, "StepperTimer" );
+        /* String identificadora para debug */
+    	strcpy( pcAuxTimerName, "StepperTimer" );
         strcat( pcAuxTimerName, "0" + i );
+
+        /* Inicialización de driver del stepper */
+		vDriverInit( pxDriver[i], driverINPUT_NUM );
+
+        /* Vinculación con drivers */
+		for ( uint8_t j=0; j<driverINPUT_NUM; j++) {
+			xStepperDataID[i].pxDriverInput[j] = pxDriver[i][j];
+		}
+
         /* Creación de los software timers */
         xStepperTimer[i] = xTimerCreate(
             /* Nombre descriptivo del timer */
