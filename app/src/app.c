@@ -14,6 +14,7 @@
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
 #include "FreeRTOSPriorities.h"
+#include "task.h"
 #include "queue.h"
 
 /* EDU-CIAA firmware_v3 includes */
@@ -21,6 +22,7 @@
 
 /* Aplicación includes */
 #include "uart.h"
+#include "encoder.h"
 #include "stepper.h"
 
 /*! \def appQUEUE_MSG_LENGTH
@@ -117,9 +119,11 @@ int main( void )
     boardConfig();
 
     /* Flags de estado de los diferentes módulos */
-    BaseType_t xUartStatus, xStepperStatus;
+    BaseType_t xUartStatus, xEncoderStatus, xStepperStatus;
     /* Inicialización de UART */
     xUartStatus = xUartInit();
+    /* Inicialización de encoder rotativo */
+    //xEncoderStatus = xEncoderInit();
     /* Inicialización de motor stepper */
     xStepperStatus = xStepperInit();
 
