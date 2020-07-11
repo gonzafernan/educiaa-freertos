@@ -231,6 +231,8 @@ void vStepperControlTask( void *pvParameters )
 				de notificación en la tarea que recibe */
 				eSetBits
         	);
+        	/* Liberación de memoria */
+        	//vPortFree( pcReceivedSetPoint );
         	continue;
         }
         /* Lectura de dirección del motor */
@@ -241,7 +243,9 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en dirección */
 				xTaskNotify( xAppSyncTaskHandle,
 					( 1 << stepperERROR_NOTIF_DIR ), eSetBits );
-        		continue;
+				/* Liberación de memoria */
+				//vPortFree( pcReceivedSetPoint );
+				continue;
         	}
         } else if ( pcReceivedSetPoint[3] == 'V' ) {
         	cVel = atoi( &pcReceivedSetPoint[4] );
@@ -250,6 +254,8 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en velocidad */
         		xTaskNotify( xAppSyncTaskHandle,
         			( 1 << stepperERROR_NOTIF_VEL ), eSetBits );
+        		/* Liberación de memoria */
+				//vPortFree( pcReceivedSetPoint );
         		continue;
         	}
         	/* Cambio de periodo del timer */
@@ -261,12 +267,16 @@ void vStepperControlTask( void *pvParameters )
 				/* Máximo tiempo a esperar bloqueado */
 				portMAX_DELAY
 				);
+			/* Liberación de memoria */
+			//vPortFree( pcReceivedSetPoint );
 			continue;
         } else {
         	/* Error en dirección o velocidad */
         	xTaskNotify( xAppSyncTaskHandle,
         		( ( 1 << stepperERROR_NOTIF_DIR ) | ( 1 << stepperERROR_NOTIF_VEL ) ),
 				eSetBits );
+        	/* Liberación de memoria */
+			//vPortFree( pcReceivedSetPoint );
         	continue;
         }
 
@@ -278,6 +288,8 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en ángulo */
 				xTaskNotify( xAppSyncTaskHandle,
 					( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
+				/* Liberación de memoria */
+				//vPortFree( pcReceivedSetPoint );
 				continue;
         	}
         	/* Seteo de consigna */
@@ -287,10 +299,14 @@ void vStepperControlTask( void *pvParameters )
 			ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 			/* Enviar mensaje de finalización de consigna */
 			vUartSendMsg( "SCT:END" );
+			/* Liberación de memoria */
+			//vPortFree( pcReceivedSetPoint );
         } else {
         	/* Error en ángulo */
     		xTaskNotify( xAppSyncTaskHandle,
     			( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
+    		/* Liberación de memoria */
+			//vPortFree( pcReceivedSetPoint );
     		continue;
         }
     }

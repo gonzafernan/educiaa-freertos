@@ -7,8 +7,6 @@
     Detalle.
 */
 
-#include "stdlib.h"
-
 #include "uart.h"
 
 // Declaración global de cola de recepción de caracteres por UART
@@ -51,7 +49,7 @@ void sendCmd( char* buffer, uint8_t length )
 {
 	/* Asignación de memoria dinámica del mensaje */
     char *pcMsg;
-    pcMsg = ( char * ) malloc( length * sizeof( char ) );
+    pcMsg = ( char * ) pvPortMalloc( length * sizeof( char ) );
     pcMsg = buffer;
     /* Delimitador final de string */
     pcMsg[length] = '\0';

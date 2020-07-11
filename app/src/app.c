@@ -22,7 +22,7 @@
 
 /* Aplicación includes */
 #include "uart.h"
-#include "encoder.h"
+//#include "encoder.h"
 #include "stepper.h"
 
 /*! \def appQUEUE_MSG_LENGTH
@@ -113,6 +113,20 @@ void vAppSyncTask( void *pvParameters )
     }
 }
 
+/*! \fn void vLedBlinkTask( void *pvParameters )
+	\brief Tarea con blink de LED para visual de aplicación
+	funcionando
+*/
+void vLedBlinkTask( void *pvParameters )
+{
+	for ( ;; ) {
+		/* Indicador en LED1 */
+		gpioToggle( LED1 );
+		/* Parpadeo de medio segundo */
+		vTaskDelay( pdMS_TO_TICKS( 500 ) );
+	}
+}
+
 int main( void )
 {
     /* Inicialización de la placa */
@@ -146,6 +160,10 @@ int main( void )
         /* Handle de la tarea creada */
         &xAppSyncTaskHandle
     );
+
+    /* Tarea con blink de LED para visual de aplicación funcionando */
+    xStatus = xTaskCreate( vLedBlinkTask, ( const char * ) "LedBlinkTask",
+    	configMINIMAL_STACK_SIZE, NULL, priorityLedBlinkTask, NULL );
 
     /* Inicialización de Scheduler */
     vTaskStartScheduler();
