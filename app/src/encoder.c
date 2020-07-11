@@ -33,7 +33,7 @@
 //	// Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
 //}
 
-void GPIO2_IRQHandler( void )
+void PININT2_IRQ_HANDLER( void )
 {
 	BaseType_t xHigherPriorityTaskWoken;
 

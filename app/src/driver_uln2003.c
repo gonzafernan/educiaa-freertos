@@ -14,7 +14,7 @@
 	\brief Arrays de entradas al driver del motor A
 */
 DriverIn_t pxDriver[2][4] = {
-		{ GPIO0, GPIO1, GPIO2, GPIO3 },
+		{ LCD3, LCD2, LCD1, GPIO3 },
 		{ GPIO4, GPIO5, GPIO6, GPIO7 }
 };
 

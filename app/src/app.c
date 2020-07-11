@@ -22,7 +22,7 @@
 
 /* Aplicación includes */
 #include "uart.h"
-//#include "encoder.h"
+#include "encoder.h"
 #include "stepper.h"
 
 /*! \def appQUEUE_MSG_LENGTH
@@ -137,7 +137,7 @@ int main( void )
     /* Inicialización de UART */
     xUartStatus = xUartInit();
     /* Inicialización de encoder rotativo */
-    //xEncoderStatus = xEncoderInit();
+    xEncoderStatus = xEncoderInit();
     /* Inicialización de motor stepper */
     xStepperStatus = xStepperInit();
 
