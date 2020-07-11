@@ -31,8 +31,6 @@ typedef struct xStepperData {
     /* Dirección en que se deben realizar los
     pasos pendientes */
     StepperDir_t xDir;
-    /* Posición absoluta del motor */
-    int32_t lAbsPosition;
 } StepperData_t;
 
 /*! \var TaskHandle_t xStepperControlTaskHandle
@@ -144,12 +142,8 @@ BaseType_t xStepperRelativeSetPoint( TimerHandle_t xStepperTimer, uint32_t ulRel
     /* Seteo de consigna como pasos pendientes y dirección */
     xStepperDataID->ulPendingSteps = ulRelativeSetPoint;
     xStepperDataID->xDir = xStepperDir;
-    /* Actualización de posición absoluta */
-    // Asumiendo que se va a finalizar la consigna!!
-    xStepperDataID->lAbsPosition += xStepperDir * ulRelativeSetPoint;
-
     /* Inicialización de timer */
-    return xTimerStart( xStepperTimer, 0 );
+    return xTimerStart( xStepperTimer, portMAX_DELAY );
 }
 
 /*! \fn void prvStepperTimerCallback( TimerHandle_t xStepperTimer )

@@ -7,8 +7,8 @@
     Detalle.
 */
 
-#ifndef STEPPER_H
-#define STEPPER_H
+#ifndef STEPPER_H_
+#define STEPPER_H_
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
@@ -56,12 +56,24 @@
 */
 #define stepperMAX_SETPOINT_QUEUE_LENGTH    10
 
-/*! \def stepperERROR_NOTIF_VALUE
-	\brief Código de error que interpretará la tarea de sincronización.
+/*! \def stepperERROR_NOTIF_ID
+	\brief Bit de error de ID del motor.
 */
 #define stepperERROR_NOTIF_ID	1
+
+/*! \def stepperERROR_NOTIF_DIR
+	\brief Bit de error de dirección del motor.
+*/
 #define stepperERROR_NOTIF_DIR	2
+
+/*! \def stepperERROR_NOTIF_VEL
+	\brief Bit de error de velocidad del motor.
+*/
 #define stepperERROR_NOTIF_VEL	3
+
+/*! \def stepperERROR_NOTIF_ANG
+	\brief Bit de error de ángulo del motor.
+*/
 #define stepperERROR_NOTIF_ANG	4
 
 /*! \var typedef char StepperDir_t
