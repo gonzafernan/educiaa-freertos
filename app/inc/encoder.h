@@ -74,11 +74,11 @@
 #define PININT0_NVIC_NAME     PIN_INT0_IRQn      // GPIO interrupt NVIC interrupt name
 
 #define PININT1_INDEX         1                  // PININT index used for GPIO mapping
-#define PININT1_IRQ_HANDLER   GPIO1_IRQHandler   // GPIO interrupt IRQ function name
+#define vEncoderCLK_IRQ_HANDLER   GPIO1_IRQHandler   // GPIO interrupt IRQ function name
 #define PININT1_NVIC_NAME     PIN_INT1_IRQn      // GPIO interrupt NVIC interrupt name
 
 #define PININT2_INDEX         2                  // PININT index used for GPIO mapping
-#define PININT2_IRQ_HANDLER   GPIO2_IRQHandler   // GPIO interrupt IRQ function name
+#define vEncoderSW_IRQ_HANDLER   GPIO2_IRQHandler   // GPIO interrupt IRQ function name
 #define PININT2_NVIC_NAME     PIN_INT2_IRQn      // GPIO interrupt NVIC interrupt name
 
 /*! \fn BaseType_t xEncoderInit( void )

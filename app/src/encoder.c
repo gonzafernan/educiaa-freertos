@@ -15,7 +15,7 @@
 */
 
 /* Utilidades includes */
-#include "string.h"
+#include <string.h>
 
 /* FreeRTOS includes */
 #include "FreeRTOSPriorities.h"
@@ -45,7 +45,7 @@ QueueHandle_t xEncoderChoiceMailbox;
 /*! \fn void PININT1_IRQ_HANDLER( void )
 	\brief Handler interrupt from GPIO pin or GPIO pin mapped to PININT
 */
-void PININT1_IRQ_HANDLER( void )
+void vEncoderCLK_IRQ_HANDLER( void )
 {
 	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
@@ -64,21 +64,23 @@ void PININT1_IRQ_HANDLER( void )
 /*! \fn void PININT2_IRQ_HANDLER( void )
 	\brief Handler interrupt from GPIO pin or GPIO pin mapped to PININT
 */
-void PININT2_IRQ_HANDLER( void )
+void vEncoderSW_IRQ_HANDLER( void )
 {
 	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 	/* Valor de selección del encoder */
-	//uint8_t cValue;
+	uint8_t cValue;
 	/* Lectura del valor actual en mailbox */
-	//xQueuePeekFromISR( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
+	xQueuePeekFromISR( xEncoderChoiceMailbox, &cValue );
 	//cValue++;
-	//if ( cValue == stepperAPP_NUM ) {
-	//	cValue = 0;
-	//}
+	if ( cValue == 0 ) {
+		cValue = 1;
+	} else if ( cValue == 1 ) {
+		cValue = 0;
+	}
+	printf("%d\n", cValue);
 	/* Actualización del valor en mailbox */
-	//xQueueOverwriteFromISR( xEncoderChoiceMailbox, &cValue );
-	gpioToggle( LED3 );
+	xQueueOverwriteFromISR( xEncoderChoiceMailbox, &cValue, 0 );
     portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 
@@ -89,7 +91,9 @@ void vEncoderTask( void *pvParameters )
 {
 	/* Creación de mailbox con selección de motor */
 	xEncoderChoiceMailbox = xQueueCreate( 1, sizeof( uint8_t ) );
-
+	/* Valor de selección inicial del encoder */
+	uint8_t cValue = 0;
+	xQueueOverwrite( xEncoderChoiceMailbox, &cValue );
 	/* Creación de semáforo contador para pulsos positivos de clock */
 	xEncoderPositivePulseSemaphore = xSemaphoreCreateCounting(
 		/* Cantidad máxima de elementos */
@@ -115,11 +119,21 @@ void vEncoderTask( void *pvParameters )
 	SemaphoreHandle_t xReceivedSemaphore;
 
 	/* Puntero al mensaje a enviar */
-	char *pcMsgToSend = ( char * ) pvPortMalloc( 10 * sizeof( char ) );;
+	char *pcMsgToSend = ( char * ) pvPortMalloc( 10 * sizeof( char ) );
 
 	for ( ;; ) {
+		/* Lectura de selección de motor en mailbox */
+		xQueuePeek( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
 		/* Inicio de mensaje */
-		strcpy( pcMsgToSend, ":S0D" );
+		if ( cValue == 0 ) {
+			strcpy( pcMsgToSend, ":S0D" );
+			gpioWrite( LED2, ON );
+			gpioWrite( LED3, OFF );
+		} else if ( cValue == 1 ) {
+			strcpy( pcMsgToSend, ":S1D" );
+			gpioWrite( LED3, ON );
+			gpioWrite( LED2, OFF );
+		}
 
 		/* Lectura de handle del set */
 		xReceivedSemaphore = ( SemaphoreHandle_t ) xQueueSelectFromSet( xEncoderSemaphoreSet, portMAX_DELAY );
