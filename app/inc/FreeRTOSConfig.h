@@ -49,6 +49,8 @@ extern int DbgConsole_Printf( const char *fmt_s, ... );
 #endif
 
 
+#define configUSE_QUEUE_SETS							1
+
 #define configSUPPORT_STATIC_ALLOCATION              1
 
 #define configUSE_PREEMPTION                         1

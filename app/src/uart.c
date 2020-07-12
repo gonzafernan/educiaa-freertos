@@ -139,7 +139,7 @@ void vUartTxTask( void* pvParameters )
  */
 void uartRxISR( void* pvParameters )
 {
-    // Detección de tarea bloqueada esperando información en la cola
+    /* Detección de tarea bloqueada esperando información en la cola */
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
     // Lectura de caracter recibido
     char cRx = uartRxRead( UART_USB );

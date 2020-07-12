@@ -19,4 +19,6 @@
 #define priorityUartRxTask			( configMAX_PRIORITIES - 2 )
 #define priorityUartTxTask			( configMAX_PRIORITIES - 3 )
 
+#define priorityEncoderTask			( configMAX_PRIORITIES - 5 )
+
 #endif /* FREERTOSPRIORITIES_H_ */

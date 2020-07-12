@@ -12,6 +12,9 @@
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "semphr.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
@@ -31,6 +34,16 @@
 	\brief Conexión pin dirección de encoder rotativo.
 */
 #define encoderPIN_DT	GPIO0
+
+/*! \def encoderMAX_CLK_PULSES
+	\brief Cantidad máxima de pulsos admitidos por la aplicación.
+*/
+#define encoderMAX_CLK_PULSES	100
+
+/*! \def encoderSTEP_TO_SEND
+	\brief Cantidad de pasos a enviar con cada pulso de encoder.
+*/
+#define encoderANGLE_TO_SEND	15
 
 // SCU
 #define GPIO0_SCU_PORT	6
