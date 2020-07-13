@@ -26,12 +26,19 @@ QueueHandle_t xUartTxQueue;
 */
 extern QueueHandle_t xMsgQueue;
 
+/*! \var SemaphoreHandle_t xUartTxMutex
+	\brief Mutex para la protección de la cola de transmisión.
+*/
+SemaphoreHandle_t xUartTxMutex;
+
 /*! \fn void vUartSendMsg( char *pcMsg )
 	\brief Enviar mensaje a la cola de transmisión.
 	\param pcMsg Puntero al string mensaje.
 */
 void vUartSendMsg( char *pcMsg )
 {
+	/* Tomar mutex de cola de transmisión */
+	xSemaphoreTake( xUartTxMutex, portMAX_DELAY );
 	/* Escribir mensaje en cola de transmisión */
 	xQueueSendToBack(
 		/* Handle de la cola a escribir */
@@ -41,6 +48,8 @@ void vUartSendMsg( char *pcMsg )
 		/* Máximo tiempo a esperar una escritura */
 		portMAX_DELAY
 	);
+	/* Liberar mutex */
+	xSemaphoreGive( xUartTxMutex );
 }
 
 /*! \fn void vSendCmd( char* pcBuffer, uint8_t cLength )
@@ -145,7 +154,7 @@ void vUartRxISR( void* pvParameters )
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
     /* Lectura de caracter recibido */
     char cRx = uartRxRead( UART_USB );
-    // Escribir caracter en cola de recepción
+    /* Escribir caracter en cola de recepción */
     xQueueSendToBackFromISR(
     	/* Handle de la cola a escribir */
         xUartRxQueue,
@@ -185,7 +194,10 @@ BaseType_t xUartInit( void )
     /* Creación de cola de mensajes a enviar */
     xUartTxQueue = xQueueCreate( uartQUEUE_TX_LENGTH, sizeof( char * ) );
 
-    // Verificación de colas creadas con éxito
+    /* Creación de mutex para cola de transmisión */
+    xUartTxMutex = xSemaphoreCreateMutex();
+
+    /* Verificación de colas creadas con éxito */
     if ( (xUartRxQueue != NULL) && ( xUartTxQueue != NULL ) ) {
         /* Creación de tarea gatekeeper para recepción */
     	xTaskCreate(
@@ -202,9 +214,9 @@ BaseType_t xUartInit( void )
 			priorityUartTxTask, NULL );
         
     } else {
-        // Error al crear colas de UART
+        /* Error al crear colas de UART */
         return pdFAIL;
     }
-    // Inicialización de UART con éxito
+    /* Inicialización de UART con éxito */
     return pdPASS;
 }

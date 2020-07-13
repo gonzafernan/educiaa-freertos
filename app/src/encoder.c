@@ -150,14 +150,7 @@ void vEncoderTask( void *pvParameters )
 		strcat( pcMsgToSend, "A15" );
 
 		/* Enviar mensaje a cola de consignas */
-		xQueueSendToBack(
-			/* Handle de la cola a escribir */
-			xStepperSetPointQueue,
-			/* Puntero al dato a escribir */
-			&pcMsgToSend,
-			/* Máximo tiempo a esperar una escritura */
-			portMAX_DELAY
-		);
+		vStepperSendMsg( pcMsgToSend );
 	}
 }
 

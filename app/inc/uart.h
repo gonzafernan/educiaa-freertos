@@ -7,6 +7,7 @@
 #include "FreeRTOSPriorities.h"
 #include "task.h"
 #include "queue.h"
+#include "semphr.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"

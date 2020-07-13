@@ -98,14 +98,7 @@ void vAppSyncTask( void *pvParameters )
         /* Consigna a motores stepper */
         if ( pcMsgReceived[1] == 'S' ) {
         	/* Escribir mensaje en cola de consignas */
-			xQueueSendToBack(
-				/* Handle de la cola a escribir */
-				xStepperSetPointQueue,
-				/* Puntero al dato a escribir */
-				&pcMsgReceived,
-				/* Máximo tiempo a esperar una escritura */
-				portMAX_DELAY
-			);
+        	vStepperSendMsg( pcMsgReceived );
         }
         /* Verificación de notificación de error */
         ulNotifError = ulTaskNotifyTake( pdTRUE, 0 );

@@ -14,7 +14,7 @@
 /* Aplicación includes */
 #include "stepper.h"
 
-#include "../inc/driver_uln2003.h"
+#include "driver_uln2003.h"
 #include "uart.h"
 
 /*! \def stepperANGLE_TO_STEPS( X )
@@ -62,6 +62,32 @@ StepperData_t xStepperDataID[stepperAPP_NUM];
     \brief Cola de consignas recibidas a ejecutar.
 */
 QueueHandle_t xStepperSetPointQueue;
+
+/*! \fn SemaphoreHandle_t xStepperSetPointMutex
+	\brief Mutex para protección de la cola de consignas.
+*/
+SemaphoreHandle_t xStepperSetPointMutex;
+
+/*! \fn void vStepperSendMsg( char *pcMsg )
+	\brief Enviar consigna a cola de consignas pendientes.
+	\param pcMsg String con consigna a enviar.
+*/
+void vStepperSendMsg( char *pcMsg)
+{
+	/* Tomar mutex de cola de consignas */
+	xSemaphoreTake( xStepperSetPointMutex, portMAX_DELAY );
+	/* Escribir mensaje en cola de transmisión */
+	xQueueSendToBack(
+		/* Handle de la cola a escribir */
+		xStepperSetPointQueue,
+		/* Puntero al dato a escribir */
+		&pcMsg,
+		/* Máximo tiempo a esperar una escritura */
+		portMAX_DELAY
+	);
+	/* Liberar mutex */
+	xSemaphoreGive( xStepperSetPointMutex );
+}
 
 /*! \fn void vStepperRelativeSetPoint( TimerHandle_t xStepperTimer, int32_t lRelativeSetPoint )
     \brief Setear una nueva consigna en motor stepper relativa a la posición actual.
@@ -310,6 +336,10 @@ BaseType_t xStepperInit( void )
             /* Error al crear timer */
             return pdFAIL;
         }
+
+        /* Creación de mutex para cola de transmisión */
+        xStepperSetPointMutex = xSemaphoreCreateMutex();
+
     }
     /* Inicialización exitosa */
     return pdTRUE;

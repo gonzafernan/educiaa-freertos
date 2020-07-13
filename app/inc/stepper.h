@@ -16,6 +16,7 @@
 #include "task.h"
 #include "timers.h"
 #include "queue.h"
+#include "semphr.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
@@ -84,15 +85,13 @@ typedef char StepperDir_t;
 /*! \var QueueHandle_t xStepperSetPointQueue
     \brief Cola de consignas recibidas a ejecutar.
 */
-extern QueueHandle_t xStepperSetPointQueue;
+//extern QueueHandle_t xStepperSetPointQueue;
 
-/*! \fn void vStepperRelativeSetPoint( TimerHandle_t xStepperTimer, int32_t lRelativeSetPoint )
-    \brief Setear una nueva consigna en motor stepper relativa a la posición actual.
-    \param xStepperTimer Handle del timer asociado al motor que se desea asignar la nueva consigna.
-    \param ulRelativeSetPoint Cantidad de pasos a realizar.
-    \param xStepperDir Dirección de los pasos a realizar.
+/*! \fn void vStepperSendMsg( char *pcMsg )
+	\brief Enviar consigna a cola de consignas pendientes.
+	\param pcMsg String con consigna a enviar.
 */
-BaseType_t xStepperRelativeSetPoint( TimerHandle_t xStepperTimer, uint32_t ulRelativeSetPoint, StepperDir_t xStepperDir );
+void vStepperSendMsg( char *pcMsg );
 
 /*! \fn BaseType_t xStepperInit( void )
     \brief Inicialización de motores de la aplicación.
