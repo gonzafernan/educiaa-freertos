@@ -9,8 +9,11 @@
 
 #include "uart.h"
 
-// Declaración global de cola de recepción de caracteres por UART
-QueueHandle_t uartRxQueue;
+/*! \var QueueHandle_t xUartTxQueue
+	\brief Declaración global de cola de recepción de
+	caracteres por UART
+*/
+QueueHandle_t xUartRxQueue;
 
 /*! \var QueueHandle_t xUartTxQueue
 	\brief Declaración global de cola de transmisión de
@@ -25,6 +28,7 @@ extern QueueHandle_t xMsgQueue;
 
 /*! \fn void vUartSendMsg( char *pcMsg )
 	\brief Enviar mensaje a la cola de transmisión.
+	\param pcMsg Puntero al string mensaje.
 */
 void vUartSendMsg( char *pcMsg )
 {
@@ -39,20 +43,19 @@ void vUartSendMsg( char *pcMsg )
 	);
 }
 
-/*
- *  Función para comunicación del comando.
- *  Debe adaptarse a la aplicación. En este ejemplo sencillamente 
- *  se escriben todos los caracteres hasta el final de línea en la
- *  cola de transmisión.
- */
-void sendCmd( char* buffer, uint8_t length )
+/*! \fn void vSendCmd( char* pcBuffer, uint8_t cLength )
+	\brief Enviar comando a cola de mensajes recibidos.
+	\param pcBuffer Puntero al inicio del buffer.
+	\param cLength Longitud del buffer (cantidad de caracteres).
+*/
+void vSendCmd( char* pcBuffer, uint8_t cLength )
 {
 	/* Asignación de memoria dinámica del mensaje */
     char *pcMsg;
-    pcMsg = ( char * ) pvPortMalloc( length * sizeof( char ) );
-    pcMsg = buffer;
+    pcMsg = ( char * ) pvPortMalloc( cLength * sizeof( char ) );
+    pcMsg = pcBuffer;
     /* Delimitador final de string */
-    pcMsg[length] = '\0';
+    pcMsg[cLength] = '\0';
 
     /* Escribir caracter en cola de recepción */
 	xQueueSendToBack(
@@ -72,11 +75,11 @@ void sendCmd( char* buffer, uint8_t length )
 void vUartRxTask( void* pvParameters )
 {
     // Índice de buffer
-    uint8_t index = 0;
+    uint8_t cIndex = 0;
     // Variable que contendrá el caracter recibido
     char cRx;
     // Buffer de caracteres acumulados
-    char bufferRx[50];
+    char pcBufferRx[50];
 
     BaseType_t xStatus;
 
@@ -84,7 +87,7 @@ void vUartRxTask( void* pvParameters )
         /* Lectura de cola de recepción */
         xQueueReceive(
             /* Handle de la cola a leer */
-            uartRxQueue,
+            xUartRxQueue,
             /* Puntero a la memoria donde guardar lectura */
             &cRx,
             /* Máximo tiempo que la tarea puede estar bloqueada
@@ -94,15 +97,15 @@ void vUartRxTask( void* pvParameters )
         
 		if ( cRx == '\n' ) {
 			// Rutina de comunicación de comando
-			sendCmd( bufferRx, index );
-			index = 0;
+			vSendCmd( pcBufferRx, cIndex );
+			cIndex = 0;
 		} else {
 			// Guardar dato en buffer
-			bufferRx[index] = cRx;
-			index++;
-			if ( index >= L_BUFFER_RX ) {
+			pcBufferRx[cIndex] = cRx;
+			cIndex++;
+			if ( cIndex >= uartBUFFER_RX_LENGTH ) {
 				// TO DO: Warning buffer lleno (sobreescritura)
-				index = 0;
+				cIndex = 0;
 			}
 		}
     }
@@ -134,19 +137,20 @@ void vUartTxTask( void* pvParameters )
     }
 }
 
-/*
- *  Rutina de interrupción en evento de recepción por UART
- */
-void uartRxISR( void* pvParameters )
+/*! \fn void vUartRxISR( void* pvParameters )
+	\brief Rutina de interrupción en evento de recepción por UART.
+*/
+void vUartRxISR( void* pvParameters )
 {
-    /* Detección de tarea bloqueada esperando información en la cola */
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    // Lectura de caracter recibido
+    /* Lectura de caracter recibido */
     char cRx = uartRxRead( UART_USB );
     // Escribir caracter en cola de recepción
-    xQueueSendToBackFromISR( 
-        uartRxQueue, // Handle de la cola a escribit
-        &cRx,        // Puntero a dato a escribir
+    xQueueSendToBackFromISR(
+    	/* Handle de la cola a escribir */
+        xUartRxQueue,
+		/* Puntero a dato a escribir */
+        &cRx,
         &xHigherPriorityTaskWoken
     );
     /* Si durante la ejecución de la API xQueueSendToBackFromISR
@@ -165,23 +169,26 @@ BaseType_t xUartInit( void )
 {
     /* Inicialización de UART_USB junto con las interrupciones de Tx y Rx */
     uartConfig(UART_USB, 115200);     
-    // Seteo de callback al evento de recepcion y habilitación de interrupcion
-    uartCallbackSet(UART_USB, UART_RECEIVE, uartRxISR, NULL);
-    // Habilitación de todas las interrupciones de UART_USB
+    /* Seteo de callback al evento de recepcion y habilitación de interrupcion */
+    uartCallbackSet(UART_USB, UART_RECEIVE, vUartRxISR, NULL);
+    /* Habilitación de todas las interrupciones de UART_USB */
     uartInterrupt(UART_USB, true);
 
-    // Creación de cola de recepción
-    uartRxQueue = xQueueCreate(
-        L_QUEUE_RX,     // Longitud de la cola
-        sizeof( char )  // Tamaño en bytes del tipo de información a guardar en la cola
+    /* Creación de cola de recepción */
+    xUartRxQueue = xQueueCreate(
+		/* Longitud de la cola */
+		uartQUEUE_RX_LENGTH,
+		/* Tamaño en bytes del tipo de información a guardar en la cola */
+        sizeof( char )
     );
     
     /* Creación de cola de mensajes a enviar */
     xUartTxQueue = xQueueCreate( uartQUEUE_TX_LENGTH, sizeof( char * ) );
 
     // Verificación de colas creadas con éxito
-    if ( (uartRxQueue != NULL) && ( xUartTxQueue != NULL ) ) {
-        xTaskCreate(
+    if ( (xUartRxQueue != NULL) && ( xUartTxQueue != NULL ) ) {
+        /* Creación de tarea gatekeeper para recepción */
+    	xTaskCreate(
             vUartRxTask,                 // Funcion de la tarea a ejecutar
             (const char *)"UartRxTask", // Nombre de la tarea como String amigable para el usuario
             configMINIMAL_STACK_SIZE*2, // Cantidad de stack de la tarea
@@ -189,7 +196,7 @@ BaseType_t xUartInit( void )
 			priorityUartRxTask,         // Prioridad de la tarea
             NULL                        // Puntero a la tarea creada en el sistema
         );
-
+    	/* Creación de tarea gatekeeper para transmisión */
         xTaskCreate( vUartTxTask, (const char *)"UartTxTask",
             configMINIMAL_STACK_SIZE*2, NULL,
 			priorityUartTxTask, NULL );

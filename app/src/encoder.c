@@ -187,7 +187,7 @@ BaseType_t xEncoderInit( void )
 	/* Enable irqChannel interrupt */
 	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
 	/* Seteo del nivel de prioridad de la interrupción 0 */
-	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+	//NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
@@ -205,7 +205,7 @@ BaseType_t xEncoderInit( void )
 	/* Enable irqChannel interrupt */
 	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT2_INDEX );
 	/* Seteo del nivel de prioridad de la interrupción 0 */
-	NVIC_SetPriority( PININT2_NVIC_NAME, 255 );
+	//NVIC_SetPriority( PININT2_NVIC_NAME, 255 );
 
 	/* Creación de tarea de procesamiento de información de encoder */
 	BaseType_t xStatus;

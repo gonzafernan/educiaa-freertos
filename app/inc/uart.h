@@ -11,16 +11,20 @@
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
 
-// Longitud de cola de recepción
-#define L_QUEUE_RX  100
+/*! \def uartQUEUE_RX_LENGTH
+	\brief Longitud de cola de recepción.
+*/
+#define uartQUEUE_RX_LENGTH  100
 
 /*! \def uartQUEUE_TX_LENGTH
-	\brief Longitud de cola de transmisión
+	\brief Longitud de cola de transmisión.
 */
 #define uartQUEUE_TX_LENGTH  100
 
-// Tamaño de buffer de caracteres recibidos
-#define L_BUFFER_RX 50
+/*! \def uartBUFFER_RX_LENGTH
+	\brief Tamaño de buffer de caracteres recibidos.
+*/
+#define uartBUFFER_RX_LENGTH 50
 
 /*! \fn void vUartSendMsg( char *pcMsg )
 	\brief Enviar mensaje a la cola de transmisión.
