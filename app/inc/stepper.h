@@ -82,11 +82,6 @@
 */
 typedef char StepperDir_t;
 
-/*! \var QueueHandle_t xStepperSetPointQueue
-    \brief Cola de consignas recibidas a ejecutar.
-*/
-//extern QueueHandle_t xStepperSetPointQueue;
-
 /*! \fn void vStepperSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
 	\param pcMsg String con consigna a enviar.
