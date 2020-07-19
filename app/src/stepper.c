@@ -303,6 +303,8 @@ BaseType_t xStepperInit( void )
 		/* Tamaño de elementos a guardar en cola */
 		sizeof( char * )
 	);
+	/* Verificación de cola creada con éxito */
+	configASSERT( xStepperSetPointQueue != NULL );
 
     char pcAuxTimerName[15];
     for (uint8_t i=0; i<stepperAPP_NUM; i++) {

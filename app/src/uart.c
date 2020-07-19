@@ -190,9 +190,13 @@ BaseType_t xUartInit( void )
 		/* Tamaño en bytes del tipo de información a guardar en la cola */
         sizeof( char )
     );
+    /* Verificación de cola creada con éxito */
+	configASSERT( xUartRxQueue != NULL );
     
     /* Creación de cola de mensajes a enviar */
     xUartTxQueue = xQueueCreate( uartQUEUE_TX_LENGTH, sizeof( char * ) );
+    /* Verificación de cola creada con éxito */
+	configASSERT( xUartTxQueue != NULL );
 
     /* Creación de mutex para cola de transmisión */
     xUartTxMutex = xSemaphoreCreateMutex();

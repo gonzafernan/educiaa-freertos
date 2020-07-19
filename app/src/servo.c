@@ -34,19 +34,12 @@ extern TaskHandle_t xAppSyncTaskHandle;
 */
 QueueHandle_t xServoSetPointQueue;
 
-/*! \fn SemaphoreHandle_t xServoSetPointMutex
-	\brief Mutex para protección de la cola de consignas.
-*/
-SemaphoreHandle_t xServoSetPointMutex;
-
 /*! \fn void vServoSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
 	\param pcMsg String con consigna a enviar.
 */
 void vServoSendMsg( char *pcMsg)
 {
-	/* Tomar mutex de cola de consignas */
-	xSemaphoreTake( xServoSetPointMutex, portMAX_DELAY );
 	/* Escribir mensaje en cola de transmisión */
 	xQueueSendToBack(
 		/* Handle de la cola a escribir */
@@ -56,8 +49,6 @@ void vServoSendMsg( char *pcMsg)
 		/* Máximo tiempo a esperar una escritura */
 		portMAX_DELAY
 	);
-	/* Liberar mutex */
-	xSemaphoreGive( xServoSetPointMutex );
 }
 
 /*! \fn void vServoStop( void )
@@ -175,9 +166,8 @@ BaseType_t xServoInit( void )
 		/* Tamaño de elementos a guardar en cola */
 		sizeof( char * )
 	);
-
-	/* Creación de mutex para cola de consignas */
-	xServoSetPointMutex = xSemaphoreCreateMutex();
+	/* Verificación de cola creada con éxito */
+	configASSERT( xServoSetPointQueue != NULL );
 
 	/* Creación de tarea para procesamiento asociado
 	al servo motor */

@@ -61,7 +61,8 @@ extern int DbgConsole_Printf( const char *fmt_s, ... );
 #define configTICK_RATE_HZ                           ( ( TickType_t ) 1000 ) // 1000 ticks per second => 1ms tick rate
 #define configMAX_PRIORITIES                         ( 7 )
 #define configMINIMAL_STACK_SIZE                     ( ( uint16_t ) 100 )
-#define configTOTAL_HEAP_SIZE                        ( ( size_t ) ( 8 * 1024 ) )    /* 85 Kbytes. */
+//#define configTOTAL_HEAP_SIZE                        ( ( size_t ) ( 8 * 1024 ) )    /* 85 Kbytes. */
+#define configTOTAL_HEAP_SIZE                        ( ( size_t ) ( 16 * 1024 ) )
 #define configMAX_TASK_NAME_LEN                      ( 16 )
 #define configUSE_TRACE_FACILITY                     1
 #define configUSE_16_BIT_TICKS                       0
@@ -138,9 +139,11 @@ extern int DbgConsole_Printf( const char *fmt_s, ... );
 
 /* Normal assert() semantics without relying on the provision of an assert.h
  * header file. */
-#define configASSERT( x )                                       \
-    if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ) {; } \
-    }
+//#define configASSERT( x )                                       \
+//    if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ) {; } \
+//    }
+extern void vAssertCalled( uint32_t ulLine, const char * const pcFile );
+#define configASSERT( x )	if( ( x ) == 0 ) vAssertCalled( __LINE__, __FILE__ )
 
 /* Map the FreeRTOS printf() to the logging task printf. */
 #define configPRINTF( x )          vLoggingPrintf x

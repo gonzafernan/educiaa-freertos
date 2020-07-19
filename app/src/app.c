@@ -100,12 +100,12 @@ void vAppSyncTask( void *pvParameters )
         	vUartSendMsg( pcMsgReceived );
         	continue;
         }
-        /* Consigna a motores stepper */
+        /* Consigna a motores servo */
         if ( pcMsgReceived[1] == 'X' ) {
         	/* Escribir mensaje en cola de consignas */
         	vServoSendMsg( pcMsgReceived );
         }
-        /* Consigna a motor servo */
+        /* Consigna a motor stepper */
         if ( pcMsgReceived[1] == 'S' ) {
 			/* Escribir mensaje en cola de consignas */
 			vStepperSendMsg( pcMsgReceived );
@@ -131,27 +131,55 @@ void vLedBlinkTask( void *pvParameters )
 	}
 }
 
+/*! \fn size_t xPrintModuleSize( const char *pcName, size_t xPreviousFreeHeapSize )
+	\brief Obtener tamaño del módulo en base al espacio
+	disponible previo.
+	\param pcName String identificador del módulo.
+	\param xPreviousFreeHeapSize Espacio disponible previo.
+*/
+size_t xPrintModuleSize( const char *pcName, size_t xPreviousFreeHeapSize )
+{
+	/* Obtener información del espacio libre */
+	size_t xFreeHeapSize = xPortGetFreeHeapSize();
+	printf( "Size %s: %d\n", pcName, xPreviousFreeHeapSize - xFreeHeapSize );
+	return xFreeHeapSize;
+}
+
 int main( void )
 {
     /* Inicialización de la placa */
     boardConfig();
 
+    /* Obtener información de espacio disponible */
+    size_t xPreviousSize = xPortGetFreeHeapSize();
+    printf( "Espacio disponible: %d\n", xPreviousSize );
+
     /* Flags de estado de los diferentes módulos */
-    BaseType_t xUartStatus, xEncoderStatus, xStepperStatus;
+    BaseType_t xStatus;
+
     /* Inicialización de UART */
-    xUartStatus = xUartInit();
+    xStatus = xUartInit(); configASSERT( xStatus == pdPASS );
+    xPreviousSize = xPrintModuleSize( "UART", xPreviousSize);
+
     /* Inicialización de encoder rotativo */
-    xEncoderStatus = xEncoderInit();
+    xStatus = xEncoderInit(); configASSERT( xStatus == pdPASS );
+    xPreviousSize = xPrintModuleSize( "Encoder", xPreviousSize);
+
     /* Inicialización de motor stepper */
-    xStepperStatus = xStepperInit();
+    xStatus = xStepperInit(); configASSERT( xStatus == pdPASS );
+    xPreviousSize = xPrintModuleSize( "Stepper", xPreviousSize);
+
     /* Inicialización de servo motor */
-    xServoInit();
+    xStatus = xServoInit(); configASSERT( xStatus == pdPASS );
+    /* Obtener información del espacio libre */
+    xPreviousSize = xPrintModuleSize( "Servo", xPreviousSize);
 
     /* Creación de cola de mensajes recibidos */
     xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );
+    /* Verificación de cola creada con éxito */
+	configASSERT( xMsgQueue != NULL );
 
     /* Creación de tarea de control de flujo de trabajo del programa */
-    BaseType_t xStatus;
     xStatus = xTaskCreate(
         /* Puntero a la función que implementa la tarea */
         vAppSyncTask,

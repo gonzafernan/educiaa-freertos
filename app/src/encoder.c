@@ -89,25 +89,9 @@ void vEncoderSW_IRQ_HANDLER( void )
 */
 void vEncoderTask( void *pvParameters )
 {
-	/* Creación de mailbox con selección de motor */
-	xEncoderChoiceMailbox = xQueueCreate( 1, sizeof( uint8_t ) );
 	/* Valor de selección inicial del encoder */
 	uint8_t cValue = 0;
 	xQueueOverwrite( xEncoderChoiceMailbox, &cValue );
-	/* Creación de semáforo contador para pulsos positivos de clock */
-	xEncoderPositivePulseSemaphore = xSemaphoreCreateCounting(
-		/* Cantidad máxima de elementos */
-		encoderMAX_CLK_PULSES,
-		/* Cuenta inicial del semáforo */
-		0
-	);
-	/* Creación de semáforo contador para pulsos negativos de clock */
-	xEncoderNegativePulseSemaphore = xSemaphoreCreateCounting(
-		/* Cantidad máxima de elementos */
-		encoderMAX_CLK_PULSES,
-		/* Cuenta inicial del semáforo */
-		0
-	);
 
 	/* Creación de set de semáforos */
 	static QueueSetHandle_t xEncoderSemaphoreSet;
@@ -180,7 +164,7 @@ BaseType_t xEncoderInit( void )
 	/* Enable irqChannel interrupt */
 	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
 	/* Seteo del nivel de prioridad de la interrupción 0 */
-	//NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
@@ -199,6 +183,26 @@ BaseType_t xEncoderInit( void )
 	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT2_INDEX );
 	/* Seteo del nivel de prioridad de la interrupción 0 */
 	NVIC_SetPriority( PININT2_NVIC_NAME, 255 );
+
+	/* Creación de mailbox con selección de motor */
+	xEncoderChoiceMailbox = xQueueCreate( 1, sizeof( uint8_t ) );
+	/* Verificación de mailbox creado con éxito */
+	configASSERT( xEncoderChoiceMailbox != NULL );
+
+	/* Creación de semáforo contador para pulsos positivos de clock */
+	xEncoderPositivePulseSemaphore = xSemaphoreCreateCounting(
+		/* Cantidad máxima de elementos */
+		encoderMAX_CLK_PULSES,
+		/* Cuenta inicial del semáforo */
+		0
+	);
+	/* Creación de semáforo contador para pulsos negativos de clock */
+	xEncoderNegativePulseSemaphore = xSemaphoreCreateCounting(
+		/* Cantidad máxima de elementos */
+		encoderMAX_CLK_PULSES,
+		/* Cuenta inicial del semáforo */
+		0
+	);
 
 	/* Creación de tarea de procesamiento de información de encoder */
 	BaseType_t xStatus;
