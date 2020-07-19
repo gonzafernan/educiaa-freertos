@@ -155,14 +155,6 @@ static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
 */
 void vStepperControlTask( void *pvParameters )
 {
-    /* Creación de cola de consignas recibidas a ejecutar */
-    xStepperSetPointQueue = xQueueCreate(
-        /* Longitud máxima de la cola */
-        stepperMAX_SETPOINT_QUEUE_LENGTH,
-        /* Tamaño de elementos a guardar en cola */
-        sizeof( char * )
-    );
-
     /* Puntero a consignas recibidas */
     char *pcReceivedSetPoint;
 
@@ -304,6 +296,14 @@ BaseType_t xStepperInit( void )
         return pdFAIL;
     }
     
+    /* Creación de cola de consignas recibidas a ejecutar */
+	xStepperSetPointQueue = xQueueCreate(
+		/* Longitud máxima de la cola */
+		stepperMAX_SETPOINT_QUEUE_LENGTH,
+		/* Tamaño de elementos a guardar en cola */
+		sizeof( char * )
+	);
+
     char pcAuxTimerName[15];
     for (uint8_t i=0; i<stepperAPP_NUM; i++) {
         /* String identificadora para debug */
@@ -337,7 +337,7 @@ BaseType_t xStepperInit( void )
             return pdFAIL;
         }
 
-        /* Creación de mutex para cola de transmisión */
+        /* Creación de mutex para cola de consignas */
         xStepperSetPointMutex = xSemaphoreCreateMutex();
 
     }

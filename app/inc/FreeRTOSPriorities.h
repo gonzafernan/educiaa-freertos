@@ -15,6 +15,7 @@
 #define priorityAppSyncTask			( configMAX_PRIORITIES - 5 )
 
 #define priorityStepperControlTask	( configMAX_PRIORITIES - 4 )
+#define priorityServoControlTask		( configMAX_PRIORITIES - 4 )
 
 #define priorityUartRxTask			( configMAX_PRIORITIES - 2 )
 #define priorityUartTxTask			( configMAX_PRIORITIES - 3 )

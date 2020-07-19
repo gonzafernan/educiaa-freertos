@@ -24,6 +24,7 @@
 #include "uart.h"
 #include "encoder.h"
 #include "stepper.h"
+#include "servo.h"
 
 /*! \def appQUEUE_MSG_LENGTH
 	\brief Longitud de cola de mensajes recibidos.
@@ -58,9 +59,13 @@ void vErrorNotifHandling( uint32_t ulNotifError )
 		if ( ulNotifError & (1 << stepperERROR_NOTIF_VEL ) ) {
 			vUartSendMsg( "AST:ERR:STPVEL" );
 		}
-		/* Error en stepper ID */
+		/* Error en stepper ANG */
 		if ( ulNotifError & (1 << stepperERROR_NOTIF_ANG ) ) {
 			vUartSendMsg( "AST:ERR:STPANG" );
+		}
+		/* Error en stepper ID */
+		if ( ulNotifError & (1 << servoERROR_NOTIF_ANG ) ) {
+			vUartSendMsg( "AST:ERR:SRVANG" );
 		}
 	}
 }
@@ -96,10 +101,16 @@ void vAppSyncTask( void *pvParameters )
         	continue;
         }
         /* Consigna a motores stepper */
-        if ( pcMsgReceived[1] == 'S' ) {
+        if ( pcMsgReceived[1] == 'X' ) {
         	/* Escribir mensaje en cola de consignas */
-        	vStepperSendMsg( pcMsgReceived );
+        	vServoSendMsg( pcMsgReceived );
         }
+        /* Consigna a motor servo */
+        if ( pcMsgReceived[1] == 'S' ) {
+			/* Escribir mensaje en cola de consignas */
+			vStepperSendMsg( pcMsgReceived );
+		}
+
         /* Verificación de notificación de error */
         ulNotifError = ulTaskNotifyTake( pdTRUE, 0 );
         vErrorNotifHandling( ulNotifError );
@@ -133,6 +144,8 @@ int main( void )
     xEncoderStatus = xEncoderInit();
     /* Inicialización de motor stepper */
     xStepperStatus = xStepperInit();
+    /* Inicialización de servo motor */
+    xServoInit();
 
     /* Creación de cola de mensajes recibidos */
     xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );
