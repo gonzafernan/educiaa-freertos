@@ -26,19 +26,12 @@ QueueHandle_t xUartTxQueue;
 */
 extern QueueHandle_t xMsgQueue;
 
-/*! \var SemaphoreHandle_t xUartTxMutex
-	\brief Mutex para la protección de la cola de transmisión.
-*/
-SemaphoreHandle_t xUartTxMutex;
-
 /*! \fn void vUartSendMsg( char *pcMsg )
 	\brief Enviar mensaje a la cola de transmisión.
 	\param pcMsg Puntero al string mensaje.
 */
 void vUartSendMsg( char *pcMsg )
 {
-	/* Tomar mutex de cola de transmisión */
-	xSemaphoreTake( xUartTxMutex, portMAX_DELAY );
 	/* Escribir mensaje en cola de transmisión */
 	xQueueSendToBack(
 		/* Handle de la cola a escribir */
@@ -48,8 +41,6 @@ void vUartSendMsg( char *pcMsg )
 		/* Máximo tiempo a esperar una escritura */
 		portMAX_DELAY
 	);
-	/* Liberar mutex */
-	xSemaphoreGive( xUartTxMutex );
 }
 
 /*! \fn void vSendCmd( char* pcBuffer, uint8_t cLength )
@@ -83,11 +74,11 @@ void vSendCmd( char* pcBuffer, uint8_t cLength )
 */
 void vUartRxTask( void* pvParameters )
 {
-    // Índice de buffer
+    /* Índice de buffer */
     uint8_t cIndex = 0;
-    // Variable que contendrá el caracter recibido
+    /* Variable que contendrá el caracter recibido */
     char cRx;
-    // Buffer de caracteres acumulados
+    /* Buffer de caracteres acumulados */
     char pcBufferRx[50];
 
     BaseType_t xStatus;
@@ -197,9 +188,6 @@ BaseType_t xUartInit( void )
     xUartTxQueue = xQueueCreate( uartQUEUE_TX_LENGTH, sizeof( char * ) );
     /* Verificación de cola creada con éxito */
 	configASSERT( xUartTxQueue != NULL );
-
-    /* Creación de mutex para cola de transmisión */
-    xUartTxMutex = xSemaphoreCreateMutex();
 
     /* Verificación de colas creadas con éxito */
     if ( (xUartRxQueue != NULL) && ( xUartTxQueue != NULL ) ) {

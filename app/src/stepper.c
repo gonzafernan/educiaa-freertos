@@ -11,11 +11,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* EDU-CIAA firmware_v3 includes */
+#include "sapi.h"
+
 /* Aplicación includes */
 #include "stepper.h"
-
 #include "driver_uln2003.h"
 #include "uart.h"
+
+/* FreeRTOS includes */
+#include "FreeRTOSPriorities.h"
+#include "task.h"
+#include "timers.h"
+#include "queue.h"
+#include "semphr.h"
+#include "event_groups.h"
 
 /*! \def stepperANGLE_TO_STEPS( X )
     \brief Macro para convertir ángulos en cantidad de pasos del motor.
@@ -35,6 +45,8 @@ typedef struct xStepperData {
     /* Dirección en que se deben realizar los
     pasos pendientes */
     StepperDir_t xDir;
+    /* Bit asociado en el grupo de eventos (igual a ID) */
+    uint8_t cEventGroupBit;
 } StepperData_t;
 
 /*! \var TaskHandle_t xStepperControlTaskHandle
@@ -63,10 +75,11 @@ StepperData_t xStepperDataID[stepperAPP_NUM];
 */
 QueueHandle_t xStepperSetPointQueue;
 
-/*! \fn SemaphoreHandle_t xStepperSetPointMutex
-	\brief Mutex para protección de la cola de consignas.
+/*! \var EventGroupHandle_t xStepperEventGroup
+	\brief Grupo de eventos para detectar que todos los
+	motores detuvieron su movimiento (final de consigna).
 */
-SemaphoreHandle_t xStepperSetPointMutex;
+EventGroupHandle_t xStepperEventGroup;
 
 /*! \fn void vStepperSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
@@ -74,8 +87,6 @@ SemaphoreHandle_t xStepperSetPointMutex;
 */
 void vStepperSendMsg( char *pcMsg)
 {
-	/* Tomar mutex de cola de consignas */
-	xSemaphoreTake( xStepperSetPointMutex, portMAX_DELAY );
 	/* Escribir mensaje en cola de transmisión */
 	xQueueSendToBack(
 		/* Handle de la cola a escribir */
@@ -85,8 +96,6 @@ void vStepperSendMsg( char *pcMsg)
 		/* Máximo tiempo a esperar una escritura */
 		portMAX_DELAY
 	);
-	/* Liberar mutex */
-	xSemaphoreGive( xStepperSetPointMutex );
 }
 
 /*! \fn void vStepperRelativeSetPoint( TimerHandle_t xStepperTimer, int32_t lRelativeSetPoint )
@@ -123,8 +132,13 @@ static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
     if ( xStepperDataID->ulPendingSteps == 0 ) {
         /* Detener timer si no existen pasos pendientes */
         xTimerStop( xStepperTimer, 0 );
-        /* Enviar notificación a tarea de control, avisando consigna finalizada */
-        xTaskNotifyGive( xStepperControlTaskHandle );
+        /* Setear bit de evento asociado al motor */
+        xEventGroupSetBits(
+        	/* Handle del grupo de eventos */
+			xStepperEventGroup,
+			/* Bits a setear */
+			( 1 << xStepperDataID->cEventGroupBit )
+        );
         return;
     }
     /* Cálculo de nuevo estado del driver según dirección */
@@ -189,8 +203,6 @@ void vStepperControlTask( void *pvParameters )
 				de notificación en la tarea que recibe */
 				eSetBits
         	);
-        	/* Liberación de memoria */
-        	//vPortFree( pcReceivedSetPoint );
         	continue;
         }
         /* Lectura de dirección del motor */
@@ -201,8 +213,6 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en dirección */
 				xTaskNotify( xAppSyncTaskHandle,
 					( 1 << stepperERROR_NOTIF_DIR ), eSetBits );
-				/* Liberación de memoria */
-				//vPortFree( pcReceivedSetPoint );
 				continue;
         	}
         } else if ( pcReceivedSetPoint[3] == 'V' ) {
@@ -212,8 +222,6 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en velocidad */
         		xTaskNotify( xAppSyncTaskHandle,
         			( 1 << stepperERROR_NOTIF_VEL ), eSetBits );
-        		/* Liberación de memoria */
-				//vPortFree( pcReceivedSetPoint );
         		continue;
         	}
         	/* Cambio de periodo del timer */
@@ -225,16 +233,12 @@ void vStepperControlTask( void *pvParameters )
 				/* Máximo tiempo a esperar bloqueado */
 				portMAX_DELAY
 				);
-			/* Liberación de memoria */
-			//vPortFree( pcReceivedSetPoint );
 			continue;
         } else {
         	/* Error en dirección o velocidad */
         	xTaskNotify( xAppSyncTaskHandle,
         		( ( 1 << stepperERROR_NOTIF_DIR ) | ( 1 << stepperERROR_NOTIF_VEL ) ),
 				eSetBits );
-        	/* Liberación de memoria */
-			//vPortFree( pcReceivedSetPoint );
         	continue;
         }
 
@@ -246,25 +250,31 @@ void vStepperControlTask( void *pvParameters )
         		/* Error en ángulo */
 				xTaskNotify( xAppSyncTaskHandle,
 					( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
-				/* Liberación de memoria */
-				//vPortFree( pcReceivedSetPoint );
 				continue;
         	}
         	/* Seteo de consigna */
         	lAngle = stepperANGLE_TO_STEPS( lAngle );
         	xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
         	/* Esperar finalización de ejecución de consigna */
-			ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
-			/* Enviar mensaje de finalización de consigna */
+			xEventGroupWaitBits(
+				/* Handle de evento a leer */
+				xStepperEventGroup,
+				/* Bits que se epera */
+				( 1 << 0 ) | ( 1 << 1 ),
+				/* Clear de los bits setados si se cumple condición */
+				pdTRUE,
+				/* Condición de AND (esperar todos los bits) */
+				pdTRUE,
+				/* Bloquearse indefinidamente */
+				portMAX_DELAY
+			);
+
+        	/* Enviar mensaje de finalización de consigna */
 			vUartSendMsg( "SCT:END" );
-			/* Liberación de memoria */
-			//vPortFree( pcReceivedSetPoint );
         } else {
         	/* Error en ángulo */
     		xTaskNotify( xAppSyncTaskHandle,
     			( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
-    		/* Liberación de memoria */
-			//vPortFree( pcReceivedSetPoint );
     		continue;
         }
     }
@@ -306,6 +316,9 @@ BaseType_t xStepperInit( void )
 	/* Verificación de cola creada con éxito */
 	configASSERT( xStepperSetPointQueue != NULL );
 
+	/* Creación de grupo de eventos para detectar final de consigna */
+	xStepperEventGroup = xEventGroupCreate();
+
     char pcAuxTimerName[15];
     for (uint8_t i=0; i<stepperAPP_NUM; i++) {
         /* String identificadora para debug */
@@ -319,6 +332,9 @@ BaseType_t xStepperInit( void )
 		for ( uint8_t j=0; j<driverINPUT_NUM; j++) {
 			xStepperDataID[i].pxDriverInput[j] = pxDriver[i][j];
 		}
+
+		/* Bit de grupo de evento */
+		xStepperDataID[i].cEventGroupBit = i;
 
         /* Creación de los software timers */
         xStepperTimer[i] = xTimerCreate(
@@ -338,10 +354,6 @@ BaseType_t xStepperInit( void )
             /* Error al crear timer */
             return pdFAIL;
         }
-
-        /* Creación de mutex para cola de consignas */
-        xStepperSetPointMutex = xSemaphoreCreateMutex();
-
     }
     /* Inicialización exitosa */
     return pdTRUE;

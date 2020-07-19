@@ -12,14 +12,6 @@
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
-#include "FreeRTOSPriorities.h"
-#include "task.h"
-#include "timers.h"
-#include "queue.h"
-#include "semphr.h"
-
-/* EDU-CIAA firmware_v3 includes */
-#include "sapi.h"
 
 /*! \def stepperAPP_NUM
     \brief Cantidad de motores en la aplicación

@@ -15,7 +15,6 @@
 #include "FreeRTOSPriorities.h"
 #include "task.h"
 #include "queue.h"
-#include "semphr.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
@@ -174,4 +173,6 @@ BaseType_t xServoInit( void )
 	xTaskCreate( vServoControlTask, (const char *)"ServoControlTask",
 		configMINIMAL_STACK_SIZE*2, NULL,
 		priorityServoControlTask, NULL );
+
+	return pdPASS;
 }
