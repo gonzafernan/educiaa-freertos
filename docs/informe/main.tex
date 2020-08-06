@@ -111,7 +111,7 @@ Para reflejar de una forma concreta las acciones ejecutadas en la electrónica d
 
 Los actuadores del robot consisten en tres motores paso a paso monopolares 28BYJ-48 con drivers ULN2003, y su extremo operativo es accionado por un servo motor Tower Pro SG90.
 
-Además del brazo robótico con sus tres motores paso a paso y servo motor, la aplicación también tiene un display donde se observará la información del estado en que se encuentra el brazo. Las consignas que recibirán los motores será a través de protocola UART desde PC o mediante un encoder rotativo. Como accesorio secundario en la aplicación se encuentran los LEDs de la placa EDU-CIAA como indicadores visuales y un buzzer como indicador auditivo.
+Además del brazo robótico con sus tres motores paso a paso y servo motor, la aplicación también tiene un display donde se observará la información del estado en que se encuentra el brazo. Las consignas que recibirán los motores será a través de protocolo UART desde PC o mediante un encoder rotativo. Como accesorio secundario en la aplicación se encuentran los LEDs de la placa EDU-CIAA como indicadores visuales y un buzzer como indicador auditivo.
 
 \section{Componentes fundamentales de FreeRTOS}
 A continuación se describe brevemente los diferentes componentes escenciales de FreeRTOS según el libro \textit{Mastering the FreeRTOS Real Time Kernel}, y su uso dentro de la aplicación.
@@ -137,7 +137,7 @@ Debido a que se utiliza asignación de memoria dinámica en el proyecto, es impo
     \item \textit{Heap 1}: Implementación básica de \textit{pvPortMalloc()} y sin implementación de \textit{vPortFree()}. Se utiliza en aplicaciones que nunca eliminan tareas ni otro tipos de objetos de kernel. Es el caso de este proyecto, sin embargo se mencionó el uso de un buffer de mensajes que si son dinámicos (cabe aclarar que es algo que puede evitarse, sin embargo se lo implementa como un caso de aplicación).
     \item \textit{Heap 2}: Esquema que solo se mantiene por compatibilidad, pero no se recomienda utilizar.
     \item \textit{Heap 3}: Utiliza las funciones de la librería estándar de C \textit{malloc()} y \textit{free()}.
-    \item \textit{Heap 4}: A diferencia del 3, combina bloques de memoria libre en un bloque de mayor tamaño, y utiliza un algoritmo de \textit{first fit} (se asigna el primer bloque libre con espacio suficiente), lo que previene la defragmentación.
+    \item \textit{Heap 4}: A diferencia del 3, combina bloques de memoria libre en un bloque de mayor tamaño, y utiliza un algoritmo de \textit{first fit} (se asigna el primer bloque libre con espacio suficiente), lo que previene la fragmentación.
     \item \textit{Heap 5}: La única diferencia con el 4, es que no esta limitado a la asignación de memoria partiendo de un único array asignado estáticamente.
 \end{itemize}
 
@@ -158,15 +158,15 @@ El cambio de estado en una tarea es únicamente dirigido por el \textit{schedule
 
 Para seleccionar esa próxima tarea a ejecutar, el \textit{scheduler} se ejecuta mediante una interrupción periódica denominada \textit{tick interrupt}. En el proyecto la frecuencia de dicha interrupción es de 1000Hz.
 
-No es necesario expecificar un ejemplo de tarea ya que se utilizan en prácticamente todos los aspectos del trabajo.
+No es necesario especificar un ejemplo de tarea ya que se utilizan en prácticamente todos los aspectos del trabajo.
 
 \subsection{Algoritmos de \textit{scheduler}}
-El algoritmo del \textit{scheduler} es el que decidirá que tarea ejecutará de entre la lista de tareas en estado listas o \textit{ready}.
+El algoritmo del \textit{scheduler} es el que decidirá qué tarea ejecutará de entre la lista de tareas en estado listas o \textit{ready}.
 
 El tipo de algoritmo a utilizar se configura con dos variables: uso de \textbf{preemption} y uso de \textbf{time slicing}:
 
 \begin{itemize}
-    \item \textit{Scheduling de prioridad fija pre-emptive con time slicing}: Ambas variables en 1. No cambia la prioridad de las tareas (si pueden cambiarse su prioridad las tareas mismas), inmediatamente se hace ``pre-empt'' de la tarea en estado \textit{running} si otra de mayor prioridad entra en estado \textit{ready} (esto quiere decir que el scheduler automáticamente en el \textit{tick} le dará el procesador a la tarea de mayor prioridad en estado \textit{ready}), y el \textit{time slicing} indica que a tareas de igual prioridad en estado \textit{ready} se les brindará el procesador alternadamente en intervalos de tiempo iguales (esos intervalos de tiempo son iguales a dos interrupciones por tick).
+    \item \textit{Scheduling de prioridad fija pre-emptive con time slicing}: Ambas variables en 1. No cambia la prioridad de las tareas (sí pueden cambiarse su prioridad las tareas mismas), inmediatamente se hace ``pre-empt'' de la tarea en estado \textit{running} si otra de mayor prioridad entra en estado \textit{ready} (esto quiere decir que el scheduler automáticamente en el \textit{tick} le dará el procesador a la tarea de mayor prioridad en estado \textit{ready}), y el \textit{time slicing} indica que a tareas de igual prioridad en estado \textit{ready} se les brindará el procesador alternadamente en intervalos de tiempo iguales (esos intervalos de tiempo son iguales a dos interrupciones por tick).
     \item \textit{Scheduling de prioridad fija pre-emptive sin time slicing}: \textit{time slicing} en 0. En este caso al no haber \textit{time slicing}, cuando tareas de igual prioridad se encuentren en estado \textit{ready}, solo habrá cambio de contexto (el \textit{scheduler} asigna el procesador a una tarea diferente) cuando la tarea en estado \textit{running} se bloquee o se suspenda o haya \textit{pre-empt} de una tarea de prioridad mayor.
     \item \textit{Scheduling cooperativo}: \textit{preemption} en 0 y \textit{time slicing} en cualquier valor. Solo hay cambio de contexto cuando la tarea en estado \textit{running} se bloquee o suspenda, o cuando explícitamente hace un \textit{yield} (solicitar explícitamente la entrada del \textit{scheduler}).
 \end{itemize}
@@ -185,7 +185,7 @@ Las características principales de esta estructura son las siguientes:
     \item Se pueden agrupar de forma que una tarea quede bloqueada hasta que alguna del grupo se encuentre disponible para su lectura o escritura.
 \end{itemize}
 
-En el proyecto se utilizaron colas de recepción y transmisión que contienen los caracteres recibidos o ha ser enviados por UART, y también colas con elementos de tamaño variable como lo son la cola de mensajes recibidos y la cola de consignas de los motores (ver figuras \ref{fig:diagrama-uart} y \ref{fig:diagrama-stepper}).
+En el proyecto se utilizaron colas de recepción y transmisión que contienen los caracteres recibidos o a ser enviados por UART, y también colas con elementos de tamaño variable como lo son la cola de mensajes recibidos y la cola de consignas de los motores (ver figuras \ref{fig:diagrama-uart} y \ref{fig:diagrama-stepper}).
 
 Si una tarea recibe información desde múltiples fuentes (esto aplica tanto a colas como a semáforos), FreeRTOS nos permite agrupar esas fuentes en \textit{sets}. Estos \textit{sets} evitan que la tarea deba hacer un polling en turnos de las fuentes.
 
@@ -244,6 +244,9 @@ En el proyecto se aplicaron \textit{mutex} para la protección de la cola de tra
 Otra forma muy efectiva de garantizar la exclusión mutua de un recurso, son las tareas \textit{gatekeeper}. Basicamente consiste en una tarea convencional que tiene el control total sobre el recurso a proteger, cualquier otro proceso que necesite el acceso lo deberá hacer indirectamente a través de los servicios que brinde la tarea \textit{gatekeeper}. 
 
 En el proyecto se utilizaron dos de este tipo de tareas a la hora de implementar la comunicación UART: una encargada de la transmisión de datos y otra del procesamiento de la información recibida.
+
+\subsection{Grupos de eventos}
+A diferencia de otros objetos como las colas y semáforos, los grupos de eventos permiten a una tarea esperar bloqueada por una combinación de uno o más eventos.
 
 \subsection{Notificación de tareas}
 Las notificaciones de tarea proporcionan una forma de comunicación entre tareas (o tareas y rutinas de interrupción) sin la necesidad de un objeto de comunicación, como lo son las colas, semáforos y grupos de eventos. Esto permite que la comunicación sea directa.
@@ -377,6 +380,21 @@ En la figura \ref{fig:diagrama-app} se puede observar la interconexión de todas
     \caption{Diagrama de interconexión de los diferentes módulos de la aplicación.}
     \label{fig:diagrama-app}
 \end{sidewaysfigure*}
+
+\section{Debug para control de errores con assert y funciones de memoria}
+\label{sec:debug}
+
+A la hora de implementar en conjunto el encoder rotativo, el control de los motores paso a paso y el control del motor servo, se presentaron problemas de memoria.
+
+Para poder realizar una especie de \textit{debugging} sencillo, se utiliza la macro de C \textit{assert}, que permite verificar si una expresión es válida (si un puntero es nulo por ejemplo). FreeRTOS no llama la función estándar de C \textit{assert} por no estar disponible en todos los compiladores, en su lugar llama a \textit{configASSERT} que se puede definir en el archivo de configuración de FreeRTOS.
+
+Una forma de obtener información de dónde se producen errores es, por ejemplo, imprimir por salida estándar el archivo y número de línea donde se produjo el error. Esto se logra definiendo \textit{configASSERT} como una función que realice esto. No fue necesario la implementación de dicha función ya que se encontraba en el código fuente de FreeRTOS (específicamente en el archivo \textit{hooks.c}).
+
+Además, también se utilizo la API de FreeRTOS \textit{xPortGetFreeHeapSize}, que permite obtener el espacio libre disponible en pila de memoria.
+
+Se pudo encontrar que al juntar todos lo módulos, se sobrepasaba el tamaño de pila dado en la configuración (de 8 kilobytes). Se duplicó a \textbf{16 kilobytes} y así contar con espacio suficiente para toda la aplicación.
+
+Analizando este problema también se obtuvo el tamaño de cada módulo, siendo los siguientes:
 
 \section{Conclusiones}
 \label{sec:conclusiones}

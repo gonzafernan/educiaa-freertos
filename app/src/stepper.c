@@ -110,9 +110,9 @@ BaseType_t xStepperRelativeSetPoint( TimerHandle_t xStepperTimer, uint32_t ulRel
     StepperData_t *xStepperDataID;
     xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer );
     /* Verificación de consigna nula */
-    if ( ulRelativeSetPoint == 0 ) {
-        return pdPASS;
-    }
+    //if ( ulRelativeSetPoint == 0 ) {
+    //    return pdPASS;
+    //}
     /* Seteo de consigna como pasos pendientes y dirección */
     xStepperDataID->ulPendingSteps = ulRelativeSetPoint;
     xStepperDataID->xDir = xStepperDir;
@@ -178,6 +178,8 @@ void vStepperControlTask( void *pvParameters )
     StepperDir_t xDir;
     /* Ángulo a realizar */
     int32_t lAngle;
+    /* Variable para gestión de errores en mensaje */
+    uint8_t cErrorHandle = 0;
 
     for ( ;; ) {
     	/* Lectura de cola de consignas */
@@ -190,93 +192,96 @@ void vStepperControlTask( void *pvParameters )
             portMAX_DELAY
         );
 
-        /* Lectura de ID del motor a setear */
-        cID = atoi( &pcReceivedSetPoint[2] );
-        /* Verificación de ID válida */
-        if ( ( cID < 0 ) || ( cID > stepperAPP_NUM ) ) {
+        for ( uint8_t i=0; i<stepperAPP_NUM; i++ ) {
+        	/* Lectura de ID del motor a setear */
+			cID = atoi( &pcReceivedSetPoint[i*8+2] );
+			/* Verificación de ID válida */
+			if ( ( cID < 0 ) || ( cID > stepperAPP_NUM ) ) {
+				cErrorHandle = stepperERROR_NOTIF_ID;
+				continue;
+			}
+			/* Lectura de dirección del motor */
+			if ( pcReceivedSetPoint[i*8+3] == 'D' ) {
+				xDir = atoi( &pcReceivedSetPoint[i*8+4] );
+				/* Verificación de valor de dirección */
+				if ( ( xDir < 0 ) || ( xDir > 1 ) ) {
+					cErrorHandle = stepperERROR_NOTIF_DIR;
+					continue;
+				}
+			} else if ( pcReceivedSetPoint[i*8+3] == 'V' ) {
+	        	cVel = atoi( &pcReceivedSetPoint[4] );
+	        	/* Verificación de valor de velocidad */
+	        	if ( ( cVel < stepperTIMER_MIN_PERIOD ) | ( cVel > stepperTIMER_MAX_PERIOD ) ) {
+	        		/* Error en velocidad */
+	        		cErrorHandle = stepperERROR_NOTIF_VEL;
+					continue;
+	        	}
+	        	/* Cambio de periodo del timer */
+				xTimerChangePeriod(
+					/* Handle del timer a modificar */
+					xStepperTimer[cID],
+					/* Nuevo periodo en ticks */
+					pdMS_TO_TICKS( cVel ),
+					/* Máximo tiempo a esperar bloqueado */
+					portMAX_DELAY
+					);
+				continue;
+	        } else {
+	        	/* Error en dirección o velocidad */
+	        	cErrorHandle = stepperERROR_NOTIF_DIR;
+	        	continue;
+	        }
+
+			/* Lectura de ángulo */
+			if ( pcReceivedSetPoint[i*8+5] == 'A' ) {
+				lAngle = atoi( &pcReceivedSetPoint[i*8+6] );
+				/* Verificación de ángulo positivo */
+				if ( lAngle < 0 ) {
+					/* Error en ángulo */
+					cErrorHandle = stepperERROR_NOTIF_ANG;
+					continue;
+				}
+				/* Seteo de consigna */
+				lAngle = stepperANGLE_TO_STEPS( lAngle );
+				xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
+			} else {
+				/* Error en ángulo */
+				cErrorHandle = stepperERROR_NOTIF_ANG;
+				continue;
+			}
+        }
+        /* Error en consigna a motores */
+        if ( cErrorHandle ) {
         	xTaskNotify(
-        		/* Handle de la tarea a notificar */
-        		xAppSyncTaskHandle,
+				/* Handle de la tarea a notificar */
+				xAppSyncTaskHandle,
 				/* Valor dependiente de eNotifyAction */
-				( 1 << stepperERROR_NOTIF_ID ),
+				( 1 << cErrorHandle ),
 				/* Tipo enumerate que define cómo actualizar el valor
 				de notificación en la tarea que recibe */
 				eSetBits
-        	);
-        	continue;
-        }
-        /* Lectura de dirección del motor */
-        if ( pcReceivedSetPoint[3] == 'D' ) {
-        	xDir = atoi( &pcReceivedSetPoint[4] );
-        	/* Verificación de valor de dirección */
-        	if ( ( xDir < 0 ) || ( xDir > 1 ) ) {
-        		/* Error en dirección */
-				xTaskNotify( xAppSyncTaskHandle,
-					( 1 << stepperERROR_NOTIF_DIR ), eSetBits );
-				continue;
-        	}
-        } else if ( pcReceivedSetPoint[3] == 'V' ) {
-        	cVel = atoi( &pcReceivedSetPoint[4] );
-        	/* Verificación de valor de velocidad */
-        	if ( ( cVel < stepperTIMER_MIN_PERIOD ) | ( cVel > stepperTIMER_MAX_PERIOD ) ) {
-        		/* Error en velocidad */
-        		xTaskNotify( xAppSyncTaskHandle,
-        			( 1 << stepperERROR_NOTIF_VEL ), eSetBits );
-        		continue;
-        	}
-        	/* Cambio de periodo del timer */
-			xTimerChangePeriod(
-				/* Handle del timer a modificar */
-				xStepperTimer[cID],
-				/* Nuevo periodo en ticks */
-				pdMS_TO_TICKS( cVel ),
-				/* Máximo tiempo a esperar bloqueado */
-				portMAX_DELAY
-				);
-			continue;
-        } else {
-        	/* Error en dirección o velocidad */
-        	xTaskNotify( xAppSyncTaskHandle,
-        		( ( 1 << stepperERROR_NOTIF_DIR ) | ( 1 << stepperERROR_NOTIF_VEL ) ),
-				eSetBits );
-        	continue;
-        }
-
-        /* Lectura de ángulo */
-        if ( pcReceivedSetPoint[5] == 'A' ) {
-        	lAngle = atoi( &pcReceivedSetPoint[6] );
-        	/* Verificación de ángulo positivo */
-        	if ( lAngle < 0 ) {
-        		/* Error en ángulo */
-				xTaskNotify( xAppSyncTaskHandle,
-					( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
-				continue;
-        	}
-        	/* Seteo de consigna */
-        	lAngle = stepperANGLE_TO_STEPS( lAngle );
-        	xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
-        	/* Esperar finalización de ejecución de consigna */
-			xEventGroupWaitBits(
-				/* Handle de evento a leer */
-				xStepperEventGroup,
-				/* Bits que se epera */
-				( 1 << 0 ) | ( 1 << 1 ),
-				/* Clear de los bits setados si se cumple condición */
-				pdTRUE,
-				/* Condición de AND (esperar todos los bits) */
-				pdTRUE,
-				/* Bloquearse indefinidamente */
-				portMAX_DELAY
 			);
-
-        	/* Enviar mensaje de finalización de consigna */
-			vUartSendMsg( "SCT:END" );
-        } else {
-        	/* Error en ángulo */
-    		xTaskNotify( xAppSyncTaskHandle,
-    			( 1 << stepperERROR_NOTIF_ANG ), eSetBits );
-    		continue;
+			continue;
         }
+		/* Enviar mensaje de inicio de consigna */
+        vUartSendMsg( "SCT:BGN" );
+
+        /* Esperar finalización de ejecución de consigna */
+		xEventGroupWaitBits(
+			/* Handle de evento a leer */
+			xStepperEventGroup,
+			/* Bits que se epera */
+			( 1 << 0 ) | ( 1 << 1 ),
+			/* Clear de los bits setados si se cumple condición */
+			pdTRUE,
+			/* Condición de AND (esperar todos los bits) */
+			pdTRUE,
+			/* Bloquearse indefinidamente */
+			portMAX_DELAY
+		);
+
+		/* Enviar mensaje de finalización de consigna */
+		vUartSendMsg( "SCT:END" );
     }
 }
 
