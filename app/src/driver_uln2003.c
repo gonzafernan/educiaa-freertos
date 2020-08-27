@@ -13,9 +13,10 @@
 /*! \var DriverIn_t *pxDriverA
 	\brief Arrays de entradas al driver del motor A
 */
-DriverIn_t pxDriver[2][4] = {
+DriverIn_t pxDriver[3][4] = {
 		{ LCD3, LCD2, LCD1, GPIO3 },
-		{ GPIO4, GPIO5, GPIO6, GPIO7 }
+		{ GPIO4, GPIO5, GPIO6, GPIO7 },
+		{ T_COL0, T_FIL2, T_FIL3, T_FIL0 }
 };
 
 /*! \fn void vDriverUpdate( DriverIn_t *xDriverInput, uint8_t cState )

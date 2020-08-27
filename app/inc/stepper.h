@@ -16,7 +16,7 @@
 /*! \def stepperAPP_NUM
     \brief Cantidad de motores en la aplicación
 */
-#define stepperAPP_NUM  2
+#define stepperAPP_NUM  3
 
 /*! \def stepperTIMER_PERIOD
     \brief Periodo de pasos de los motores (velocidad del motor)

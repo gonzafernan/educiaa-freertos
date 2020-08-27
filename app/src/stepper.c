@@ -109,10 +109,7 @@ BaseType_t xStepperRelativeSetPoint( TimerHandle_t xStepperTimer, uint32_t ulRel
     /* Estructura de datos a obtener del timer ID */
     StepperData_t *xStepperDataID;
     xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer );
-    /* Verificación de consigna nula */
-    //if ( ulRelativeSetPoint == 0 ) {
-    //    return pdPASS;
-    //}
+
     /* Seteo de consigna como pasos pendientes y dirección */
     xStepperDataID->ulPendingSteps = ulRelativeSetPoint;
     xStepperDataID->xDir = xStepperDir;

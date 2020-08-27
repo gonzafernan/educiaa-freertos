@@ -23,7 +23,7 @@ typedef gpioMap_t DriverIn_t;
 /*! \var DriverIn_t *pxDriverA
 	\brief Arrays de entradas al driver del motor A
 */
-extern DriverIn_t pxDriver[2][4];
+extern DriverIn_t pxDriver[3][4];
 
 /*! \fn void vDriverUpdate( DriverIn_t *xDriverInput, uint8_t cState )
     \brief Escritura en driver de motor stepper dado un determinado estado.
