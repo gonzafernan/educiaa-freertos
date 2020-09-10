@@ -18,22 +18,56 @@
 
 /* Aplicación includes */
 #include "display_lcd.h"
+#include "encoder.h"
 
 /*! \var TaskHandle_t xDisplayTaskHandle
 	\brief Handle de la tarea de control del Display LCD.
 */
 TaskHandle_t xDisplayTaskHandle;
 
+/*! \fn void vUpdateSelection( uint8_t cSelection )
+	\brief Actualizar selección en el displat LCD.
+	\param cSel Entero con el índice de la selección.
+*/
+void vUpdateSelection( uint8_t cSelection )
+{
+	/* Colocar cursor en posición 0, 1 */
+	lcdGoToXY( 0, 1 );
+
+	switch ( cSelection ) {
+	case 0:
+		lcdSendStringRaw( "STEPPER 1:" );
+		break;
+	case 1:
+		lcdSendStringRaw( "STEPPER 2:" );
+		break;
+	case 2:
+		lcdSendStringRaw( "STEPPER 3:" );
+		break;
+	case 3:
+		lcdSendStringRaw( "SERVO EXT:" );
+		break;
+	default:
+		lcdSendStringRaw( "EDU-CIAA RTOS" );
+		break;
+	}
+}
+
 /*! \fn void vDisplayTask( void *pvParameters )
 	\brief Tarea para control de display LCD.
 */
 void vDisplayTask( void *pvParameters )
 {
+	/* Índice selección de motor */
+	uint8_t cValue = 0;
 
 	for ( ;; ) {
 		/* Esperar notificación desde encoder */
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
-		printf("SW PRESSED\n");
+		/* Lectura de selección de motor en mailbox */
+		xQueuePeek( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
+		/* Actualización de selección en display */
+		vUpdateSelection( cValue );
 	}
 }
 
@@ -60,7 +94,7 @@ BaseType_t xDisplayInit( void )
 
 	/* Apagar cursor (no es necesario en la aplicación) */
 	lcdCursorSet( LCD_CURSOR_OFF );
-	/* Limíar pantalla */
+	/* Limpiar pantalla */
 	lcdClear();
 
 	/* Colocar cursor en posición 0, 0 */

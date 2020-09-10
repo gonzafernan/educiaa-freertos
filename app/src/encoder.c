@@ -72,10 +72,10 @@ void vEncoderSW_IRQ_HANDLER( void )
 	uint8_t cValue;
 	/* Lectura del valor actual en mailbox */
 	xQueuePeekFromISR( xEncoderChoiceMailbox, &cValue );
-	//cValue++;
-	if ( cValue == 0 ) {
-		cValue = 1;
-	} else if ( cValue == 1 ) {
+	/* Incremento en la selección */
+	cValue++;
+	/* Vuelta a cero por Overflow del menu */
+	if ( cValue > stepperAPP_NUM + 1 ) {
 		cValue = 0;
 	}
 	printf("%d\n", cValue);
@@ -85,6 +85,7 @@ void vEncoderSW_IRQ_HANDLER( void )
 	/* Notificación de selección a display */
 	vTaskNotifyGiveFromISR( xDisplayTaskHandle, &xHigherPriorityTaskWoken );
 
+	/* Limpieza de estado de interrupción y flanco */
 	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 	Chip_PININT_ClearRiseStates( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 
