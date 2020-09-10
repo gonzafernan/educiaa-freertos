@@ -25,6 +25,7 @@
 #include "encoder.h"
 #include "stepper.h"
 #include "servo.h"
+#include "display_lcd.h"
 
 /*! \def appQUEUE_MSG_LENGTH
 	\brief Longitud de cola de mensajes recibidos.
@@ -70,7 +71,7 @@ void vErrorNotifHandling( uint32_t ulNotifError )
 	}
 }
 
-/*! \fn vAppSyncTask( void *pvParameters )
+/*! \fn void vAppSyncTask( void *pvParameters )
 	\brief Tarea de sincronización de mensajes.
 */
 void vAppSyncTask( void *pvParameters )
@@ -173,6 +174,9 @@ int main( void )
     xStatus = xServoInit(); configASSERT( xStatus == pdPASS );
     /* Obtener información del espacio libre */
     xPreviousSize = xPrintModuleSize( "Servo", xPreviousSize);
+
+    /* Inicialización de display LCD */
+    xStatus = xDisplayInit(); configASSERT( xStatus == pdPASS );
 
     /* Creación de cola de mensajes recibidos */
     xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );

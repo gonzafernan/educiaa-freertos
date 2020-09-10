@@ -18,7 +18,7 @@
 \maketitle
 
 \begin{abstract}
-    Proyecto final de la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo. Consiste en el diseño e implementación de un sistema embebido para el control de un accionamiento electromecánico básico, basado en el sistema operativo de tiempo real FreeRTOS, sobre la placa de desarrollo EDU-CIAA-NXP del proyecto CIAA. El principal objetivo del proyecto es la implementación y puesta en práctica de todas las características fundamentales del RTOS.
+    Proyecto final de la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo. Consiste en el diseño e implementación de un sistema embebido para el control de un accionamiento electromecánico básico, basado en el sistema operativo de tiempo real FreeRTOS, sobre la placa de desarrollo EDU-CIAA-NXP del proyecto CIAA. El principal objetivo del proyecto es la implementación de todas las características fundamentales del RTOS.
 \end{abstract}
 
 \section{Introducción}
@@ -27,13 +27,13 @@ El objetivo del trabajo es la implementación de una aplicación basada en el si
 Además, el proyecto también busca una introducción al flujo de trabajo del proyecto CIAA (Computadora Industrial Abierta Argentina). Salvo algunas excepciones, no se profundizó en la programación de los microcontroladores a nivel de registros, sino que se utilizó la capa de abstracción proveída por las librerías sAPI y LPCOpen, incluidas en el firmware de dicho proyecto CIAA.
 
 \section{Aplicaciones de tiempo real}
-Previo al planteo de la elección de un sistema operativo de tiempo real como base en el diseño de una determinada aplicación, es importante definir cuándo una aplicación es ``de tiempo real''. Se dice que una aplicación es de tiempo real cuando posee características tales que en su ejecución debe cumplir distintos requisitos de tiempo. Es decir, el diseñador debe garantizar que ciertos eventos se desarrollarán en un tiempo establecido, decimos que la aplicación es \textbf{determinista}.
+Previo al planteo de la elección de un sistema operativo de tiempo real como base en el diseño de una determinada aplicación, es importante definir cuándo una aplicación es ``de tiempo real''. Se dice que una aplicación es de tiempo real cuando posee características tales que en su ejecución debe cumplir distintos requisitos de tiempo. Es decir, el diseñador debe garantizar que ciertos eventos se desarrollarán en un tiempo establecido. Decimos que la aplicación es \textbf{determinista}.
 
-Un sistema perfectamente determinista no experimenta variación en la sincronización de los eventos. Sin embargo, en el mundo real, hasta el sistema más determinista presentará una variación. La variación entre el tiempo especificado en que debe ejecutarse un evento y el tiempo real en que se ejecuta se denomina \textbf{jitter}. El \textit{jitter} ocurre tanto para un evento que se ejecuta después del tiempo establecido como para uno que se produce de manera temprana.
+Un sistema perfectamente determinista no experimenta variación en la sincronización de los eventos. Sin embargo, en el mundo real, hasta el sistema más determinista presentará una variación. La variación entre el tiempo especificado en que debe ejecutarse un evento y el tiempo en que se ejecuta realmente se denomina \textbf{jitter}. El \textit{jitter} ocurre tanto para un evento que se ejecuta después del tiempo establecido como para uno que se produce de manera temprana.
 
-La cantidad de \textit{jitter} que una aplicación puede tolerar sin dejar de cumplir los requisitos de tiempo define el \textit{jitter aceptable}. Teniendo en cuenta este concepto, ahora podemos clasificar las aplicaciones en sistemas de requisitos de tiempo tipo \textit{soft} (o su traducción al español como suave o blando) y requisitos de tiempo tipo \textit{hard} (o su traducción al español como duro). Gran parte de la bibliografía consultada concuerda en que los requisitos de tiempo \textit{soft} son aquellos que, de no cumplirse el tiempo especificado, tiene como consecuencia una disminución en la calidad del desempeño de la aplicación. Por el otro lado, los requisitos de tiempo \textit{hard} son aquellos que, de no cumplirse el tiempo especificado, resulta en una falla del sistema. Sin embargo, teniendo claro el concepto de \textit{jitter aceptable} podemos decir que requisitos de tiempo blandos se darán en sistemas con \textit{jitter aceptable} alto y, por el contrario, los requisitos de tiempo duros se darán en sistemas con \textit{jitter aceptable} bajo.
+La cantidad de \textit{jitter} que una aplicación puede tolerar sin dejar de cumplir los requisitos de tiempo define el \textit{jitter aceptable}. Teniendo en cuenta este concepto, ahora podemos clasificar las aplicaciones en sistemas de requisitos de tiempo tipo \textit{soft} (o su traducción al español como suave o blando) y requisitos de tiempo tipo \textit{hard} (o su traducción al español como duro). Gran parte de la bibliografía consultada concuerda en que los requisitos de tiempo \textit{soft} son aquellos que, de no cumplirse el tiempo especificado, tiene como consecuencia una disminución en la calidad del desempeño de la aplicación; y por otro lado, los requisitos de tiempo \textit{hard} aquellos que, de no cumplirse el tiempo especificado, resulta en una falla del sistema. Sin embargo, teniendo claro el concepto de \textit{jitter aceptable} podemos decir que requisitos de tiempo blandos se darán en sistemas con \textit{jitter aceptable} alto y, por el contrario, los requisitos de tiempo duros se darán en sistemas con \textit{jitter aceptable} bajo.
 
-Para clarificar la diferencia entre requisitos duros y blandos, ciertas fuentes suelen colocar como ejemplos de aplicaciones de tiempo real duro la navegación autónoma, marcapasos o instrumentación médica sensible, es decir, aplicaciones donde una falla es realmente crítica; y otros ejemplos donde solo se afecta la calidad, como servicios de chat y similares, como aplicaciones de tiempo real blando. Al realizar este trabajo, una de las conclusiones es que este tipo de ejemplos generan confusión, ya que quién se esta introduciendo en el concepto puede confundir la medida de qué tan duro es un requisito de tiempo con una medida de severidad de la falla de un sistema. 
+Para clarificar la diferencia entre requisitos duros y blandos, ciertas fuentes suelen colocar como ejemplos de aplicaciones de tiempo real duro la navegación autónoma, marcapasos o instrumentación médica sensible, es decir, aplicaciones donde una falla es realmente crítica; y otros ejemplos donde solo se afecta la calidad (servicios de chat y similares) como aplicaciones de tiempo real blando. Al realizar este trabajo, una de las conclusiones es que este tipo de ejemplos generan confusión, ya que quién se esta introduciendo en el concepto puede confundir la medida de qué tan duro es un requisito de tiempo con una medida de severidad de la falla de un sistema. 
 
 Lo principal a tener en cuenta es que en última instancia, ante un determinado comportamiento de un sistema, quien establece el límite entre disminución en la calidad de desempeño y una falla es el diseñador. También es importante que, en general, no es todo el sistema el que posee estas restricciones de tiempo, sino un determinado aspecto en particular. Para resaltar esto, se puede utilizar como ejemplo el proyecto llevado a cabo, donde los motores deben moverse a posiciones definidas en un determinado lapso de tiempo (esto establece la velocidad de los motores), por lo que esa es una característica del sistema que requiere tiempo real (\textit{jitter} aceptable bajo); mientras que, por ejemplo, no tiene relevancia en qué momento en específico se expone el valor de posición del motor en un display (\textit{jitter} aceptable muy alto) (en otra aplicación diferente esto si puede llegar a ser una característica que en el diseño se contemple como de tiempo real duro).
 
@@ -58,7 +58,7 @@ La primera versión de la CIAA es denominada CIAA-NXP, por estar basada en un pr
 Además, se diseñó una versión educativa de la plataforma, denominada \textbf{EDU-CIAA}, más simple y de menor costo, para lograr un impacto en la enseñanza primaria, secundaria y universitaria.
 
 \subsection{Placa de desarrollo EDU-CIAA-NXP}
-La EDU-CIAA-NXP (figura \ref{fig:edu-ciaa}) es entonces, una versión de bajo costo de la CIAA-NXP y es la utilizada para este proyecto.
+La EDU-CIAA-NXP (figura \ref{fig:edu-ciaa}) es entonces, una versión de bajo costo de la CIAA-NXP y es la utilizada en este proyecto.
 
 \begin{figure}[ht]
     \centering
@@ -67,37 +67,9 @@ La EDU-CIAA-NXP (figura \ref{fig:edu-ciaa}) es entonces, una versión de bajo co
     \label{fig:edu-ciaa}
 \end{figure}
 
-Su microcontrolador es el LPC4337 (dual core ARM Cortex-M4F y Cortex-M0). La placa también cuenta con los siguientes módulos:
+Su microcontrolador es el LPC4337 (dual core ARM Cortex-M4F y Cortex-M0). La placa también cuenta con los módulos que pueden observarse en la figura \ref{fig:edu-ciaa-modulos}.
 
-\begin{itemize}
-    \item 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación).
-    \item 4 salidas digitales implementadas con leds RGB.
-    \item 4 entradas digitales con pulsadores.
-    \item 1 puerto de comunicaciones RS 485 con bornera.
-    \item 2 conectores de expansión:
-    \begin{itemize}
-        \item P1:
-        \begin{itemize}
-            \item 3 entradas analógicas (ADC0, 1, 2 y 3),
-            \item 1 salida analógica (DAC0),
-            \item 1 puerto I2C,
-            \item 1 puerto asincrónico full duplex (para RS-232).
-            \item 1 puerto CAN,
-            \item 1 conexión para un teclado de 3x4,
-        \end{itemize}
-        \item P2:
-        \begin{itemize}
-            \item 1 puerto Ethernet,
-            \item 1 puerto SPI,
-            \item 1 puerto para Display LCD con 4 bits de datos, Enable y RS.
-            \item 9 pines genéricos de I/O.
-        \end{itemize}
-    \end{itemize}
-\end{itemize}
-
-En la figura \ref{fig:edu-ciaa-modulos} se presenta un diagrama de bloques con los módulos que posee la placa.
-
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.45\textwidth]{../modulos_edu_ciaa.jpg}
     \caption{Diagrama de bloques con módulos de placa EDU-CIAA-NXP}
@@ -105,7 +77,7 @@ En la figura \ref{fig:edu-ciaa-modulos} se presenta un diagrama de bloques con l
 \end{figure}
 
 \section{Accionamiento electromecánico: brazo robótico paralelo básico}
-Para reflejar de una forma concreta las acciones ejecutadas en la electrónica del sistema, se optó por implementar el control de un brazo robótico paralelo básico. Su tamaño es reducido, ya que solo tiene un fin educacional, y por lo tanto los actuadores son sencillos y de poca potencia. El robot implementado es denominado EEZYBOTARM MK3, publicado por EEZYrobots y diseñado por Carlo Franciscone. 
+Para reflejar de una forma concreta las acciones ejecutadas en la electrónica del sistema (y también para tener objetivos definidos en su diseño), se optó por implementar el control de un brazo robótico paralelo básico. Su tamaño es reducido, ya que solo tiene un fin educacional, y por lo tanto los actuadores son sencillos y de poca potencia. El robot construído es denominado EEZYBOTARM MK3, publicado por EEZYrobots y diseñado por Carlo Franciscone. 
 
 \begin{figure}[ht]
     \centering
@@ -119,7 +91,9 @@ Los actuadores del robot consisten en tres motores paso a paso monopolares 28BYJ
 Además del brazo robótico con sus tres motores paso a paso y servo motor, la aplicación también tiene un display donde se observará la información del estado en que se encuentra el brazo. Las consignas que recibirán los motores será a través de protocolo UART desde PC o mediante un encoder rotativo. Como accesorio secundario en la aplicación se encuentran los LEDs de la placa EDU-CIAA como indicadores visuales y un buzzer como indicador auditivo.
 
 \section{Flujo de trabajo y herramientas utilizadas}
-Todo el software se desarrolló en una PC con sistema operativo Linux. Para la programación en lenguaje C se utilizó el programa Eclipse IDE, configurado para compilar y cargar el programa a la placa desde el mismo entorno de desarrollo. Para completar el conjunto de herramientas se puede trabajar con OpenOCD como debugger, sin embargo en este proyecto no fue necesario su uso. Para la comunicación serial con la placa (UART) se utilizó el programa picocom, una herramienta sencilla por comando de línea. Para el control de versiones del proyecto, además del uso del firmware del proyecto CIAA, se utilizó git (con repositorio remoto en GitHub).
+Todo el software se desarrolló en una PC con sistema operativo Linux. Para la programación en lenguaje C se utilizó el programa Eclipse IDE, configurado para compilar y cargar el programa a la placa desde el mismo entorno de desarrollo (ver documentación del firmware en la wiki del proyecto\cite{ciaa-wiki} en GitHub). Para completar el conjunto de herramientas se puede trabajar con OpenOCD como debugger, sin embargo en este proyecto no fue necesario su uso. Para la comunicación serial con la placa (UART) se utilizó el programa picocom, una herramienta sencilla por comando de línea. Para el control de versiones del proyecto, además del uso del firmware del proyecto CIAA, se utilizó git (con repositorio remoto en GitHub).
+
+En cuánto a FreeRTOS, el port para la placa de desarrollo EDU-CIAA se encuentra dentro del firmware, por lo tanto no es necesario descargarlo desde ningun sitio externo al proyecto CIAA. Su configuración está dada por el archivo \textit{config.mk} (definiciones de la compilación propias de la aplicación desarrollada) y principalmente por el archivo \textit{FreeRTOSConfig.h} dentro de la carpeta de \textit{headers} de la aplicación.
 
 \section{Componentes fundamentales de FreeRTOS}
 A continuación se describe brevemente los diferentes componentes escenciales de FreeRTOS según el libro \textit{Mastering the FreeRTOS Real Time Kernel}, y su uso dentro de la aplicación.
@@ -146,7 +120,7 @@ Es por esto que FreeRTOS brinda (y utiliza en su código fuente) como APIs públ
     \item \textit{Heap 5}: La única diferencia con el 4, es que no esta limitado a la asignación de memoria partiendo de un único array asignado estáticamente.
 \end{itemize}
 
-En el proyecto no se utiliza asignación de memoria dinámica, ya que es desaconsejada en microcontroladores y sistemas críticos (regla MISRA 20.4) se optó por utilizar un esquema \textit{heap 1}.
+En el proyecto no se utiliza asignación de memoria dinámica, ya que es desaconsejada en microcontroladores y sistemas críticos (regla MISRA 20.4, ver \textcite{misra-c}) se optó por utilizar un esquema \textit{heap 1}.
 
 \subsection{Tareas}
 Las tareas son básicamente funciones implementadas en C y son programas en sí mismas. Su estructura es similar a la de una función \textit{main()} típica en sistemas embebidos, con un bucle que debe ejecutarse de forma infinita. Cada tarea se ejecuta de forma independiente en \textit{pseudoparalelismo}, y al crearse se les asigna automáticamente su propia pila de memoria.
@@ -161,12 +135,12 @@ Sus estados principales son \textit{running} y \textit{not running}, cuando el p
 
 El cambio de estado en una tarea es únicamente dirigido por el \textit{scheduler} de FreeRTOS. Para definir cuál tarea tiene más importancia de ejecución sobre otra, existe el concepcto de prioridad: cuándo el \textit{scheduler} deba decidir cuál es la próxima tarea a colocar en estado \textit{running} deberá observar cuál es la de mayor prioridad.
 
-Para seleccionar esa próxima tarea a ejecutar, el \textit{scheduler} se ejecuta mediante una interrupción periódica denominada \textit{tick interrupt}. En el proyecto la frecuencia de dicha interrupción es de 1000Hz.
+Para seleccionar esa próxima tarea a ejecutar, el \textit{scheduler} se ejecuta mediante una interrupción periódica denominada \textit{tick interrupt}. En el proyecto la frecuencia de dicha interrupción es de 1000 Hz.
 
 No es necesario especificar un ejemplo de tarea ya que se utilizan en prácticamente todos los aspectos del trabajo.
 
 \subsection{Algoritmos de \textit{scheduler}}
-El algoritmo del \textit{scheduler} es el que decidirá qué tarea ejecutará de entre la lista de tareas en estado listas o \textit{ready}.
+El algoritmo del \textit{scheduler} es el que decidirá qué tarea ejecutará de entre la lista de tareas en estado listas o \textit{ready} y cuándo cambiar de una a otra.
 
 El tipo de algoritmo a utilizar se configura con dos variables: uso de \textbf{preemption} y uso de \textbf{time slicing}:
 
@@ -219,14 +193,14 @@ Todas las funciones de \textit{callback} de los timers por software se ejecutan 
 
 Esto es importante, ya que entonces no se debe utilizar APIs dentro de las funciones de \textit{callback} que puedan generar un cambio de contexto, es decir, que bloqueen el RTOS \textit{daemon}. Por ejemplo, se puede llamar \textit{xQueueReceive()} pero solo si el parámetro \textit{xTicksToWait} esta seteado en 0.
 
-En el proyecto hay tres instancias de timers por software, y son los encargados del movimiento de los motores paso a paso (ver figura \ref{fig:diagrama-stepper}).
+En el proyecto hay tres instancias de timers por software, y son los encargados del movimiento de los motores paso a paso (ver figura \ref{fig:diagrama-stepper}). Es importante aclarar que el uso de un \textit{timer} por software para el control de un motor paso a paso dista mucho de ser la solución más óptima. Se los utiliza en este trabajo solo como ejercicio para poner en práctica su uso.
 
 \subsection{Uso de FreeRTOS desde una rutina de interrupción}
 Dado que muchas veces es necesario el uso de funcionalidades del RTOS dentro de una rutina de interrupción, y teniendo en cuenta que al ejecutarse una rutina de interrupción estamos saliendo del control del sistema operativo en tiempo real, FreeRTOS provee una versión de las APIs convencionales pero para ser ejecutadas en estas circunstancias. Todas aquellas APIs terminadas en ``FromISR'' son de este tipo.
 
 Por este mismo motivo es muy aconsejable que las rutinas de interrupción sean cortas, y que si es necesario realizar un procesamiento considerable, dirigirlo a una tarea para que lo realice y finalizar la rutina de interrupción. Para sincronizar las interrupciones con las tareas que ejecutarán el procesamiento vinculado a ellas, se utilizan objetos como semáforos y colas.
 
-En el proyecto se utilizaron APIs de FreeRTOS dentro de rutinas de interrupción como las de UART o las de entradas/salidas de propósito general utilizadas por el encoder (ver figuras \ref{fig:diagrama-uart} y \ref{fig:diagrama-encoder}).
+En el proyecto se utilizaron APIs de FreeRTOS dentro de rutinas de interrupción como las de UART o las de entradas utilizadas por el encoder (ver figuras \ref{fig:diagrama-uart} y \ref{fig:diagrama-encoder}).
 
 \subsection{Semáforos}
 Los semáforos son objetos de comunicación que permiten la sincronización entre interrupciones y tareas, aunque su uso no se restringe solamente a éste. Su funcionamiento consiste en bloquear a la tarea hasta que desde la interrupción se realice la acción de ``dar'' el semáforo y la tarea pueda ``tomarlo''.

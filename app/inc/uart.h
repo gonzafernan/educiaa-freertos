@@ -1,3 +1,12 @@
+/*! \file uart.h
+    \brief Descripción del archivo.
+    \author Gonzalo G. Fernández
+    \version 1.0
+    \date Julio 2020
+
+    Detalle.
+*/
+
 #ifndef UART_H
 #define UART_H
 

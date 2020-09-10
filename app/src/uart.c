@@ -50,10 +50,7 @@ void vUartSendMsg( char *pcMsg )
 */
 void vSendCmd( char* pcBuffer, uint8_t cLength )
 {
-	/* Asignación de memoria dinámica del mensaje */
-    char *pcMsg;
-    pcMsg = ( char * ) pvPortMalloc( cLength * sizeof( char ) );
-    pcMsg = pcBuffer;
+	char *pcMsg = pcBuffer;
     /* Delimitador final de string */
     pcMsg[cLength] = '\0';
 
@@ -121,7 +118,7 @@ void vUartTxTask( void* pvParameters )
     char *pcMsgToSend;
 
     for ( ;; ) {
-        /* Lectura de cola de recepción */
+        /* Lectura de cola de transmisión */
         xQueueReceive(
             /* Handle de la cola a leer */
             xUartTxQueue,
