@@ -15,6 +15,12 @@
 */
 extern TaskHandle_t xDisplayTaskHandle;
 
+/*! \fn void vUpdateSelection( uint8_t cSelection )
+	\brief Actualizar selección en el displat LCD.
+	\param cSel Entero con el índice de la selección.
+*/
+void vUpdateSelection( uint8_t cSelection );
+
 /*! \fn void vDisplayTask( void *pvParameters )
 	\brief Tarea para control de display LCD.
 */

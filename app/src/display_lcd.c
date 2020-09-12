@@ -103,21 +103,21 @@ BaseType_t xDisplayInit( void )
 	lcdSendStringRaw( "MyEP FIng UNCuyo" );
 
 	/* Creación de tarea para control de display LCD */
-	BaseType_t xStatus;
-	xStatus = xTaskCreate(
+	BaseType_t xStatus = pdPASS;
+	//xStatus = xTaskCreate(
 		/* Puntero a la función que implementa la tarea */
-		vDisplayTask,
+		//vDisplayTask,
 		/* Nombre de la tarea amigable para el usuario */
-		( const char * ) "DisplayTask",
+		//( const char * ) "DisplayTask",
 		/* Tamaño de stack de la tarea */
-		configMINIMAL_STACK_SIZE*2,
+		//configMINIMAL_STACK_SIZE*2,
 		/* Parámetros de la tarea */
-		NULL,
+		//NULL,
 		/* Prioridad de la tarea */
-		priorityDisplayTask,
+		//priorityDisplayTask,
 		/* Handle de la tarea creada */
-		&xDisplayTaskHandle
-	);
+		//&xDisplayTaskHandle
+	//);
 
 	return xStatus;
 }

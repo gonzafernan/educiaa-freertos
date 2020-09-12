@@ -43,6 +43,20 @@ SemaphoreHandle_t xEncoderNegativePulseSemaphore;
 */
 QueueHandle_t xEncoderChoiceMailbox;
 
+/*! \fn void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2 )
+	\brief Función a ejecutar como procesamiento diferido a tarea RTOS daemon
+	desde encoder (ante el pulsador).
+	\param pvParameter1 Primer parámetro de la función en forma void* para apuntar
+	a estructura.
+	\param ulParameter2 Segundo parámetro de la función en forma de uint32_t.
+*/
+static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2 )
+{
+	/* Actualización de selección en display
+	 * (implementación en display_lcd.c) */
+	vUpdateSelection( ulParameter2 );
+}
+
 /*! \fn void PININT1_IRQ_HANDLER( void )
 	\brief Handler interrupt from GPIO pin or GPIO pin mapped to PININT
 */
@@ -83,7 +97,19 @@ void vEncoderSW_IRQ_HANDLER( void )
 	xQueueOverwriteFromISR( xEncoderChoiceMailbox, &cValue, 0 );
 
 	/* Notificación de selección a display */
-	vTaskNotifyGiveFromISR( xDisplayTaskHandle, &xHigherPriorityTaskWoken );
+	//vTaskNotifyGiveFromISR( xDisplayTaskHandle, &xHigherPriorityTaskWoken );
+
+	/* Procesamiento diferido al RTOS daemon */
+	xTimerPendFunctionCallFromISR(
+			/* Puntero a la función a ejecutar en la tarea daemon */
+			vDeferredHandlingFunction,
+			/* Primer parámetro de la función en forma void* para apuntar a estructura */
+			NULL,
+			/* Segundo parámetro de la función en forma de uint32_t */
+			cValue,
+			/* Parámetro para chequear por tarea de mayor prioridad */
+			&xHigherPriorityTaskWoken
+			);
 
 	/* Limpieza de estado de interrupción y flanco */
 	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
