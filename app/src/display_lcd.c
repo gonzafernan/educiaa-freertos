@@ -62,6 +62,7 @@ void vDisplayTask( void *pvParameters )
 	uint8_t cValue = 0;
 
 	for ( ;; ) {
+		printf("DISPLAY");
 		/* Esperar notificación desde encoder */
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 		/* Lectura de selección de motor en mailbox */

@@ -22,6 +22,7 @@
 
 /* Aplicación includes */
 #include "servo.h"
+#include "uart.h"
 
 /*! \var TaskHandle_t xAppSyncTaskHandle
 	\brief Handle de la tarea que sincroniza mensajes.
@@ -109,6 +110,7 @@ void vServoControlTask( void *pvParameters )
 	xServoAbsoluteSetPoint( 0 );
 
 	for ( ;; ) {
+		printf("SERVO");
 		/* Lectura de cola de consignas */
 		xQueueReceive(
 			/* Handle de la cola a leer */

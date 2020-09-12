@@ -114,6 +114,7 @@ void vEncoderTask( void *pvParameters )
 	char *pcMsgToSend = ( char * ) pvPortMalloc( 10 * sizeof( char ) );
 
 	for ( ;; ) {
+		printf("ENCODER");
 		/* Lectura de selección de motor en mailbox */
 		xQueuePeek( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
 		/* Inicio de mensaje */

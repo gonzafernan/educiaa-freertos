@@ -8,6 +8,7 @@
 */
 
 #include "uart.h"
+#include "buffer.h"
 
 /*! \var QueueHandle_t xUartTxQueue
 	\brief Declaración global de cola de recepción de
@@ -20,11 +21,6 @@ QueueHandle_t xUartRxQueue;
 	caracteres por UART
 */
 QueueHandle_t xUartTxQueue;
-
-/*! \var QueueHandle_t xMsgQueue
-    \brief Cola de mensajes recibidos.
-*/
-extern QueueHandle_t xMsgQueue;
 
 /*! \fn void vUartSendMsg( char *pcMsg )
 	\brief Enviar mensaje a la cola de transmisión.
@@ -43,26 +39,17 @@ void vUartSendMsg( char *pcMsg )
 	);
 }
 
-/*! \fn void vSendCmd( char* pcBuffer, uint8_t cLength )
+/*! \fn void vUartSendCmd( char* pcBuffer, uint8_t cLength )
 	\brief Enviar comando a cola de mensajes recibidos.
 	\param pcBuffer Puntero al inicio del buffer.
 	\param cLength Longitud del buffer (cantidad de caracteres).
 */
-void vSendCmd( char* pcBuffer, uint8_t cLength )
+void vUartSendCmd( char* pcBuffer, uint8_t cLength )
 {
 	char *pcMsg = pcBuffer;
     /* Delimitador final de string */
     pcMsg[cLength] = '\0';
-
-    /* Escribir caracter en cola de recepción */
-	xQueueSendToBack(
-		/* Handle de la cola a escribir */
-		xMsgQueue,
-		/* Puntero al dato a escribir */
-		&pcMsg,
-		/* Máximo tiempo a esperar una escritura */
-		portMAX_DELAY
-	);
+    vBufferWriteMsg( pcMsg );
 }
 
 /*! \fn void vUartRxTask( void* pvParameters )
@@ -91,10 +78,11 @@ void vUartRxTask( void* pvParameters )
             esperando que haya información a leer */
             portMAX_DELAY // Tiempo de espera indefinido
         );
+        printf("CHECK");
         
 		if ( cRx == '\n' ) {
 			// Rutina de comunicación de comando
-			vSendCmd( pcBufferRx, cIndex );
+			vUartSendCmd( pcBufferRx, cIndex );
 			cIndex = 0;
 		} else {
 			// Guardar dato en buffer

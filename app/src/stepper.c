@@ -179,6 +179,7 @@ void vStepperControlTask( void *pvParameters )
     uint8_t cErrorHandle = 0;
 
     for ( ;; ) {
+    	printf("STEPPER");
     	/* Lectura de cola de consignas */
         xQueueReceive(
             /* Handle de la cola a leer */
