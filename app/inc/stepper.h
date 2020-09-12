@@ -16,7 +16,7 @@
 /*! \def stepperAPP_NUM
     \brief Cantidad de motores en la aplicación
 */
-#define stepperAPP_NUM  2
+#define stepperAPP_NUM  3
 
 /*! \def stepperTIMER_PERIOD
     \brief Periodo de pasos de los motores (velocidad del motor)
@@ -73,6 +73,13 @@
     \brief Definición de tipo para dirección de motores stepper.
 */
 typedef char StepperDir_t;
+
+/*! \fn int32_t ilStepperGetAngle( uint8_t )
+	\brief Obtener ángulo pendiente de motor paso a paso.
+	\param ucStepperIndex Índice del motor paso a paso.
+	\return Pasos pendientes del motor en forma de ángulo.
+*/
+int32_t ilStepperGetAngle( uint8_t ucStepperIndex );
 
 /*! \fn void vStepperSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.

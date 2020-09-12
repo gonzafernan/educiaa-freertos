@@ -10,11 +10,6 @@
 #ifndef DISPLAY_LCD_H_
 #define DISPLAY_LCD_H_
 
-/*! \var TaskHandle_t xDisplayTaskHandle
-	\brief Handle de la tarea de control del Display LCD.
-*/
-extern TaskHandle_t xDisplayTaskHandle;
-
 /*! \fn void vUpdateSelection( uint8_t cSelection )
 	\brief Actualizar selección en el displat LCD.
 	\param cSel Entero con el índice de la selección.

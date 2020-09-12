@@ -22,6 +22,7 @@
 
 /* Aplicación includes */
 #include "encoder.h"
+#include "uart.h"
 #include "stepper.h"
 #include "display_lcd.h"
 
@@ -52,9 +53,23 @@ QueueHandle_t xEncoderChoiceMailbox;
 */
 static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2 )
 {
+	gpioToggle(LED3);
+	/* Valor de selección del encoder */
+	uint8_t cValue;
+	/* Lectura del valor actual en mailbox */
+	xQueuePeek( xEncoderChoiceMailbox, &cValue, 100 );
+	/* Incremento en la selección */
+	cValue++;
+	/* Vuelta a cero por Overflow del menu */
+	if ( cValue > stepperAPP_NUM + 1 ) {
+		cValue = 0;
+	}
+	/* Actualización del valor en mailbox */
+	xQueueOverwrite( xEncoderChoiceMailbox, &cValue );
+
 	/* Actualización de selección en display
 	 * (implementación en display_lcd.c) */
-	vUpdateSelection( ulParameter2 );
+	vUpdateSelection( cValue );
 }
 
 /*! \fn void PININT1_IRQ_HANDLER( void )
@@ -82,22 +97,6 @@ void vEncoderCLK_IRQ_HANDLER( void )
 void vEncoderSW_IRQ_HANDLER( void )
 {
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-	/* Valor de selección del encoder */
-	uint8_t cValue;
-	/* Lectura del valor actual en mailbox */
-	xQueuePeekFromISR( xEncoderChoiceMailbox, &cValue );
-	/* Incremento en la selección */
-	cValue++;
-	/* Vuelta a cero por Overflow del menu */
-	if ( cValue > stepperAPP_NUM + 1 ) {
-		cValue = 0;
-	}
-	printf("%d\n", cValue);
-	/* Actualización del valor en mailbox */
-	xQueueOverwriteFromISR( xEncoderChoiceMailbox, &cValue, 0 );
-
-	/* Notificación de selección a display */
-	//vTaskNotifyGiveFromISR( xDisplayTaskHandle, &xHigherPriorityTaskWoken );
 
 	/* Procesamiento diferido al RTOS daemon */
 	xTimerPendFunctionCallFromISR(
@@ -106,7 +105,7 @@ void vEncoderSW_IRQ_HANDLER( void )
 			/* Primer parámetro de la función en forma void* para apuntar a estructura */
 			NULL,
 			/* Segundo parámetro de la función en forma de uint32_t */
-			cValue,
+			0,
 			/* Parámetro para chequear por tarea de mayor prioridad */
 			&xHigherPriorityTaskWoken
 			);
@@ -186,19 +185,19 @@ BaseType_t xEncoderInit( void )
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
 	* From EduCiaa pin out spec: GPIO1[9] -> port 1 and pin 9
 	*/
-	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
-	/* Clear actual configured interrupt status */
-	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Set edge interrupt mode */
-	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Enable high edge gpio interrupt */
-	Chip_PININT_EnableIntLow( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Clear pending irq channel interrupts */
-	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-	/* Enable irqChannel interrupt */
-	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-	/* Seteo del nivel de prioridad de la interrupción 0 */
-	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+//	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
+//	/* Clear actual configured interrupt status */
+//	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Set edge interrupt mode */
+//	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Enable high edge gpio interrupt */
+//	Chip_PININT_EnableIntLow( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Clear pending irq channel interrupts */
+//	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+//	/* Enable irqChannel interrupt */
+//	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+//	/* Seteo del nivel de prioridad de la interrupción 0 */
+//	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
@@ -239,21 +238,21 @@ BaseType_t xEncoderInit( void )
 	);
 
 	/* Creación de tarea de procesamiento de información de encoder */
-	BaseType_t xStatus;
-	xStatus = xTaskCreate(
+	BaseType_t xStatus = pdPASS;
+	//xStatus = xTaskCreate(
 		/* Puntero a la función que implementa la tarea */
-		vEncoderTask,
+		//vEncoderTask,
 		/* Nombre de la tarea amigable para el usuario */
-		( const char * ) "EncoderTask",
+		//( const char * ) "EncoderTask",
 		/* Tamaño de stack de la tarea */
-		configMINIMAL_STACK_SIZE*2,
+		//configMINIMAL_STACK_SIZE*2,
 		/* Parámetros de la tarea */
-		NULL,
+		//NULL,
 		/* Prioridad de la tarea */
-		priorityEncoderTask,
+		//priorityEncoderTask,
 		/* Handle de la tarea creada */
-		NULL
-	);
+		//NULL
+	//);
 
 	return xStatus;
 }

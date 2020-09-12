@@ -162,10 +162,6 @@ int main( void )
     xStatus = xUartInit(); configASSERT( xStatus == pdPASS );
     xPreviousSize = xPrintModuleSize( "UART", xPreviousSize);
 
-    /* Inicialización de encoder rotativo */
-    xStatus = xEncoderInit(); configASSERT( xStatus == pdPASS );
-    xPreviousSize = xPrintModuleSize( "Encoder", xPreviousSize);
-
     /* Inicialización de motor stepper */
     xStatus = xStepperInit(); configASSERT( xStatus == pdPASS );
     xPreviousSize = xPrintModuleSize( "Stepper", xPreviousSize);
@@ -177,6 +173,10 @@ int main( void )
 
     /* Inicialización de display LCD */
     xStatus = xDisplayInit(); configASSERT( xStatus == pdPASS );
+
+    /* Inicialización de encoder rotativo */
+	xStatus = xEncoderInit(); configASSERT( xStatus == pdPASS );
+	xPreviousSize = xPrintModuleSize( "Encoder", xPreviousSize);
 
     /* Creación de cola de mensajes recibidos */
     xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );
@@ -202,6 +202,10 @@ int main( void )
     /* Tarea con blink de LED para visual de aplicación funcionando */
     xStatus = xTaskCreate( vLedBlinkTask, ( const char * ) "LedBlinkTask",
     	configMINIMAL_STACK_SIZE, NULL, priorityLedBlinkTask, NULL );
+
+    /* Obtener información de espacio disponible */
+	xPreviousSize = xPortGetFreeHeapSize();
+	printf( "Espacio disponible: %d\n", xPreviousSize );
 
     /* Inicialización de Scheduler */
     vTaskStartScheduler();

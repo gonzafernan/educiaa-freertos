@@ -32,6 +32,11 @@
 */
 #define stepperANGLE_TO_STEPS( x )  4096*( x )/360
 
+/*! \def stepperSTEPS_TO_ANGLE( X )
+    \brief Macro para convertir pasos del motor a ángulo.
+*/
+#define stepperSTEPS_TO_ANGLE( x )  360*( x )/4096
+
 /*! \var typedef struct xStepperData StepperData_t
     \brief Estructura de datos con información del stepper.
 */
@@ -80,6 +85,25 @@ QueueHandle_t xStepperSetPointQueue;
 	motores detuvieron su movimiento (final de consigna).
 */
 EventGroupHandle_t xStepperEventGroup;
+
+/*! \fn int32_t ilStepperGetAngle( uint8_t )
+	\brief Obtener ángulo pendiente de motor paso a paso.
+	\param ucStepperIndex Índice del motor paso a paso.
+	\return Pasos pendientes del motor en forma de ángulo.
+*/
+int32_t ilStepperGetAngle( uint8_t ucStepperIndex )
+{
+	/* Estructura de datos a obtener del timer ID */
+	StepperData_t* xStepperDataID;
+	xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer[ucStepperIndex] );
+
+	/* Devolver pasos pendientes en forma de ángulo */
+	if ( xStepperDataID->xDir == stepperDIR_NEGATIVE ) {
+		return ( - (int32_t)xStepperDataID->ulPendingSteps * 360/4096 );
+	} else {
+		return ( (int32_t)xStepperDataID->ulPendingSteps * 360/4096 );
+	}
+}
 
 /*! \fn void vStepperSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
@@ -193,7 +217,8 @@ void vStepperControlTask( void *pvParameters )
         	/* Lectura de ID del motor a setear */
 			cID = atoi( &pcReceivedSetPoint[i*8+2] );
 			/* Verificación de ID válida */
-			if ( ( cID < 0 ) || ( cID > stepperAPP_NUM ) ) {
+			if ( ( cID < 0 ) || ( cID >= stepperAPP_NUM ) ) {
+				/* Código error por ID errónea */
 				cErrorHandle = stepperERROR_NOTIF_ID;
 				continue;
 			}
@@ -202,14 +227,16 @@ void vStepperControlTask( void *pvParameters )
 				xDir = atoi( &pcReceivedSetPoint[i*8+4] );
 				/* Verificación de valor de dirección */
 				if ( ( xDir < 0 ) || ( xDir > 1 ) ) {
+					/* Código error por DIR errónea */
 					cErrorHandle = stepperERROR_NOTIF_DIR;
 					continue;
 				}
 			} else if ( pcReceivedSetPoint[i*8+3] == 'V' ) {
 	        	cVel = atoi( &pcReceivedSetPoint[4] );
 	        	/* Verificación de valor de velocidad */
-	        	if ( ( cVel < stepperTIMER_MIN_PERIOD ) | ( cVel > stepperTIMER_MAX_PERIOD ) ) {
-	        		/* Error en velocidad */
+	        	if ( ( cVel < stepperTIMER_MIN_PERIOD ) ||
+	        			( cVel > stepperTIMER_MAX_PERIOD ) ) {
+	        		/* Código error por VEL errónea */
 	        		cErrorHandle = stepperERROR_NOTIF_VEL;
 					continue;
 	        	}
@@ -222,7 +249,7 @@ void vStepperControlTask( void *pvParameters )
 					/* Máximo tiempo a esperar bloqueado */
 					portMAX_DELAY
 					);
-				continue;
+				break;
 	        } else {
 	        	/* Error en dirección o velocidad */
 	        	cErrorHandle = stepperERROR_NOTIF_DIR;
@@ -234,7 +261,7 @@ void vStepperControlTask( void *pvParameters )
 				lAngle = atoi( &pcReceivedSetPoint[i*8+6] );
 				/* Verificación de ángulo positivo */
 				if ( lAngle < 0 ) {
-					/* Error en ángulo */
+					/* Código error por ANG erróneo */
 					cErrorHandle = stepperERROR_NOTIF_ANG;
 					continue;
 				}
@@ -242,7 +269,7 @@ void vStepperControlTask( void *pvParameters )
 				lAngle = stepperANGLE_TO_STEPS( lAngle );
 				xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
 			} else {
-				/* Error en ángulo */
+				/* Código error por ANG erróneo */
 				cErrorHandle = stepperERROR_NOTIF_ANG;
 				continue;
 			}
@@ -351,6 +378,10 @@ BaseType_t xStepperInit( void )
             /* Función de callback del timer */
             prvStepperTimerCallback
         );
+
+        /* Si saco este printf para tres motores no funciona,
+         * para dos motores si (?????????????????) */
+        printf("---");
 
         if ( xStepperTimer[i] == NULL ) {
             /* Error al crear timer */
