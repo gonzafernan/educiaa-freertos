@@ -13,11 +13,11 @@
 /*! \def servoANGLE_MIN
 	\brief Mínimo ángulo permitido.
 */
-#define servoANGLE_MIN		-90
+#define servoANGLE_MIN		0
 /*! \def servoANGLE_MAX
 	\brief Máximo ángulo permitido.
 */
-#define servoANGLE_MAX		90
+#define servoANGLE_MAX		180
 
 /*! \def servoPWM_PERIOD
 	\brief Periodo PWM en ms.

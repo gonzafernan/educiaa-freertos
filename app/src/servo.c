@@ -33,6 +33,30 @@ extern TaskHandle_t xAppSyncTaskHandle;
 */
 QueueHandle_t xServoSetPointQueue;
 
+/*! \fn uint8_t ucServoValue( uint8_t ucAngle )
+	\brief Conversión a valor de ángulo dada la discretización
+	que impone el sistema.
+	\param Ángulo a setear introducido por el usuario.
+	\return Ángulo dada la discretización del sistema.
+*/
+uint8_t ucServoValue( uint8_t ucAngle )
+{
+	uint8_t ucMinDiff = servoANGLE_MAX / 10;
+	if ( ( servoANGLE_MIN <= ucAngle ) && ( ucAngle < ucMinDiff ) ) {
+		return servoANGLE_MIN;
+	} else if ( ( ucMinDiff < ucAngle ) && ( ucAngle < 3*ucMinDiff ) ) {
+		return 2 * ucMinDiff;
+	} else if ( ( 3*ucMinDiff < ucAngle ) && ( ucAngle < 5*ucMinDiff ) ) {
+		return 4 * ucMinDiff;
+	} else if ( ( 5*ucMinDiff < ucAngle ) && ( ucAngle < 7*ucMinDiff ) ) {
+		return 6 * ucMinDiff;
+	} else if ( ( 7*ucMinDiff < ucAngle ) && ( ucAngle < 9*ucMinDiff ) ) {
+		return 8 * ucMinDiff;
+	} else if ( ( 9*ucMinDiff < ucAngle ) && ( ucAngle <= servoANGLE_MAX ) ) {
+		return 10 * ucMinDiff;
+	}
+}
+
 /*! \fn void vServoSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
 	\param pcMsg String con consigna a enviar.
@@ -58,14 +82,14 @@ void vServoStop( void )
 	Chip_SCTPWM_Stop( servoSCT_PWM );
 }
 
-/*! \fn BaseType_t xServoAbsoluteSetPoint( int8_t iSetPointValue )
+/*! \fn BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 	\brief Setear la posición absoluta del servo.
-	\param iSetPointValue Posición a setear.
+	\param ucSetPointValue Posición a setear.
 */
-BaseType_t xServoAbsoluteSetPoint( int8_t iSetPointValue )
+BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 {
 	/* Verificación de consigna menor al mínimo admisible */
-	if ( iSetPointValue < servoANGLE_MIN ) {
+	if ( ucSetPointValue < servoANGLE_MIN ) {
 		/* Setear valor mínimo admisible */
 		Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
 			Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
@@ -74,7 +98,7 @@ BaseType_t xServoAbsoluteSetPoint( int8_t iSetPointValue )
 		return pdFAIL;
 	}
 	/* Verificación de consigna mayor al máximo admisible */
-	if ( iSetPointValue > servoANGLE_MAX ) {
+	if ( ucSetPointValue > servoANGLE_MAX ) {
 		/* Setear valor máximo admisible */
 		Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
 			Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
@@ -82,14 +106,11 @@ BaseType_t xServoAbsoluteSetPoint( int8_t iSetPointValue )
 		/* Devolver error */
 		return pdFAIL;
 	}
-	/* Verificación de consigna 0 */
-	if ( iSetPointValue == 0 ) {
-		/* Setear valor 0 */
-		Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
-			Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
-				( servoDUTYCYCLE_MAX + servoDUTYCYCLE_MIN ) / 2 ) );
-		return pdPASS;
-	}
+
+	Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
+		Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
+			ucServoValue( ucSetPointValue )*5/servoANGLE_MAX + 5 ) );
+
 	return pdPASS;
 }
 
@@ -153,7 +174,8 @@ BaseType_t xServoInit( void )
 	/* Setear el duty-cycle para la salida de PWM
 	 * generada en el canal */
 	Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
-		( servoDUTYCYCLE_MAX + servoDUTYCYCLE_MIN ) / 2 );
+				Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
+					servoDUTYCYCLE_MIN ) );
 
 	/* Lanzar el canal PWM */
 	Chip_SCTPWM_Start( servoSCT_PWM );
