@@ -12,14 +12,7 @@
 
 /* FreeRTOS includes */
 #include "FreeRTOS.h"
-#include "task.h"
 #include "queue.h"
-#include "semphr.h"
-#include "timers.h"
-
-/* EDU-CIAA firmware_v3 includes */
-#include "sapi.h"
-#include "chip.h"
 
 /*! \def encoderPIN_SW
 	\brief Conexión pin switch de encoder rotativo.

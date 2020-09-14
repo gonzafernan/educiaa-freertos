@@ -33,6 +33,12 @@ extern TaskHandle_t xAppSyncTaskHandle;
 */
 QueueHandle_t xServoSetPointQueue;
 
+/*! \var QueueHandle_t xServoPositionMailbox
+	\brief Handle del mailbox que contendrá la posición
+	del servomotor.
+*/
+QueueHandle_t xServoPositionMailbox;
+
 /*! \fn uint8_t ucServoValue( uint8_t ucAngle )
 	\brief Conversión a valor de ángulo dada la discretización
 	que impone el sistema.
@@ -111,6 +117,9 @@ BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 		Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
 			ucServoValue( ucSetPointValue )*5/servoANGLE_MAX + 5 ) );
 
+	/* Actualización del valor en mailbox */
+	xQueueOverwrite( xServoPositionMailbox, &ucSetPointValue );
+
 	return pdPASS;
 }
 
@@ -180,6 +189,9 @@ BaseType_t xServoInit( void )
 	/* Lanzar el canal PWM */
 	Chip_SCTPWM_Start( servoSCT_PWM );
 
+	/* Estato para verificación de errores */
+	BaseType_t xStatus;
+
 	/* Creación de cola de consignas recibidas a ejecutar */
 	xServoSetPointQueue = xQueueCreate(
 		/* Longitud máxima de la cola */
@@ -188,13 +200,26 @@ BaseType_t xServoInit( void )
 		sizeof( char * )
 	);
 	/* Verificación de cola creada con éxito */
-	configASSERT( xServoSetPointQueue != NULL );
+	if ( xServoSetPointQueue == NULL ) {
+		return pdFAIL;
+	}
+
+	/* Creación de mailbox para guardar posición del motor */
+	xServoPositionMailbox = xQueueCreate( 1, sizeof( uint8_t ) );
+	/* Verificación de mailbox creado con éxito */
+	if ( xServoPositionMailbox == NULL ) {
+		return pdFAIL;
+	}
 
 	/* Creación de tarea para procesamiento asociado
 	al servo motor */
-	xTaskCreate( vServoControlTask, (const char *)"ServoControlTask",
+	xStatus = xTaskCreate( vServoControlTask, (const char *)"ServoControlTask",
 		configMINIMAL_STACK_SIZE*2, NULL,
 		priorityServoControlTask, NULL );
+	/* Verificación de tarea creada con éxito */
+	if ( xStatus == pdFAIL ) {
+		return pdFAIL;
+	}
 
 	return pdPASS;
 }

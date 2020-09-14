@@ -16,14 +16,25 @@
 
 /* Utilidades includes */
 #include <string.h>
+#include <stdlib.h>
 
 /* FreeRTOS includes */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "semphr.h"
+#include "timers.h"
 #include "FreeRTOSPriorities.h"
+
+/* EDU-CIAA firmware_v3 includes */
+#include "sapi.h"
+#include "chip.h"
 
 /* Aplicación includes */
 #include "encoder.h"
 #include "uart.h"
 #include "stepper.h"
+#include "servo.h"
 #include "display_lcd.h"
 
 /*! \var SemaphoreHandle_t xEncoderPositivePulseSemaphore
@@ -152,8 +163,6 @@ void vEncoderTask( void *pvParameters )
 		} else if ( cValue == stepperAPP_NUM ) {
 			/* Consigna a servomotor */
 			strcpy( pcMsgToSend, ":X" );
-			vUartSendMsg( pcMsgToSend );
-			continue;
 		} else {
 			/* Excepción, valor no válido (no debería suceder) */
 			continue;
@@ -162,22 +171,55 @@ void vEncoderTask( void *pvParameters )
 		/* Lectura de handle del set */
 		xReceivedSemaphore = ( SemaphoreHandle_t ) xQueueSelectFromSet( xEncoderSemaphoreSet, portMAX_DELAY );
 		/* Obtener que semáforo tiene información y realizar take */
-		strcat( pcMsgToSend, "D\0" );
 		if ( xReceivedSemaphore == xEncoderPositivePulseSemaphore ) {
 			xSemaphoreTake( xEncoderPositivePulseSemaphore, portMAX_DELAY );
-			cAuxChar[0] = (char)stepperDIR_POSITIVE + '0';
-			strcat( pcMsgToSend, cAuxChar );
+			if ( cValue < stepperAPP_NUM ) {
+				strcat( pcMsgToSend, "D\0" );
+				cAuxChar[0] = (char)stepperDIR_POSITIVE + '0';
+				strcat( pcMsgToSend, cAuxChar );
+				/* Ángulo a setear */
+				strcat( pcMsgToSend, "A015" );
+				/* Enviar mensaje a cola de consignas */
+				vStepperSendMsg( pcMsgToSend );
+			} else {
+				uint8_t cPositionValue;
+				xQueuePeek( xServoPositionMailbox, &cPositionValue, portMAX_DELAY );
+				if ( cPositionValue >= 180 ) {
+					continue;
+				} else {
+					cPositionValue += servoVALUE_INCRMENT;
+					char pcAuxValue[4];
+					sprintf( pcAuxValue, "%d", cPositionValue );
+					strcat( pcMsgToSend, pcAuxValue );
+					vServoSendMsg( pcMsgToSend );
+				}
+			}
 		} else if ( xReceivedSemaphore == xEncoderNegativePulseSemaphore ) {
 			xSemaphoreTake( xEncoderNegativePulseSemaphore, portMAX_DELAY );
-			cAuxChar[0] = (char)stepperDIR_NEGATIVE + '0';
-			strcat( pcMsgToSend, cAuxChar );
+
+			if ( cValue < stepperAPP_NUM ) {
+				strcat( pcMsgToSend, "D\0" );
+				cAuxChar[0] = (char)stepperDIR_NEGATIVE + '0';
+				strcat( pcMsgToSend, cAuxChar );
+				/* Ángulo a setear */
+				strcat( pcMsgToSend, "A015" );
+				/* Enviar mensaje a cola de consignas */
+				vStepperSendMsg( pcMsgToSend );
+			} else {
+				uint8_t cPositionValue;
+				xQueuePeek( xServoPositionMailbox, &cPositionValue, portMAX_DELAY );
+				if ( cPositionValue <= 0 ) {
+					continue;
+				} else {
+					cPositionValue -= servoVALUE_INCRMENT;
+					char pcAuxValue[4];
+					sprintf( pcAuxValue, "%d", cPositionValue );
+					strcat( pcMsgToSend, pcAuxValue );
+					vServoSendMsg( pcMsgToSend );
+				}
+			}
 		}
 
-		/* Ángulo a setear */
-		strcat( pcMsgToSend, "A015" );
-
-		/* Enviar mensaje a cola de consignas */
-		vStepperSendMsg( pcMsgToSend );
 		vUartSendMsg( pcMsgToSend );
 	}
 }

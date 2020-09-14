@@ -80,6 +80,18 @@
 */
 #define servoERROR_NOTIF_ANG	5
 
+/*! \def servoVALUE_INCREMENT
+	\brief Mínimo valor que provoca un incremento
+	en la posición del motor.
+*/
+#define servoVALUE_INCRMENT	36
+
+/*! \var QueueHandle_t xServoPositionMailbox
+	\brief Handle del mailbox que contendrá la posición
+	del servomotor.
+*/
+extern QueueHandle_t xServoPositionMailbox;
+
 /*! \fn void vServoSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.
 	\param pcMsg String con consigna a enviar.
