@@ -10,7 +10,7 @@
 #ifndef FREERTOSPRIORITIES_H_
 #define FREERTOSPRIORITIES_H_
 
-#define priorityLedBlinkTask			( configMAX_PRIORITIES - 5 )
+#define priorityLedBlinkTask			( configMAX_PRIORITIES - 6 )
 
 #define priorityAppSyncTask			( configMAX_PRIORITIES - 5 )
 

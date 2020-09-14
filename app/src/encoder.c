@@ -137,37 +137,48 @@ void vEncoderTask( void *pvParameters )
 
 	/* Puntero al mensaje a enviar */
 	char *pcMsgToSend = ( char * ) pvPortMalloc( 10 * sizeof( char ) );
+	/* Caracter auxiliar */
+	char cAuxChar[2] = "0";
 
 	for ( ;; ) {
 		/* Lectura de selección de motor en mailbox */
 		xQueuePeek( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
 		/* Inicio de mensaje */
-		if ( cValue == 0 ) {
-			strcpy( pcMsgToSend, ":S0D" );
-			gpioWrite( LED2, ON );
-			gpioWrite( LED3, OFF );
-		} else if ( cValue == 1 ) {
-			strcpy( pcMsgToSend, ":S1D" );
-			gpioWrite( LED3, ON );
-			gpioWrite( LED2, OFF );
+		if ( cValue < stepperAPP_NUM ) {
+			/* Consigna a motor paso a paso */
+			strcpy( pcMsgToSend, ":S" );
+			cAuxChar[0] = cValue + '0';
+			strcat( pcMsgToSend, cAuxChar );
+		} else if ( cValue == stepperAPP_NUM ) {
+			/* Consigna a servomotor */
+			strcpy( pcMsgToSend, ":X" );
+			vUartSendMsg( pcMsgToSend );
+			continue;
+		} else {
+			/* Excepción, valor no válido (no debería suceder) */
+			continue;
 		}
 
 		/* Lectura de handle del set */
 		xReceivedSemaphore = ( SemaphoreHandle_t ) xQueueSelectFromSet( xEncoderSemaphoreSet, portMAX_DELAY );
 		/* Obtener que semáforo tiene información y realizar take */
+		strcat( pcMsgToSend, "D\0" );
 		if ( xReceivedSemaphore == xEncoderPositivePulseSemaphore ) {
 			xSemaphoreTake( xEncoderPositivePulseSemaphore, portMAX_DELAY );
-			strcat( pcMsgToSend, "0" );
+			cAuxChar[0] = (char)stepperDIR_POSITIVE + '0';
+			strcat( pcMsgToSend, cAuxChar );
 		} else if ( xReceivedSemaphore == xEncoderNegativePulseSemaphore ) {
 			xSemaphoreTake( xEncoderNegativePulseSemaphore, portMAX_DELAY );
-			strcat( pcMsgToSend, "1" );
+			cAuxChar[0] = (char)stepperDIR_NEGATIVE + '0';
+			strcat( pcMsgToSend, cAuxChar );
 		}
 
 		/* Ángulo a setear */
-		strcat( pcMsgToSend, "A15" );
+		strcat( pcMsgToSend, "A015" );
 
 		/* Enviar mensaje a cola de consignas */
 		vStepperSendMsg( pcMsgToSend );
+		vUartSendMsg( pcMsgToSend );
 	}
 }
 
@@ -185,19 +196,19 @@ BaseType_t xEncoderInit( void )
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
 	* From EduCiaa pin out spec: GPIO1[9] -> port 1 and pin 9
 	*/
-//	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
-//	/* Clear actual configured interrupt status */
-//	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Set edge interrupt mode */
-//	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Enable high edge gpio interrupt */
-//	Chip_PININT_EnableIntLow( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Clear pending irq channel interrupts */
-//	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-//	/* Enable irqChannel interrupt */
-//	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-//	/* Seteo del nivel de prioridad de la interrupción 0 */
-//	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
+	/* Clear actual configured interrupt status */
+	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Set edge interrupt mode */
+	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Enable high edge gpio interrupt */
+	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Clear pending irq channel interrupts */
+	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+	/* Enable irqChannel interrupt */
+	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+	/* Seteo del nivel de prioridad de la interrupción 0 */
+	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
@@ -239,20 +250,20 @@ BaseType_t xEncoderInit( void )
 
 	/* Creación de tarea de procesamiento de información de encoder */
 	BaseType_t xStatus = pdPASS;
-	//xStatus = xTaskCreate(
+	xStatus = xTaskCreate(
 		/* Puntero a la función que implementa la tarea */
-		//vEncoderTask,
+		vEncoderTask,
 		/* Nombre de la tarea amigable para el usuario */
-		//( const char * ) "EncoderTask",
+		( const char * ) "EncoderTask",
 		/* Tamaño de stack de la tarea */
-		//configMINIMAL_STACK_SIZE*2,
+		configMINIMAL_STACK_SIZE*2,
 		/* Parámetros de la tarea */
-		//NULL,
+		NULL,
 		/* Prioridad de la tarea */
-		//priorityEncoderTask,
+		priorityEncoderTask,
 		/* Handle de la tarea creada */
-		//NULL
-	//);
+		NULL
+	);
 
 	return xStatus;
 }

@@ -127,7 +127,7 @@ void vServoControlTask( void *pvParameters )
 	int8_t iAngleValue;
 
 	/* Inicialización del servo en 0 */
-	xServoAbsoluteSetPoint( 0 );
+	xServoAbsoluteSetPoint( 30 );
 
 	for ( ;; ) {
 		/* Lectura de cola de consignas */

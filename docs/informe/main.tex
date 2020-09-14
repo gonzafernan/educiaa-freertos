@@ -3,6 +3,7 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{rotating}
+\usepackage{gensymb}
 
 \usepackage{todonotes}
 
@@ -137,7 +138,18 @@ El cambio de estado en una tarea es únicamente dirigido por el \textit{schedule
 
 Para seleccionar esa próxima tarea a ejecutar, el \textit{scheduler} se ejecuta mediante una interrupción periódica denominada \textit{tick interrupt}. En el proyecto la frecuencia de dicha interrupción es de 1000 Hz.
 
-No es necesario especificar un ejemplo de tarea ya que se utilizan en prácticamente todos los aspectos del trabajo.
+En el proyecto se implementaron las siguientes tareas:
+
+\begin{itemize}
+    \item Para la comunicación UART se utilizan dos tareas, una para la recepción de datos (prioridad 5) y otra para transmisión (prioridad 4).
+    \item Para el control del servomotor y otra para el control de los motores paso a paso, ambas con prioridad 3.
+    \item Para el procesamiento de la información recibida a través del encoder incremental (prioridad 2).
+    \item Para la manipulación y clasificación de mensajes y sus posibles consecuentes errores (prioridad 2).
+    \item Una tarea que simplemente realiza un \textit{toggle} se un LED para verificar visualmente que la aplicación sigue en funcionamiento (prioridad 1).
+    \item Para el control del display LCD (prioridad 1). 
+\end{itemize}
+
+La mayor prioridad permitida en la aplicación es 7 (mayor valor, mayor prioridad), al RTOS daemon se le asignó prioridad 6.
 
 \subsection{Algoritmos de \textit{scheduler}}
 El algoritmo del \textit{scheduler} es el que decidirá qué tarea ejecutará de entre la lista de tareas en estado listas o \textit{ready} y cuándo cambiar de una a otra.
@@ -320,6 +332,36 @@ Ante el evento del pulso de clock, se lee la entrada de dirección del encoder y
 
 Una tarea es la encargada de procesar la información recibida. Dado que ambos semáforos contadores perteneces a un mismo \textit{set}, la tarea se bloquea esperando información en cualquiera de los dos semáforos. Al recibir un elemento en alguno de ellos, se construye el mensaje de consigna leyendo el motor seleccionado desde el mailbos, y se envía como un arreglo de caracteres a la cola de consignas pendientes.
 
+\subsection{Servo motor en extremo operativo}
+Para el control del servomotor es necesario una señal PWM con un período de 20 ms (señal de 50 Hz) que tenga un \textit{duty cycle} variable entre 2 y 10 ms, siendo 2 ms para un ángulo en el motor de 0\degree, y 10 ms para un ángulo de 180\degree. Dicha señal PWM fue implementada con un períferico del microcontrolador y no con APIs de FreeRTOS. El periférico utilizado es el \textit{SCT Timer} o \textit{State Configurable Timer} que fue configurado hanciendo uso de la librería LPCOpen.
+
+La resolución es similar a la de los motores paso a paso, sin el uso de timers por software: Se posee una cola de mensajes con las consignas al motor, que es leída por una tarea. La tarea se encuentrada bloqueada hasta recibir una consigna, y el entrar en estado \textit{Running} ejecuta una función que varía el \textit{duty cycle} de la señal PWM.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[scale=0.5]{../diagrama_servo.png}
+    \caption{Implementación de control de servomotor.}
+    \label{fig:diagrama-servo}
+\end{figure*}
+
+En la figura \ref{fig:diagrama-servo} se puede observar el diseño del módulo encargado del control del servomotor.
+
+Para verificar que la señal PWM enviada al motor es correcta, se utilizó un a analizador lógico. Las lecturas realizadas se pueden observar en las figuras \ref{fig:sct-pwm-min} y \ref{fig:sct-pwm-max}.
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{../sct_pwm_min.png}
+    \caption{Lectura con analizador lógico de señal PWM correspondiente a 0\degree del servomotor.}
+    \label{fig:sct-pwm-min}
+\end{figure*}
+
+\begin{figure*}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{../sct_pwm_max.png}
+    \caption{Lectura con analizador lógico de señal PWM correspondiente a 180\degree del servomotor.}
+    \label{fig:sct-pwm-max}
+\end{figure*}
+
 \section{Interrupciones anidadas y particularidades de procesadores ARM Cortex-M}
 El desafío más complejo en el desarrollo de la aplicación fue la implementación para que funcionen correctamente las rutinas de interrupción ejecutadas por el encoder rotativo (rutinas de interrupción ante flancos en pines GPIO).
 
@@ -375,6 +417,19 @@ Se pudo encontrar que al juntar todos lo módulos, se sobrepasaba el tamaño de 
 
 Analizando este problema también se obtuvo el tamaño de cada módulo, siendo los siguientes:
 
+\section{Descripción de formato de consigna a motores}
+En la tabla puede observarse el formato de las consignas a enviar al microcontrolador a través de UART.
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Motor PaP}  & \begin{tabular}[c]{@{}l@{}}:S\{Id1\}D\{Dirección1\}A\{Ángulo 1 con tres dígitos\}\\ S\{Id2\}D\{Dirección2\}A\{Ángulo 2 con tres dígitos\}\\ S\{Id3\}D\{Dirección3\}A\{Ángulo 3 con tres dígitos\}\end{tabular} \\ \hline
+    \textbf{Servomotor} & :X\{Ángulo\}\\ \hline
+\end{tabular}
+\end{table}
+
+El módulo del servomotor recibe consignas para ángulos entre 0\degree y 180\degree. Valores fuera de este rango devolverán un error.
+
 \section{Conclusiones}
 \label{sec:conclusiones}
 Todo el proyecto se desarrolló siguiendo el estilo de código propuesto por FreeRTOS, esto permitió programar de forma mucho más eficiente, estructurada y limpia. Además, para la documentación del código se siguieron los lineamientos del proyecto Doxygen, esto también hizo que el desarrollo del proyecto a medida que se iba complejizando fuera más sencillo de seguir.
@@ -385,6 +440,8 @@ Uno de los puntos a resaltar al finalizar el trabajo, es que aunque los diagrama
 Analizar distintas herramientas de debugging para RTOS, como también estudiar en profundidad el desempeño que tiene el diseño implementado (tiempo en IDLE, cantidad de stack asignada a las diferentes tareas, etc.).
 
 Fabricación de PCB donde poder montar todas las conexiones del hardware de forma más prolija (actualmente se encuentra en placa de prototipado).
+
+Mejorar el tipo de mensajes que se reciben por UART al igual que agregar más para una mayor interacción con el proyecto.
 
 \printbibliography
 
