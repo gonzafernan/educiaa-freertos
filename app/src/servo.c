@@ -100,6 +100,10 @@ BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 		Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
 			Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
 				servoDUTYCYCLE_MIN ) );
+
+		/* Actualización del valor en mailbox */
+		ucSetPointValue = servoANGLE_MIN;
+		xQueueOverwrite( xServoPositionMailbox, &ucSetPointValue );
 		/* Devolver error */
 		return pdFAIL;
 	}
@@ -109,6 +113,10 @@ BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 		Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
 			Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
 				servoDUTYCYCLE_MAX ) );
+
+		/* Actualización del valor en mailbox */
+		ucSetPointValue = servoANGLE_MAX;
+		xQueueOverwrite( xServoPositionMailbox, &ucSetPointValue );
 		/* Devolver error */
 		return pdFAIL;
 	}
@@ -116,9 +124,6 @@ BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 	Chip_SCTPWM_SetDutyCycle( servoSCT_PWM, servoSCT_PWM_INDEX,
 		Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
 			ucServoValue( ucSetPointValue )*5/servoANGLE_MAX + 5 ) );
-
-	/* Actualización del valor en mailbox */
-	xQueueOverwrite( xServoPositionMailbox, &ucSetPointValue );
 
 	return pdPASS;
 }

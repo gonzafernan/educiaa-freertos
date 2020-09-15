@@ -20,6 +20,7 @@
 #include "display_lcd.h"
 #include "encoder.h"
 #include "stepper.h"
+#include "servo.h"
 #include "uart.h"
 
 /*! \var TaskHandle_t xDisplayTaskHandle
@@ -27,20 +28,12 @@
 */
 TaskHandle_t xDisplayTaskHandle;
 
-/*! \var uint8_t cMenuSel
-	\brief Valor de selección de menu en display.
-*/
-volatile uint8_t cMenuSel;
-
 /*! \fn void vUpdateSelection( uint8_t cSelection )
 	\brief Actualizar selección en el displat LCD.
 	\param cSel Entero con el índice de la selección.
 */
 void vUpdateSelection( uint8_t cSelection )
 {
-	/* Actualizar valor de selección */
-	cMenuSel = cSelection;
-
 	/* Colocar cursor en posición 0, 1 */
 	lcdGoToXY( 0, 1 );
 
@@ -78,14 +71,21 @@ void vDisplayTask( void *pvParameters )
 	/* Selección inicial de menu en display */
 	vUpdateSelection( 4 );
 
+	uint8_t cMenuSel, value;
+
 	for ( ;; ) {
+		/* Lectura del valor actual en mailbox */
+		xQueuePeek( xEncoderChoiceMailbox, &cMenuSel, portMAX_DELAY );
 
 		if ( cMenuSel < stepperAPP_NUM ) {
 			gpioToggle( LED3 );
-			uint32_t value = ilStepperGetAngle( cMenuSel );
+			value = ilStepperGetAngle( cMenuSel );
 			if (value) {
 				printf( "PEND: %d\n", value );
 			}
+		} else if ( cMenuSel == stepperAPP_NUM ) {
+			xQueuePeek( xServoPositionMailbox, &value, portMAX_DELAY );
+			printf( "POS: %d\n", value );
 		}
 
 		gpioToggle(LED2);
