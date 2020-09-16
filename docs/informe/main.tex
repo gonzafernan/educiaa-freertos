@@ -312,7 +312,7 @@ Probablemente los componentes más importantes del módulo son los timers por so
 
 Si la cantidad de pasos pendientes llega a cero, el timer se detiene a sí mismo y luego setea su bit correspondiente en el grupo de eventos. Una vez que finalizan todos los timers, se produce el evento que permite a la tarea de control de los motores que pueda procesar la siguiente consigna en la cola y ejecutarla si es correcta. 
 
-Es importante aclarar que en el diseño planteado es necesario que las consignas seteen los tres motores paso a paso a la vez. Si se desea que un motor no se mueva sencillamente se le pasa un ángulo nulo.
+Es importante aclarar que en el diseño planteado en las consignas puede setearse los tres motores paso a paso a la vez o motores individuales.
 
 Como se mencionó en la sección \ref{sec:software-timer}, la función de \textit{callback} de los timers se ejecuta en el contexto de la tarea \textit{daemon} del RTOS. Entonces, al \textit{daemon} se le asignó la prioridad más alta de la aplicación, ya que es imprescindible que los tiempos del timer se cumplan para un correcto funcionamiento de los motores.
 
@@ -381,7 +381,7 @@ Por último, para poder llevar un seguimiento de la posición del motor, se impl
 \subsection{Display LCD de dos líneas}
 \label{sec:display}
 
-En el proyecto se utilizó un display LCD como salida HMI. La comunicación entre el display y el microcontrolador es a través de protocolo I2C, se utilizaron las funciones proveídas por la sAPI del firmware del proyecto CIAA.
+En el proyecto se utilizó un display LCD como salida HMI. Para la comunicación entre el display y el microcontrolador se utilizaron las funciones proveídas por la sAPI del firmware del proyecto CIAA.
 
 El display muestra durante toda la ejecución en su primer línea el título del proyecto y la cátedra. En su segunda línea, una etiqueta correspondiente al motor seleccionado seguido de los pasos pendientes si la selección es de un motor paso a paso, o la posición actual del servomotor.
 
@@ -466,7 +466,23 @@ Además, también se utilizo la API de FreeRTOS \textit{xPortGetFreeHeapSize}, q
 
 Se pudo encontrar que al juntar todos lo módulos, se sobrepasaba el tamaño de pila dado en la configuración (de 8 kilobytes). Se duplicó a \textbf{16 kilobytes} y así contar con espacio suficiente para toda la aplicación.
 
-Analizando este problema también se obtuvo el tamaño de cada módulo, siendo los siguientes:
+Analizando este problema también se obtuvo el tamaño de cada módulo, se pueden observar en el cuadro \ref{tabla:size-modulos}.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|c|}
+    \hline
+    \textbf{Módulo} & \textbf{Tamaño {[}Bytes{]}} \\ \hline
+    UART & 2646 \\ \hline
+    Motor PaP & 1200 \\ \hline
+    Servomotor & 1112 \\ \hline
+    Display & 896 \\ \hline
+    Encoder & 1160 \\ \hline
+    \textit{Disponible} & \textit{7864} \\ \hline
+    \end{tabular}
+    \caption{Tamaño de los diferentes módulos en su inicialización.}
+    \label{tabla:size-modulos}
+\end{table}
 
 \section{Conclusiones}
 \label{sec:conclusiones}
