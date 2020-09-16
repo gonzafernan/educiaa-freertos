@@ -125,8 +125,8 @@ void vAppSyncTask( void *pvParameters )
 void vLedBlinkTask( void *pvParameters )
 {
 	for ( ;; ) {
-		/* Indicador en LED1 */
-		gpioToggle( LED1 );
+		/* Indicador en LEDB */
+		gpioToggle( LEDB );
 		/* Parpadeo de medio segundo */
 		vTaskDelay( pdMS_TO_TICKS( 500 ) );
 	}

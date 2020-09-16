@@ -74,12 +74,12 @@
 */
 typedef char StepperDir_t;
 
-/*! \fn int32_t ilStepperGetAngle( uint8_t )
+/*! \fn uint32_t ulStepperGetAngle( uint8_t ucStepperIndex )
 	\brief Obtener ángulo pendiente de motor paso a paso.
 	\param ucStepperIndex Índice del motor paso a paso.
 	\return Pasos pendientes del motor en forma de ángulo.
 */
-int32_t ilStepperGetAngle( uint8_t ucStepperIndex );
+uint32_t ulStepperGetAngle( uint8_t ucStepperIndex );
 
 /*! \fn void vStepperSendMsg( char *pcMsg )
 	\brief Enviar consigna a cola de consignas pendientes.

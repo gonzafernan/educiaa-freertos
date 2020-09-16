@@ -71,7 +71,8 @@ void vDisplayTask( void *pvParameters )
 	/* Selección inicial de menu en display */
 	vUpdateSelection( 4 );
 
-	uint8_t cMenuSel, value;
+	uint8_t cMenuSel = 4;
+	uint8_t value;
 	char pcAuxMsg[4];
 
 	for ( ;; ) {
@@ -82,15 +83,17 @@ void vDisplayTask( void *pvParameters )
 		lcdGoToXY( 11, 1 );
 
 		if ( cMenuSel < stepperAPP_NUM ) {
-			value = ilStepperGetAngle( cMenuSel );
+			/* Obtener ángulo pendiente de motor */
+			value = ulStepperGetAngle( cMenuSel );
+			/* Escribir ángulo pendiente en formato de tres dígitos */
+			sprintf( pcAuxMsg, "%03d", value );
+			lcdSendStringRaw( pcAuxMsg );
 			if ( value ) {
-				sprintf( pcAuxMsg, "%d", value );
 				printf( "PEND: %d\n", value );
-				lcdSendStringRaw( pcAuxMsg );
 			}
 		} else if ( cMenuSel == stepperAPP_NUM ) {
 			xQueuePeek( xServoPositionMailbox, &value, portMAX_DELAY );
-			sprintf( pcAuxMsg, "%d", value );
+			sprintf( pcAuxMsg, "%03d", value );
 			printf( "POS: %d\n", value );
 			lcdSendStringRaw( pcAuxMsg );
 		}

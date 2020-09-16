@@ -52,6 +52,8 @@ typedef struct xStepperData {
     StepperDir_t xDir;
     /* Bit asociado en el grupo de eventos (igual a ID) */
     uint8_t cEventGroupBit;
+    /* LED asociado al motor como indicador visual */
+    gpioMap_t xLed;
 } StepperData_t;
 
 /*! \var TaskHandle_t xStepperControlTaskHandle
@@ -86,23 +88,19 @@ QueueHandle_t xStepperSetPointQueue;
 */
 EventGroupHandle_t xStepperEventGroup;
 
-/*! \fn int32_t ilStepperGetAngle( uint8_t )
+/*! \fn uint32_t ulStepperGetAngle( uint8_t ucStepperIndex )
 	\brief Obtener ángulo pendiente de motor paso a paso.
 	\param ucStepperIndex Índice del motor paso a paso.
 	\return Pasos pendientes del motor en forma de ángulo.
 */
-int32_t ilStepperGetAngle( uint8_t ucStepperIndex )
+uint32_t ulStepperGetAngle( uint8_t ucStepperIndex )
 {
 	/* Estructura de datos a obtener del timer ID */
 	StepperData_t* xStepperDataID;
 	xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer[ucStepperIndex] );
 
 	/* Devolver pasos pendientes en forma de ángulo */
-	if ( xStepperDataID->xDir == stepperDIR_NEGATIVE ) {
-		return ( - (int32_t)xStepperDataID->ulPendingSteps * 360/4096 );
-	} else {
-		return ( (int32_t)xStepperDataID->ulPendingSteps * 360/4096 );
-	}
+	return xStepperDataID->ulPendingSteps * 360/4096;
 }
 
 /*! \fn void vStepperSendMsg( char *pcMsg )
@@ -149,9 +147,16 @@ static void prvStepperTimerCallback( TimerHandle_t xStepperTimer )
     /* Estructura de datos a obtener del timer ID */
     StepperData_t *xStepperDataID;
     xStepperDataID = ( StepperData_t * ) pvTimerGetTimerID( xStepperTimer );
+
+    /* LED indicador visual ON */
+    gpioWrite( xStepperDataID->xLed, ON );
+
     /* Verificación de existencia de pasos pendientes */
     if ( xStepperDataID->ulPendingSteps == 0 ) {
-        /* Detener timer si no existen pasos pendientes */
+    	/* LED indicador visual OFF */
+		gpioWrite( xStepperDataID->xLed, OFF );
+
+    	/* Detener timer si no existen pasos pendientes */
         xTimerStop( xStepperTimer, 0 );
         /* Setear bit de evento asociado al motor */
         xEventGroupSetBits(
@@ -345,6 +350,9 @@ BaseType_t xStepperInit( void )
 	/* Verificación de cola creada con éxito */
 	configASSERT( xStepperSetPointQueue != NULL );
 
+	/* Array de LED indicadores visuales */
+	gpioMap_t xLedArray[3] = { LED1, LED2, LED3 };
+
 	/* Creación de grupo de eventos para detectar final de consigna */
 	xStepperEventGroup = xEventGroupCreate();
 
@@ -361,6 +369,9 @@ BaseType_t xStepperInit( void )
 		for ( uint8_t j=0; j<driverINPUT_NUM; j++) {
 			xStepperDataID[i].pxDriverInput[j] = pxDriver[i][j];
 		}
+
+		/* LED indicador asociado */
+		xStepperDataID[i].xLed = xLedArray[i];
 
 		/* Bit de grupo de evento */
 		xStepperDataID[i].cEventGroupBit = i;
