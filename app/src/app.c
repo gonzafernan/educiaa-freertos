@@ -15,31 +15,22 @@
 #include "FreeRTOSConfig.h"
 #include "FreeRTOSPriorities.h"
 #include "task.h"
-#include "queue.h"
 
 /* EDU-CIAA firmware_v3 includes */
 #include "sapi.h"
 
 /* Aplicación includes */
 #include "uart.h"
+#include "buffer.h"
 #include "encoder.h"
 #include "stepper.h"
 #include "servo.h"
-
-/*! \def appQUEUE_MSG_LENGTH
-	\brief Longitud de cola de mensajes recibidos.
-*/
-#define appQUEUE_MSG_LENGTH	50
+#include "display_lcd.h"
 
 /*! \var TaskHandle_t xAppSyncTaskHandle
 	\brief Handle de la tarea que sincroniza mensajes.
 */
 TaskHandle_t xAppSyncTaskHandle = NULL;
-
-/*! \var QueueHandle_t xMsgQueue
-    \brief Cola de mensajes recibidos.
-*/
-QueueHandle_t xMsgQueue;
 
 /*! \fn vErrorNotifHandling( uint32_t ulNotifError )
 	\brief Gestió de errores obtenidos por notificación de tarea.
@@ -70,7 +61,7 @@ void vErrorNotifHandling( uint32_t ulNotifError )
 	}
 }
 
-/*! \fn vAppSyncTask( void *pvParameters )
+/*! \fn void vAppSyncTask( void *pvParameters )
 	\brief Tarea de sincronización de mensajes.
 */
 void vAppSyncTask( void *pvParameters )
@@ -83,15 +74,9 @@ void vAppSyncTask( void *pvParameters )
     char *pcErrorMsg = "Error en mensaje previo";
 
     for ( ;; ) {
-        xQueueReceive(
-            /* Handle de la cola a leer */
-            xMsgQueue,
-            /* Puntero a la memoria donde guardar lectura */
-            &pcMsgReceived,
-            /* Máximo tiempo que la tarea puede estar bloqueada
-            esperando que haya información a leer */
-            portMAX_DELAY
-        );
+    	printf("APP");
+    	/* Lectura de mensaje recibido */
+    	vBufferReadMsg( pcMsgReceived );
 
         /* Verificación de inicio de trama */
         if ( pcMsgReceived[0] != ':' ) {
@@ -124,6 +109,7 @@ void vAppSyncTask( void *pvParameters )
 void vLedBlinkTask( void *pvParameters )
 {
 	for ( ;; ) {
+		printf("BLINK");
 		/* Indicador en LED1 */
 		gpioToggle( LED1 );
 		/* Parpadeo de medio segundo */
@@ -174,10 +160,15 @@ int main( void )
     /* Obtener información del espacio libre */
     xPreviousSize = xPrintModuleSize( "Servo", xPreviousSize);
 
-    /* Creación de cola de mensajes recibidos */
-    xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );
-    /* Verificación de cola creada con éxito */
-	configASSERT( xMsgQueue != NULL );
+    /* Inicialización de display LCD */
+    xStatus = xDisplayInit(); configASSERT( xStatus == pdPASS );
+    xPreviousSize = xPrintModuleSize( "Display", xPreviousSize);
+
+    /* Creación de buffer circular para los mensajes de la aplicación */
+    xStatus = xBufferCreate(); configASSERT( xStatus == pdPASS );
+    xPreviousSize = xPrintModuleSize( "Buffer", xPreviousSize);
+
+    printf( "Espacio disponible: %d\n", xPreviousSize );
 
     /* Creación de tarea de control de flujo de trabajo del programa */
     xStatus = xTaskCreate(

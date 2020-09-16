@@ -81,6 +81,12 @@
 #define vEncoderSW_IRQ_HANDLER   GPIO2_IRQHandler   // GPIO interrupt IRQ function name
 #define PININT2_NVIC_NAME     PIN_INT2_IRQn      // GPIO interrupt NVIC interrupt name
 
+/*! \var QueueHandle_t xEncoderChoiceMailbox
+	\brief Mailbox con la selección actual de motor mediante
+	pulsador de encoder.
+*/
+extern QueueHandle_t xEncoderChoiceMailbox;
+
 /*! \fn BaseType_t xEncoderInit( void )
     \brief Inicialización de encoder rotativo de la aplicación.
 */

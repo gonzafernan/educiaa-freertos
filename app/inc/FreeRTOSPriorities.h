@@ -22,4 +22,6 @@
 
 #define priorityEncoderTask			( configMAX_PRIORITIES - 5 )
 
+#define priorityDisplayTask			( configMAX_PRIORITIES - 6 )
+
 #endif /* FREERTOSPRIORITIES_H_ */

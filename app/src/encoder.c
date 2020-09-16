@@ -23,6 +23,7 @@
 /* Aplicación includes */
 #include "encoder.h"
 #include "stepper.h"
+#include "display_lcd.h"
 
 /*! \var SemaphoreHandle_t xEncoderPositivePulseSemaphore
 	\brief Semáforo que guarda la cantidad de pulsos positivos
@@ -66,22 +67,29 @@ void vEncoderCLK_IRQ_HANDLER( void )
 */
 void vEncoderSW_IRQ_HANDLER( void )
 {
-	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 	/* Valor de selección del encoder */
 	uint8_t cValue;
 	/* Lectura del valor actual en mailbox */
 	xQueuePeekFromISR( xEncoderChoiceMailbox, &cValue );
-	//cValue++;
-	if ( cValue == 0 ) {
-		cValue = 1;
-	} else if ( cValue == 1 ) {
+	/* Incremento en la selección */
+	cValue++;
+	/* Vuelta a cero por Overflow del menu */
+	if ( cValue > stepperAPP_NUM + 1 ) {
 		cValue = 0;
 	}
 	printf("%d\n", cValue);
 	/* Actualización del valor en mailbox */
 	xQueueOverwriteFromISR( xEncoderChoiceMailbox, &cValue, 0 );
-    portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+
+	/* Notificación de selección a display */
+	vTaskNotifyGiveFromISR( xDisplayTaskHandle, &xHigherPriorityTaskWoken );
+
+	/* Limpieza de estado de interrupción y flanco */
+	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+	Chip_PININT_ClearRiseStates( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+
+	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 
 /*! \fn void vEncoderTask( void *pvParameters )
@@ -106,6 +114,7 @@ void vEncoderTask( void *pvParameters )
 	char *pcMsgToSend = ( char * ) pvPortMalloc( 10 * sizeof( char ) );
 
 	for ( ;; ) {
+		printf("ENCODER");
 		/* Lectura de selección de motor en mailbox */
 		xQueuePeek( xEncoderChoiceMailbox, &cValue, portMAX_DELAY );
 		/* Inicio de mensaje */
@@ -176,7 +185,7 @@ BaseType_t xEncoderInit( void )
 	/* Set edge interrupt mode */
 	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 	/* Enable high edge gpio interrupt */
-	Chip_PININT_EnableIntLow( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 	/* Clear pending irq channel interrupts */
 	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT2_INDEX );
 	/* Enable irqChannel interrupt */
