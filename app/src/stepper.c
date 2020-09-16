@@ -202,7 +202,7 @@ void vStepperControlTask( void *pvParameters )
     /* Dirección */
     StepperDir_t xDir;
     /* Ángulo a realizar */
-    int32_t lAngle;
+    uint32_t ulAngle;
     /* Variable para gestión de errores en mensaje */
     uint8_t cErrorHandle = 0;
 
@@ -224,7 +224,7 @@ void vStepperControlTask( void *pvParameters )
 			if ( ( cID < 0 ) || ( cID >= stepperAPP_NUM ) ) {
 				/* Código error por ID errónea */
 				cErrorHandle = stepperERROR_NOTIF_ID;
-				continue;
+				break;
 			}
 			/* Lectura de dirección del motor */
 			if ( pcReceivedSetPoint[i*8+3] == 'D' ) {
@@ -233,7 +233,7 @@ void vStepperControlTask( void *pvParameters )
 				if ( ( xDir < 0 ) || ( xDir > 1 ) ) {
 					/* Código error por DIR errónea */
 					cErrorHandle = stepperERROR_NOTIF_DIR;
-					continue;
+					break;
 				}
 			} else if ( pcReceivedSetPoint[i*8+3] == 'V' ) {
 	        	cVel = atoi( &pcReceivedSetPoint[4] );
@@ -242,7 +242,7 @@ void vStepperControlTask( void *pvParameters )
 	        			( cVel > stepperTIMER_MAX_PERIOD ) ) {
 	        		/* Código error por VEL errónea */
 	        		cErrorHandle = stepperERROR_NOTIF_VEL;
-					continue;
+					break;
 	        	}
 	        	/* Cambio de periodo del timer */
 				xTimerChangePeriod(
@@ -257,25 +257,25 @@ void vStepperControlTask( void *pvParameters )
 	        } else {
 	        	/* Error en dirección o velocidad */
 	        	cErrorHandle = stepperERROR_NOTIF_DIR;
-	        	continue;
+	        	break;
 	        }
 
 			/* Lectura de ángulo */
 			if ( pcReceivedSetPoint[i*8+5] == 'A' ) {
-				lAngle = atoi( &pcReceivedSetPoint[i*8+6] );
+				ulAngle = atoi( &pcReceivedSetPoint[i*8+6] );
 				/* Verificación de ángulo positivo */
-				if ( lAngle < 0 ) {
+				if ( ulAngle < 0 ) {
 					/* Código error por ANG erróneo */
 					cErrorHandle = stepperERROR_NOTIF_ANG;
-					continue;
+					break;
 				}
 				/* Seteo de consigna */
-				lAngle = stepperANGLE_TO_STEPS( lAngle );
-				xStepperRelativeSetPoint( xStepperTimer[cID], lAngle, xDir );
+				ulAngle = stepperANGLE_TO_STEPS( ulAngle );
+				xStepperRelativeSetPoint( xStepperTimer[cID], ulAngle, xDir );
 			} else {
 				/* Código error por ANG erróneo */
 				cErrorHandle = stepperERROR_NOTIF_ANG;
-				continue;
+				break;
 			}
         }
         /* Error en consigna a motores */
