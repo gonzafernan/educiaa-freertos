@@ -69,32 +69,31 @@ void vDisplayTask( void *pvParameters )
 	char* pcAngleTxt;
 
 	/* Selección inicial de menu en display */
-	vUpdateSelection( 4 );
+	vUpdateSelection( 0 );
 
-	uint8_t cMenuSel = 4;
-	uint8_t value;
+	uint8_t cMenuSel = 0;
+	uint32_t value;
 	char pcAuxMsg[4];
 
 	for ( ;; ) {
 		/* Lectura del valor actual en mailbox */
-		//xQueuePeek( xEncoderChoiceMailbox, &cMenuSel, portMAX_DELAY );
+		xQueuePeek( xEncoderChoiceMailbox, &cMenuSel, portMAX_DELAY );
 
 		/* Colocar cursor en posición 0, 0 */
 		lcdGoToXY( 11, 1 );
 
+		/* Selección de motores paso a paso */
 		if ( cMenuSel < stepperAPP_NUM ) {
 			/* Obtener ángulo pendiente de motor */
 			value = ulStepperGetAngle( cMenuSel );
 			/* Escribir ángulo pendiente en formato de tres dígitos */
 			sprintf( pcAuxMsg, "%03d", value );
 			lcdSendStringRaw( pcAuxMsg );
-			if ( value ) {
-				printf( "PEND: %d\n", value );
-			}
+		/* Selección de servomotor */
 		} else if ( cMenuSel == stepperAPP_NUM ) {
 			xQueuePeek( xServoPositionMailbox, &value, portMAX_DELAY );
+			/* Escribir posición del motor en formato de 3 dígitos */
 			sprintf( pcAuxMsg, "%03d", value );
-			printf( "POS: %d\n", value );
 			lcdSendStringRaw( pcAuxMsg );
 		}
 
@@ -108,7 +107,7 @@ void vDisplayTask( void *pvParameters )
 BaseType_t xDisplayInit( void )
 {
 	/* Inicialización de interfaz I2C */
-	i2cInit( I2C0, 100000 );
+	//i2cInit( I2C0, 100000 );
 
 	/* Esperar que se estabilice la alimentación del LCD
 	 * No utilizo la API vTaskDelay por ser un proceso a

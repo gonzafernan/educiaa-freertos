@@ -17,7 +17,23 @@
 /*! \def encoderPIN_SW
 	\brief Conexión pin switch de encoder rotativo.
 */
-#define encoderPIN_SW	GPIO2
+//#define encoderPIN_SW	GPIO2
+#define encoderPIN_SW	GPIO0
+
+// SCU
+#define GPIO0_SCU_PORT	6
+#define GPIO0_SCU_PIN	1
+#define GPIO0_SCU_FUNC	SCU_MODE_FUNC0
+
+// GPIO
+#define GPIO0_GPIO_PORT	3
+#define GPIO0_GPIO_PIN	0
+
+// Interrupt
+#define PININT_INDEX         0                  // PININT index used for GPIO mapping
+#define PININT_IRQ_HANDLER   GPIO0_IRQHandler   // GPIO interrupt IRQ function name
+#define PININT_NVIC_NAME     PIN_INT0_IRQn      // GPIO interrupt NVIC interrupt name
+
 
 /*! \def encoderPIN_CLK
 	\brief Conexión pin clock de encoder rotativo.
@@ -39,11 +55,6 @@
 */
 #define encoderANGLE_TO_SEND	15
 
-// SCU
-#define GPIO0_SCU_PORT	6
-#define GPIO0_SCU_PIN	1
-#define GPIO0_SCU_FUNC	SCU_MODE_FUNC0
-
 #define GPIO1_SCU_PORT	6
 #define GPIO1_SCU_PIN	4
 #define GPIO1_SCU_FUNC	SCU_MODE_FUNC0
@@ -52,9 +63,7 @@
 #define GPIO2_SCU_PIN	5
 #define GPIO2_SCU_FUNC	SCU_MODE_FUNC0
 
-// GPIO
-#define GPIO0_GPIO_PORT	3
-#define GPIO0_GPIO_PIN	0
+
 
 #define GPIO1_GPIO_PORT	3
 #define GPIO1_GPIO_PIN	3
@@ -62,10 +71,6 @@
 #define GPIO2_GPIO_PORT	3
 #define GPIO2_GPIO_PIN	4
 
-// Interrupt
-#define PININT0_INDEX         0                  // PININT index used for GPIO mapping
-#define PININT0_IRQ_HANDLER   GPIO0_IRQHandler   // GPIO interrupt IRQ function name
-#define PININT0_NVIC_NAME     PIN_INT0_IRQn      // GPIO interrupt NVIC interrupt name
 
 #define PININT1_INDEX         1                  // PININT index used for GPIO mapping
 #define vEncoderCLK_IRQ_HANDLER   GPIO1_IRQHandler   // GPIO interrupt IRQ function name

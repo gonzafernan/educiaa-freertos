@@ -125,6 +125,8 @@ BaseType_t xServoAbsoluteSetPoint( uint8_t ucSetPointValue )
 		Chip_SCTPWM_PercentageToTicks( servoSCT_PWM,
 			ucServoValue( ucSetPointValue )*5/servoANGLE_MAX + 5 ) );
 
+	xQueueOverwrite( xServoPositionMailbox, &ucSetPointValue );
+
 	return pdPASS;
 }
 
@@ -138,7 +140,9 @@ void vServoControlTask( void *pvParameters )
 	char *pcReceivedSetPoint;
 
 	/* Valor de ángulo a setear */
-	int8_t iAngleValue;
+	uint8_t ulAngleValue = 0;
+
+	xQueueOverwrite( xServoPositionMailbox, &ulAngleValue );
 
 	/* Inicialización del servo en 0 */
 	xServoAbsoluteSetPoint( 30 );
@@ -155,10 +159,10 @@ void vServoControlTask( void *pvParameters )
 		);
 
 		/* Lectura de ID del motor a setear */
-		iAngleValue = atoi( &pcReceivedSetPoint[2] );
+		ulAngleValue = atoi( &pcReceivedSetPoint[2] );
 
 		/* Seteo de consigna */
-		if ( xServoAbsoluteSetPoint( iAngleValue ) == pdFAIL ) {
+		if ( xServoAbsoluteSetPoint( ulAngleValue ) == pdFAIL ) {
 			/* Error en ángulo */
 			xTaskNotify( xAppSyncTaskHandle,
 				( 1 << servoERROR_NOTIF_ANG ), eSetBits );

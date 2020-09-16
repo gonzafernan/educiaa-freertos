@@ -64,7 +64,6 @@ QueueHandle_t xEncoderChoiceMailbox;
 */
 static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2 )
 {
-	gpioToggle(LED3);
 	/* Valor de selección del encoder */
 	uint8_t cValue;
 	/* Lectura del valor actual en mailbox */
@@ -81,6 +80,7 @@ static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2
 	/* Actualización de selección en display
 	 * (implementación en display_lcd.c) */
 	vUpdateSelection( cValue );
+	vUartSendMsg("SW");
 }
 
 /*! \fn void PININT1_IRQ_HANDLER( void )
@@ -105,8 +105,11 @@ void vEncoderCLK_IRQ_HANDLER( void )
 /*! \fn void PININT2_IRQ_HANDLER( void )
 	\brief Handler interrupt from GPIO pin or GPIO pin mapped to PININT
 */
-void vEncoderSW_IRQ_HANDLER( void )
+//void vEncoderSW_IRQ_HANDLER( void )
+void PININT_IRQ_HANDLER( void )
 {
+	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT_INDEX ) );
+
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
 	/* Procesamiento diferido al RTOS daemon */
@@ -120,10 +123,6 @@ void vEncoderSW_IRQ_HANDLER( void )
 			/* Parámetro para chequear por tarea de mayor prioridad */
 			&xHigherPriorityTaskWoken
 			);
-
-	/* Limpieza de estado de interrupción y flanco */
-	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
-	Chip_PININT_ClearRiseStates( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
 
 	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
@@ -229,46 +228,82 @@ void vEncoderTask( void *pvParameters )
 */
 BaseType_t xEncoderInit( void )
 {
+	/* Configuración de pulsador como entrada */
+	gpioConfig( GPIO0, GPIO_INPUT_PULLUP );
+
+	Chip_SCU_GPIOIntPinSel(
+			/* GPIO PINTSEL interrupt, should be: 0 to 7 */
+			PININT_INDEX,
+			/* GPIO port number interrupt, should be: 0 to 7 */
+			GPIO0_GPIO_PORT,
+			/* GPIO pin number Interrupt , should be: 0 to 31 */
+			GPIO0_GPIO_PIN
+			);
+
+	Chip_PININT_ClearIntStatus(
+			/* The base address of Pin interrupt block */
+			LPC_GPIO_PIN_INT,
+			/* Pin interrupts to clear (ORed value of PININTCH*) */
+			PININTCH( PININT_INDEX )
+			);
+
+	Chip_PININT_SetPinModeEdge(
+			/* The base address of Pin interrupt block */
+			LPC_GPIO_PIN_INT,
+			/* Pin interrupts to clear (ORed value of PININTCH*) */
+			PININTCH( PININT_INDEX )
+			);
+
+	Chip_PININT_EnableIntHigh(
+			/* The base address of Pin interrupt block */
+			LPC_GPIO_PIN_INT,
+			/* Pin interrupts to clear (ORed value of PININTCH*) */
+			PININTCH( PININT_INDEX ) );
+
+	NVIC_ClearPendingIRQ( PININT_NVIC_NAME );
+	NVIC_EnableIRQ( PININT_NVIC_NAME );
+	NVIC_SetPriority( PININT_NVIC_NAME, 255 );
+
 	/* Configuracion de pines de la EDU-CIAA-NXP como entrada con pull-up */
-	gpioConfig( encoderPIN_SW, GPIO_INPUT_PULLUP );
-	gpioConfig( encoderPIN_CLK, GPIO_INPUT_PULLUP );
-	gpioConfig( encoderPIN_DT, GPIO_INPUT_PULLUP );
+//	gpioConfig( encoderPIN_SW, GPIO_INPUT_PULLUP );
+//	gpioConfig( encoderPIN_CLK, GPIO_INPUT_PULLUP );
+//	gpioConfig( encoderPIN_DT, GPIO_INPUT_PULLUP );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
 	* From EduCiaa pin out spec: GPIO1[9] -> port 1 and pin 9
 	*/
-	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
-	/* Clear actual configured interrupt status */
-	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Set edge interrupt mode */
-	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Enable high edge gpio interrupt */
-	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-	/* Clear pending irq channel interrupts */
-	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-	/* Enable irqChannel interrupt */
-	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-	/* Seteo del nivel de prioridad de la interrupción 0 */
-	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+//	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
+//	/* Clear actual configured interrupt status */
+//	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Set edge interrupt mode */
+//	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Enable high edge gpio interrupt */
+//	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+//	/* Clear pending irq channel interrupts */
+//	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+//	/* Enable irqChannel interrupt */
+//	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+//	/* Seteo del nivel de prioridad de la interrupción 0 */
+//	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
 	* From EduCiaa pin out spec: GPIO1[9] -> port 1 and pin 9
 	*/
-	Chip_SCU_GPIOIntPinSel( PININT2_INDEX, GPIO2_GPIO_PORT, GPIO2_GPIO_PIN );
-	/* Clear actual configured interrupt status */
-	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
-	/* Set edge interrupt mode */
-	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
-	/* Enable high edge gpio interrupt */
-	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
-	/* Clear pending irq channel interrupts */
-	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT2_INDEX );
-	/* Enable irqChannel interrupt */
-	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT2_INDEX );
-	/* Seteo del nivel de prioridad de la interrupción 0 */
-	NVIC_SetPriority( PININT2_NVIC_NAME, 255 );
+//	Chip_SCU_GPIOIntPinSel( PININT2_INDEX, GPIO2_GPIO_PORT, GPIO2_GPIO_PIN );
+//	/* Clear actual configured interrupt status */
+//	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+//	/* Set edge interrupt mode */
+//	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+//	/* Enable high edge gpio interrupt */
+//	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT2_INDEX ) );
+//	/* Clear pending irq channel interrupts */
+//	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT2_INDEX );
+//	/* Enable irqChannel interrupt */
+//	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT2_INDEX );
+//	/* Seteo del nivel de prioridad de la interrupción 0 */
+//	NVIC_SetPriority( PININT2_NVIC_NAME, 255 );
 
 	/* Creación de mailbox con selección de motor */
 	xEncoderChoiceMailbox = xQueueCreate( 1, sizeof( uint8_t ) );
