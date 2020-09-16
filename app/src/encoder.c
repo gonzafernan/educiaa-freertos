@@ -1,5 +1,6 @@
 /*! \file encoder.c
-    \brief Descripción del archivo.
+    \brief Rutinas de interrupción, tareas y configuración
+    asociada el encoder. Entrada HMI del proyecto.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
@@ -9,9 +10,6 @@
     - De SCU: SCU_PORT, SCU_PIN, SCU_FUNC
     - De GPIO: GPIO_PORT, GPIO_PIN
 
-    GPIO0	P6_1	GPIO3[0]
-	GPIO1	P6_4	GPIO3[3]
-	GPIO2	P6_5	GPIO3[4]
 */
 
 /* Utilidades includes */
@@ -80,7 +78,7 @@ static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2
 	/* Actualización de selección en display
 	 * (implementación en display_lcd.c) */
 	vUpdateSelection( cValue );
-	vUartSendMsg("SW");
+	vUartSendMsg("ENC_SW");
 }
 
 /*! \fn void PININT1_IRQ_HANDLER( void )
@@ -99,10 +97,11 @@ void vEncoderCLK_IRQ_HANDLER( void )
 		xSemaphoreGiveFromISR( xEncoderNegativePulseSemaphore,
 			&xHigherPriorityTaskWoken );
 	}
+
 	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
 }
 
-/*! \fn void PININT2_IRQ_HANDLER( void )
+/*! \fn void PININT_IRQ_HANDLER( void )
 	\brief Handler interrupt from GPIO pin or GPIO pin mapped to PININT
 */
 //void vEncoderSW_IRQ_HANDLER( void )
@@ -229,7 +228,7 @@ void vEncoderTask( void *pvParameters )
 BaseType_t xEncoderInit( void )
 {
 	/* Configuración de pulsador como entrada */
-	gpioConfig( GPIO0, GPIO_INPUT_PULLUP );
+	gpioConfig( encoderPIN_SW, GPIO_INPUT_PULLUP );
 
 	Chip_SCU_GPIOIntPinSel(
 			/* GPIO PINTSEL interrupt, should be: 0 to 7 */
@@ -264,28 +263,27 @@ BaseType_t xEncoderInit( void )
 	NVIC_EnableIRQ( PININT_NVIC_NAME );
 	NVIC_SetPriority( PININT_NVIC_NAME, 255 );
 
-	/* Configuracion de pines de la EDU-CIAA-NXP como entrada con pull-up */
-//	gpioConfig( encoderPIN_SW, GPIO_INPUT_PULLUP );
-//	gpioConfig( encoderPIN_CLK, GPIO_INPUT_PULLUP );
-//	gpioConfig( encoderPIN_DT, GPIO_INPUT_PULLUP );
+	/* Configuracion como entrada de CLK y DIR */
+	gpioConfig( encoderPIN_CLK, GPIO_INPUT_PULLUP );
+	gpioConfig( encoderPIN_DT, GPIO_INPUT_PULLUP );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it
 	* From EduCiaa pin out spec: GPIO1[9] -> port 1 and pin 9
 	*/
-//	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
-//	/* Clear actual configured interrupt status */
-//	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Set edge interrupt mode */
-//	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Enable high edge gpio interrupt */
-//	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
-//	/* Clear pending irq channel interrupts */
-//	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-//	/* Enable irqChannel interrupt */
-//	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
-//	/* Seteo del nivel de prioridad de la interrupción 0 */
-//	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
+	Chip_SCU_GPIOIntPinSel( PININT1_INDEX, GPIO1_GPIO_PORT, GPIO1_GPIO_PIN );
+	/* Clear actual configured interrupt status */
+	Chip_PININT_ClearIntStatus( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Set edge interrupt mode */
+	Chip_PININT_SetPinModeEdge( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Enable high edge gpio interrupt */
+	Chip_PININT_EnableIntHigh( LPC_GPIO_PIN_INT, PININTCH( PININT1_INDEX ) );
+	/* Clear pending irq channel interrupts */
+	NVIC_ClearPendingIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+	/* Enable irqChannel interrupt */
+	NVIC_EnableIRQ( PIN_INT0_IRQn + PININT1_INDEX );
+	/* Seteo del nivel de prioridad de la interrupción 0 */
+	NVIC_SetPriority( PININT1_NVIC_NAME, 255 );
 
 	/*
 	* Select irq channel to handle a GPIO interrupt, using its port and pin to specify it

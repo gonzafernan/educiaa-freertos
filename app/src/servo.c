@@ -1,10 +1,9 @@
 /*! \file servo.c
-    \brief Descripción del archivo.
+    \brief Señal PWM, tarea y funciones para el funcionamiento
+    del servomotor (Tower Pro SG90).
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 /* Utilidades includes */

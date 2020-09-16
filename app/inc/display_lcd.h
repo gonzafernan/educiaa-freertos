@@ -1,10 +1,9 @@
 /*! \file display_lcd.h
-    \brief Descripción del archivo.
+    \brief Inicialización de display. Tarea para control de
+    dicho módulo.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Septiembre 2020
-
-    Detalle.
 */
 
 #ifndef DISPLAY_LCD_H_

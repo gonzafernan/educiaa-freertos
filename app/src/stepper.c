@@ -1,10 +1,9 @@
 /*! \file stepper.c
-    \brief Descripción del archivo.
+    \brief Tarea, timers, y funciones asociado al control
+    de los motores paso a paso.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 /* Utilidades includes */

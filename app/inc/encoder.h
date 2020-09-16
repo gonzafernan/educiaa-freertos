@@ -1,10 +1,15 @@
 /*! \file encoder.h
-    \brief Descripción del archivo.
+    \brief Rutinas de interrupción, tareas y configuración
+    asociada el encoder. Entrada HMI del proyecto.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
 
-    Detalle.
+    Para configurar cualquiera de los pines, es necesario conocer los
+    siguientes datos:
+    - De SCU: SCU_PORT, SCU_PIN, SCU_FUNC
+    - De GPIO: GPIO_PORT, GPIO_PIN
+
 */
 
 #ifndef ENCODER_H_
@@ -14,10 +19,19 @@
 #include "FreeRTOS.h"
 #include "queue.h"
 
+/*! \def encoderMAX_CLK_PULSES
+	\brief Cantidad máxima de pulsos admitidos por la aplicación.
+*/
+#define encoderMAX_CLK_PULSES	100
+
+/*! \def encoderSTEP_TO_SEND
+	\brief Cantidad de pasos a enviar con cada pulso de encoder.
+*/
+#define encoderANGLE_TO_SEND	15
+
 /*! \def encoderPIN_SW
 	\brief Conexión pin switch de encoder rotativo.
 */
-//#define encoderPIN_SW	GPIO2
 #define encoderPIN_SW	GPIO0
 
 // SCU
@@ -43,17 +57,7 @@
 /*! \def encoderPIN_DT
 	\brief Conexión pin dirección de encoder rotativo.
 */
-#define encoderPIN_DT	GPIO0
-
-/*! \def encoderMAX_CLK_PULSES
-	\brief Cantidad máxima de pulsos admitidos por la aplicación.
-*/
-#define encoderMAX_CLK_PULSES	100
-
-/*! \def encoderSTEP_TO_SEND
-	\brief Cantidad de pasos a enviar con cada pulso de encoder.
-*/
-#define encoderANGLE_TO_SEND	15
+#define encoderPIN_DT	GPIO2
 
 #define GPIO1_SCU_PORT	6
 #define GPIO1_SCU_PIN	4
@@ -64,21 +68,14 @@
 #define GPIO2_SCU_FUNC	SCU_MODE_FUNC0
 
 
-
 #define GPIO1_GPIO_PORT	3
 #define GPIO1_GPIO_PIN	3
-
-#define GPIO2_GPIO_PORT	3
-#define GPIO2_GPIO_PIN	4
 
 
 #define PININT1_INDEX         1                  // PININT index used for GPIO mapping
 #define vEncoderCLK_IRQ_HANDLER   GPIO1_IRQHandler   // GPIO interrupt IRQ function name
 #define PININT1_NVIC_NAME     PIN_INT1_IRQn      // GPIO interrupt NVIC interrupt name
 
-#define PININT2_INDEX         2                  // PININT index used for GPIO mapping
-#define vEncoderSW_IRQ_HANDLER   GPIO2_IRQHandler   // GPIO interrupt IRQ function name
-#define PININT2_NVIC_NAME     PIN_INT2_IRQn      // GPIO interrupt NVIC interrupt name
 
 /*! \var QueueHandle_t xEncoderChoiceMailbox
 	\brief Mailbox con la selección actual de motor mediante

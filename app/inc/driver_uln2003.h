@@ -1,10 +1,9 @@
 /*! \file driver_uln2003.h
-    \brief Descripción del archivo.
+    \brief Configuración para salida a drivers de los motores
+    paso a paso (ULN2003).
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 #ifndef DRIVER_ULN2003_H_

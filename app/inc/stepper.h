@@ -1,10 +1,9 @@
-/*! \file stepper.c
-    \brief Descripción del archivo.
+/*! \file stepper.h
+    \brief Tarea, timers, y funciones asociado al control
+    de los motores paso a paso.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 #ifndef STEPPER_H_

@@ -1,10 +1,10 @@
 /*! \file app.c
-    \brief Descripción del archivo.
+    \brief Archivo principal del proyecto. Tarea de
+    clasificación de mensajes. Blink de LED. Inicialización
+    de los diferentes módulos del sistema.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 /* Utilidades includes */

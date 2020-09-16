@@ -1,10 +1,9 @@
 /*! \file uart.c
-    \brief Descripción del archivo.
+    \brief Tareas, funciones e inicialización de módulo
+    para comunicación UART.
     \author Gonzalo G. Fernández
     \version 1.0
     \date Julio 2020
-
-    Detalle.
 */
 
 #include "uart.h"
