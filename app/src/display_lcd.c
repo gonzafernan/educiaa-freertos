@@ -39,23 +39,23 @@ void vUpdateSelection( uint8_t cSelection )
 
 	switch ( cSelection ) {
 	case 0:
-		//lcdSendStringRaw( "STEPPER 1:      " );
+		lcdSendStringRaw( "STEPPER 1:      " );
 		printf("STEPPER 1:      \n");
 		break;
 	case 1:
-		//lcdSendStringRaw( "STEPPER 2:      " );
+		lcdSendStringRaw( "STEPPER 2:      " );
 		printf("STEPPER 2:      \n");
 		break;
 	case 2:
-		//lcdSendStringRaw( "STEPPER 3:      " );
+		lcdSendStringRaw( "STEPPER 3:      " );
 		printf("STEPPER 3:      \n");
 		break;
 	case 3:
-		//lcdSendStringRaw( "SERVO EXT:      " );
+		lcdSendStringRaw( "SERVO EXT:      " );
 		printf("SERVO EXT:      \n");
 		break;
 	default:
-		//lcdSendStringRaw( "EDU-CIAA RTOS" );
+		lcdSendStringRaw( " EDU-CIAA RTOS  " );
 		printf("EDU-CIAA RTOS\n");
 		break;
 	}
@@ -72,23 +72,29 @@ void vDisplayTask( void *pvParameters )
 	vUpdateSelection( 4 );
 
 	uint8_t cMenuSel, value;
+	char pcAuxMsg[4];
 
 	for ( ;; ) {
 		/* Lectura del valor actual en mailbox */
-		xQueuePeek( xEncoderChoiceMailbox, &cMenuSel, portMAX_DELAY );
+		//xQueuePeek( xEncoderChoiceMailbox, &cMenuSel, portMAX_DELAY );
+
+		/* Colocar cursor en posición 0, 0 */
+		lcdGoToXY( 11, 1 );
 
 		if ( cMenuSel < stepperAPP_NUM ) {
-			gpioToggle( LED3 );
 			value = ilStepperGetAngle( cMenuSel );
-			if (value) {
+			if ( value ) {
+				sprintf( pcAuxMsg, "%d", value );
 				printf( "PEND: %d\n", value );
+				lcdSendStringRaw( pcAuxMsg );
 			}
 		} else if ( cMenuSel == stepperAPP_NUM ) {
 			xQueuePeek( xServoPositionMailbox, &value, portMAX_DELAY );
+			sprintf( pcAuxMsg, "%d", value );
 			printf( "POS: %d\n", value );
+			lcdSendStringRaw( pcAuxMsg );
 		}
 
-		gpioToggle(LED2);
 		vTaskDelay( pdMS_TO_TICKS( 500 ) );
 	}
 }

@@ -173,10 +173,12 @@ int main( void )
 
     /* Inicialización de display LCD */
     xStatus = xDisplayInit(); configASSERT( xStatus == pdPASS );
+    /* Obtener información del espacio libre */
+	xPreviousSize = xPrintModuleSize( "Display", xPreviousSize);
 
     /* Inicialización de encoder rotativo */
-	xStatus = xEncoderInit(); configASSERT( xStatus == pdPASS );
-	xPreviousSize = xPrintModuleSize( "Encoder", xPreviousSize);
+	//xStatus = xEncoderInit(); configASSERT( xStatus == pdPASS );
+	//xPreviousSize = xPrintModuleSize( "Encoder", xPreviousSize);
 
     /* Creación de cola de mensajes recibidos */
     xMsgQueue = xQueueCreate( appQUEUE_MSG_LENGTH, sizeof( char * ) );

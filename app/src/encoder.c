@@ -68,7 +68,7 @@ static void vDeferredHandlingFunction( void* pvParameter1, uint32_t ulParameter2
 	/* Valor de selección del encoder */
 	uint8_t cValue;
 	/* Lectura del valor actual en mailbox */
-	xQueuePeek( xEncoderChoiceMailbox, &cValue, 100 );
+	xQueuePeek( xEncoderChoiceMailbox, &cValue, 0 );
 	/* Incremento en la selección */
 	cValue++;
 	/* Vuelta a cero por Overflow del menu */

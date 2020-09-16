@@ -1,9 +1,13 @@
 \documentclass{IEEEtran}
+
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+
 \usepackage{graphicx}
 \usepackage{rotating}
 \usepackage{gensymb}
+
+\usepackage{multirow}
 
 \usepackage{todonotes}
 
@@ -89,7 +93,7 @@ Para reflejar de una forma concreta las acciones ejecutadas en la electrónica d
 
 Los actuadores del robot consisten en tres motores paso a paso monopolares 28BYJ-48 con drivers ULN2003, y su extremo operativo es accionado por un servo motor Tower Pro SG90.
 
-Además del brazo robótico con sus tres motores paso a paso y servo motor, la aplicación también tiene un display donde se observará la información del estado en que se encuentra el brazo. Las consignas que recibirán los motores será a través de protocolo UART desde PC o mediante un encoder rotativo. Como accesorio secundario en la aplicación se encuentran los LEDs de la placa EDU-CIAA como indicadores visuales y un buzzer como indicador auditivo.
+Además del brazo robótico con sus tres motores paso a paso y servo motor, la aplicación también tiene un display donde se observará la información del estado en que se encuentra el brazo. Las consignas que recibirán los motores será a través de protocolo UART desde PC o mediante un encoder rotativo. Como accesorio secundario en la aplicación se encuentran los LEDs de la placa EDU-CIAA como indicadores visuales.
 
 \section{Flujo de trabajo y herramientas utilizadas}
 Todo el software se desarrolló en una PC con sistema operativo Linux. Para la programación en lenguaje C se utilizó el programa Eclipse IDE, configurado para compilar y cargar el programa a la placa desde el mismo entorno de desarrollo (ver documentación del firmware en la wiki del proyecto\cite{ciaa-wiki} en GitHub). Para completar el conjunto de herramientas se puede trabajar con OpenOCD como debugger, sin embargo en este proyecto no fue necesario su uso. Para la comunicación serial con la placa (UART) se utilizó el programa picocom, una herramienta sencilla por comando de línea. Para el control de versiones del proyecto, además del uso del firmware del proyecto CIAA, se utilizó git (con repositorio remoto en GitHub).
@@ -134,7 +138,7 @@ Sus estados principales son \textit{running} y \textit{not running}, cuando el p
     \item Lista: Ya esta disponible para pasar a estado \textit{running}, pero todavía no es seleccionada por el \textit{scheduler}.
 \end{itemize}
 
-El cambio de estado en una tarea es únicamente dirigido por el \textit{scheduler} de FreeRTOS. Para definir cuál tarea tiene más importancia de ejecución sobre otra, existe el concepcto de prioridad: cuándo el \textit{scheduler} deba decidir cuál es la próxima tarea a colocar en estado \textit{running} deberá observar cuál es la de mayor prioridad.
+El cambio de estado en una tarea es únicamente dirigido por el \textit{scheduler} de FreeRTOS. Para definir cuál tarea tiene más importancia de ejecución sobre otra, existe el concepcto de prioridad: cuando el \textit{scheduler} deba decidir cuál es la próxima tarea a colocar en estado \textit{running} deberá observar cuál es la de mayor prioridad.
 
 Para seleccionar esa próxima tarea a ejecutar, el \textit{scheduler} se ejecuta mediante una interrupción periódica denominada \textit{tick interrupt}. En el proyecto la frecuencia de dicha interrupción es de 1000 Hz.
 
@@ -180,7 +184,7 @@ En el proyecto se utilizaron colas de recepción y transmisión que contienen lo
 
 Si una tarea recibe información desde múltiples fuentes (esto aplica tanto a colas como a semáforos), FreeRTOS nos permite agrupar esas fuentes en \textit{sets}. Estos \textit{sets} evitan que la tarea deba hacer un polling en turnos de las fuentes.
 
-Un ejemplo de la aplicación de \textit{sets} se implementó en la comunicación de pulsos del encoder a la tarea de control de dicho componente. Allí se implementaron dos semáforos contadores, ambos con pulsos, que se diferencian en la dirección enviada (ver figura \ref{fig:diagrama-encoder}).
+Un ejemplo de la aplicación de \textit{sets} se implementó en la comunicación de pulsos del encoder a la tarea de control de dicho componente. Allí se implementaron dos semáforos contadores, ambos con pulsos, que se diferencian en la dirección enviada, es decir, el sentido de giro (ver figura \ref{fig:diagrama-encoder}).
 
 \subsection{Mailbox}
 El mailbox dentro de los RTOS es una estructura de datos que permite guardar información a ser leída por múltiples tareas o interrupciones. FreeRTOS no hace diferencia entre un mailbox y una cola de longitud unitaria. En lugar de implementar una nueva estructura con diferente funcionamiento a una cola, lo que brinda son dos APIs que permiten adaptar las colas al funcionamiento de un mailbox.
@@ -236,14 +240,16 @@ El objeto que permite poner en práctica la técnica de exclusión mutua es el \
 
 Algo a tener en cuenta al utilizar este recurso, es el fenómeno de \textbf{inversión de prioridad}. La inversión de prioridad sucede cuando una tarea de baja prioridad toma el \textit{mutex} y luego otra de alta prioridad intenta acceder al mismo recurso y, por lo tanto, se bloquea esperando su liberación. Si antes de que la tarea de baja prioridad libere el \textit{mutex}, una tercera tarea de prioridad media (prioridad mayor que la de baja prioridad pero menor que la de alta prioridad) hace un \textit{pre-empt}, el resultado es que la tarea de prioridad alta no solo tiene que esperar a la tarea de prioridad baja, sino también a la de prioridad media. Para disminuir el impacto de este fenómeno, los \textit{mutex} se diferencian de los semáforos convencionales en su característica de \textbf{prioridad heredada}. Básicamente se aumenta temporalmente la prioridad de la tarea que toma el \textit{mutex}, y de esta forma las tareas como la de prioridad media en el ejemplo anterior no realizan el \textit{pre-empt} sobre la tarea que tomó dicho \textit{mutex}.
 
-En el proyecto se aplicaron \textit{mutex} para la protección de la cola de transmisión por UART y para la cola de consignas de motores.
-
 Otra forma muy efectiva de garantizar la exclusión mutua de un recurso, son las tareas \textit{gatekeeper}. Basicamente consiste en una tarea convencional que tiene el control total sobre el recurso a proteger, cualquier otro proceso que necesite el acceso lo deberá hacer indirectamente a través de los servicios que brinde la tarea \textit{gatekeeper}. 
 
 En el proyecto se utilizaron dos de este tipo de tareas a la hora de implementar la comunicación UART: una encargada de la transmisión de datos y otra del procesamiento de la información recibida.
 
 \subsection{Grupos de eventos}
-A diferencia de otros objetos como las colas y semáforos, los grupos de eventos permiten a una tarea esperar bloqueada por una combinación de uno o más eventos.
+A diferencia de otros objetos como las colas y semáforos, los grupos de eventos permiten a una tarea esperar bloqueada por una combinación de uno o más eventos y también desbloquean todas las tareas que esten esperando una misma o diferentes combinaciones.
+
+Los grupos de eventos consisten basicamente en banderas que se setean en 1 o 0 según si un evento ocurrió o no. Dichas banderas se agrupan en una variable de 24 bits.
+
+En la aplicación se utilizaron en el módulo de control de motores paso a paso. Los \textit{timers} por software asociados a cado motor al finalizar su funcionamiento (es decir al llegar a la consigna el motor) setean un determinado bit en el grupo de eventos. Al finalizar todos los motores, se produce la combinación que desbloquea la tarea encargada del control de dichos timers permitiendo que se ejecute la siguiente consigna en la cola.
 
 \subsection{Notificación de tareas}
 Las notificaciones de tarea proporcionan una forma de comunicación entre tareas (o tareas y rutinas de interrupción) sin la necesidad de un objeto de comunicación, como lo son las colas, semáforos y grupos de eventos. Esto permite que la comunicación sea directa.
@@ -256,9 +262,7 @@ Algunas limitaciones de las notificaciones de tareas son:
     \item Bloquear un proceso hasta que el envío sea válido. Si se envía una notificación a una tarea que ya tenía una notificación pendiente, no se puede esperar en estado bloqueado a que la tarea resetee su estado de notificación.
 \end{itemize}
 
-Implementación de notificaciones de tarea sencillas en el proyecto pueden encontrarse, por ejemplo, en el control de flujo de trabajo de los motores paso a paso. Allí, la función de \textit{callback} del timer, si encuentra que no hay pasos pendientes, envía una notificación a la tarea de control de los motores para que ésta inicialice la próxima consigna.
-
-Un ejemplo de notificaciones más complejas, es la gestión de errores por notificación en la tarea de sincronización de mensajes. Allí cada bit del valor de notificación da la información de cuál fue el error en el mensaje recibido (ver figura \ref{fig:diagrama-app}).
+Un ejemplo de notificaciones implementadas en el proyecto, es la gestión de errores por notificación en la tarea de sincronización de mensajes. Allí cada bit del valor de notificación da la información de cuál fue el error en el mensaje recibido (ver figura \ref{fig:diagrama-app}).
 
 \section{Implementación de los diferentes módulos del proyecto}
 \label{sec:modulos}
@@ -278,14 +282,14 @@ En la figura \ref{fig:diagrama-uart} puede observarse tanto el diagrama de trans
     \label{fig:diagrama-uart}
 \end{figure*}
 
-La transmisión es muy sencilla: consiste en una tarea que realiza la lectura de una cola de mensajes pendientes a enviar, para luego efectivamente enviarlos por UART. Lo que se destaca es la protección de la cola a leer a través de un \textit{mutex}. Esto es así porque la escritura de la cola no es limitada a una única fuente, cualquier proceso que requiera enviar un mensaje puede acceder a ella.
+La transmisión es muy sencilla: consiste en una tarea que realiza la lectura de una cola de mensajes pendientes a enviar, para luego efectivamente enviarlos por UART.
 
-Para la recepción de información se utilizan dos colas. La primera es escrita por la rutina de interrupción, y consiste en los caracteres recibidos. Dichos caracteres son leídos por la tarea encargada de ese procesamiento, asignándoles memoria como un único string que finaliza cuando se lee un final de línea. Una vez unido el mensaje en un único arreglo de caracteres, se envía a una segunda cola de mensajes recibidos.
+Para la recepción de información se utilizan dos colas. La primera es escrita por la rutina de interrupción, y consiste en los caracteres recibidos. Dichos caracteres son leídos por la tarea encargada de ese procesamiento, y se construye como único string que finaliza cuando se lee un final de línea para ser enviado a una segunda cola de mensajes recibidos.
 
 \subsection{Control de motores paso a paso}
 \label{sec:stepper}
 
-En la figura \ref{fig:diagrama-stepper} puede observarse el diagrama de la implementación del control de motores paso a paso mediante el RTOS. Este módulo es, en comparación a los demás del proyecto, el más complejo y completo en cuanto a aplicación de funcionalidades de FreeRTOS.
+En la figura \ref{fig:diagrama-stepper} puede observarse el diagrama de la implementación del control de motores paso a paso mediante el RTOS.
 
 \begin{figure*}[ht]
     \centering
@@ -294,7 +298,7 @@ En la figura \ref{fig:diagrama-stepper} puede observarse el diagrama de la imple
     \label{fig:diagrama-stepper}
 \end{figure*}
 
-El primer componente del módulo es una cola de los mensajes recibidos vinculados a la actividad de los motores. El tipo de elementos que guarda la cola son punteros a los mensajes (es un ejemplo de la utilización de colas para la comunicación de información de distintas dimensiones). Dado que dicha cola recibe información de múltiples fuentes, esta protegida mediante un \textit{mutex}.
+El primer componente del módulo es una cola de los mensajes recibidos vinculados a la actividad de los motores. El tipo de elementos que guarda la cola son punteros a los mensajes (es un ejemplo de la utilización de colas para la comunicación de información de distintas dimensiones).
 
 Una tarea es la encargada de leer la información en la cola de consignas, que es escrita mediante acciones externas al módulo, y procesar el mensaje identificando los parámetros a setear: ID del motor, velocidad, posición y/o dirección. Una vez realizado ese procesamiento del mensaje, la tarea ejecuta una de las siguientes acciones:
 
@@ -304,9 +308,11 @@ Una tarea es la encargada de leer la información en la cola de consignas, que e
     \item Se inicializa el timer indicado, con la información obtenida actualizada en su ID.
 \end{itemize}
 
-Probablemente los componentes más importantes del módulo son los timers por software. Habrá uno por cada motor (por lo tanto, tres) y en su ID se encuentra un puntero a la estructura que contiene la información del motor: pasos pendientes, dirección, identificación y estado del driver. Cada vez que los timers pasen a estado \textit{Running}, se ejecuta la función de \textit{callback} correspondiente. que decrementa la cantidad de pasos pendientes y actualiza el driver para afectar la posición del motor. 
+Probablemente los componentes más importantes del módulo son los timers por software. Uno por cada motor (por lo tanto, tres) y en su ID se encuentra un puntero a la estructura que contiene la información del motor: pasos pendientes, dirección, identificación y estado del driver. Cada vez que los timers pasen a estado \textit{Running}, se ejecuta la función de \textit{callback} correspondiente. que decrementa la cantidad de pasos pendientes y actualiza el driver para afectar la posición del motor. 
 
-Si la cantidad de pasos pendientes llega a cero, el timer se detiene a sí mismo y luego envía una notificación sencilla a la tarea de control de los motores, para que ésta pueda procesar la siguiente consigna en la cola y ejecutarla si es correcta. Es importante aclarar que el diseño planteado conduce a una ejecución de consignas de forma \textbf{secuencial}, es decir, nunca habrá más de un motor en movimiento a la vez.
+Si la cantidad de pasos pendientes llega a cero, el timer se detiene a sí mismo y luego setea su bit correspondiente en el grupo de eventos. Una vez que finalizan todos los timers, se produce el evento que permite a la tarea de control de los motores que pueda procesar la siguiente consigna en la cola y ejecutarla si es correcta. 
+
+Es importante aclarar que en el diseño planteado es necesario que las consignas seteen los tres motores paso a paso a la vez. Si se desea que un motor no se mueva sencillamente se le pasa un ángulo nulo.
 
 Como se mencionó en la sección \ref{sec:software-timer}, la función de \textit{callback} de los timers se ejecuta en el contexto de la tarea \textit{daemon} del RTOS. Entonces, al \textit{daemon} se le asignó la prioridad más alta de la aplicación, ya que es imprescindible que los tiempos del timer se cumplan para un correcto funcionamiento de los motores.
 
@@ -341,7 +347,7 @@ Una tarea es la encargada de procesar la información recibida. Dado que ambos s
 Si el motor seleccionado es el servomotor del extremo operativo del robot, antes de enviar la consigna se lee el mailbox donde se encuentra la posición actual del motor, para poder incrementar o decrementar dicho valor (esto porque la consigna al servomotor es de posición absoluta).
 
 \subsection{Servo motor en extremo operativo}
-Para el control del servomotor es necesario una señal PWM con un período de 20 ms (señal de 50 Hz) que tenga un \textit{duty-cycle} variable entre 2 y 10 ms, siendo 2 ms para un ángulo en el motor de 0\degree, y 10 ms para un ángulo de 180\degree. Dicha señal PWM fue implementada con un períferico del microcontrolador y no con APIs de FreeRTOS. El periférico utilizado es el \textit{SCT Timer} o \textit{State Configurable Timer} que fue configurado hanciendo uso de la librería LPCOpen.
+Para el control del servomotor es necesario una señal PWM con un período de 20 ms (señal de 50 Hz) que tenga un \textit{duty-cycle} variable entre 1 y 2 ms, siendo 1 ms para un ángulo en el motor de 0\degree, y 2 ms para un ángulo de 180\degree. Dicha señal PWM fue implementada con un períferico del microcontrolador y no con APIs de FreeRTOS. El periférico utilizado es el \textit{SCT Timer} o \textit{State Configurable Timer} que fue configurado hanciendo uso de la librería LPCOpen.
 
 La resolución es similar a la de los motores paso a paso, sin el uso de timers por software: Se posee una cola de mensajes con las consignas al motor, que es leída por una tarea. La tarea se encuentrada bloqueada hasta recibir una consigna, y el entrar en estado \textit{Running} ejecuta una función que varía el \textit{duty-cycle} de la señal PWM.
 
@@ -404,12 +410,7 @@ En los procesadores ARM Cortex-M, valores numéricos bajos de prioridad equivale
 
 El controlador de interrupción de Cortex-M permite especificar la prioridad con un máximo de 8 bits, es decir, la prioridad de interrupción más baja posible será con valor numérico 255. Generalmente solo se implementa un subgrupo de esos 8 bits. De la librería CMSIS del microcontrolador LPC4337 se obtuvo que ese subgrupo es de 2 bits.
 
-Con esta información, se encontraron dos posibles soluciones y ambas funcionan correctamente:
-
-\begin{itemize}
-    \item Setear mediante un llamado de LPCOpen la prioridad de NVIC de las interrupciones al mínimo (en el proyecto se las configuró en 255).
-    \item Setear en la configuración de FreeRtos la variable \textit{configMAX\_SYSCALL\_INTERRUPT\_PRIORITY} a la prioridad máxima, es decir, a 1.
-\end{itemize}
+Con esta información se solucionó el problema seteando, mediante un llamado de LPCOpen, la prioridad de NVIC de las interrupciones al mínimo (en el proyecto se las configuró en 255).
 
 \section{Vinculación de los diferentes módulos de la aplicación}
 \label{sec:vinculacion}
@@ -427,6 +428,31 @@ En la figura \ref{fig:diagrama-app} se puede observar la interconexión de todas
     \label{fig:diagrama-app}
 \end{sidewaysfigure*}
 
+En la figura \ref{fig:conexion-app} se puede observar la conexión física de los distintos componentes utilizados a la placa de desarrollo EDU-CIAA-NXP.
+
+\begin{sidewaysfigure*}[ht]
+    \centering
+    \includegraphics[scale=0.3]{../conexion_app.png}
+    \caption{Diagrama de conexión física de los diferentes componentes a la placa de desarrollo EDU-CIAA.}
+    \label{fig:conexion-app}
+\end{sidewaysfigure*}
+
+\section{Descripción de formato de consigna a motores}
+En la tabla puede observarse el formato de las consignas a enviar al microcontrolador a través de UART.
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\textbf{Motor PaP}} \\ \hline
+    Posición & \begin{tabular}[c]{@{}l@{}}:S\{Id1\}D\{Dirección1\}A\{Ángulo 1 con tres dígitos\}\\ S\{Id2\}D\{Dirección2\}A\{Ángulo 2 con tres dígitos\}\\ S\{Id3\}D\{Dirección3\}A\{Ángulo 3 con tres dígitos\}\end{tabular} \\ \hline
+    Velocidad & :S\{Id\}V\{Período en ms\} \\ \hline
+    \multicolumn{2}{|c|}{\textbf{Servomotor}} \\ \hline
+    Posición & :X\{Ángulo\} \\ \hline
+\end{tabular}
+\end{table}
+
+El módulo del servomotor recibe consignas para ángulos entre 0\degree y 180\degree. Valores fuera de este rango devolverán un error.
+
 \section{Debug para control de errores con assert y funciones de memoria}
 \label{sec:debug}
 
@@ -442,22 +468,11 @@ Se pudo encontrar que al juntar todos lo módulos, se sobrepasaba el tamaño de 
 
 Analizando este problema también se obtuvo el tamaño de cada módulo, siendo los siguientes:
 
-\section{Descripción de formato de consigna a motores}
-En la tabla puede observarse el formato de las consignas a enviar al microcontrolador a través de UART.
-
-\begin{table}[ht]
-\begin{tabular}{|l|l|}
-    \hline
-    \textbf{Motor PaP}  & \begin{tabular}[c]{@{}l@{}}:S\{Id1\}D\{Dirección1\}A\{Ángulo 1 con tres dígitos\}\\ S\{Id2\}D\{Dirección2\}A\{Ángulo 2 con tres dígitos\}\\ S\{Id3\}D\{Dirección3\}A\{Ángulo 3 con tres dígitos\}\end{tabular} \\ \hline
-    \textbf{Servomotor} & :X\{Ángulo\}\\ \hline
-\end{tabular}
-\end{table}
-
-El módulo del servomotor recibe consignas para ángulos entre 0\degree y 180\degree. Valores fuera de este rango devolverán un error.
-
 \section{Conclusiones}
 \label{sec:conclusiones}
 Todo el proyecto se desarrolló siguiendo el estilo de código propuesto por FreeRTOS, esto permitió programar de forma mucho más eficiente, estructurada y limpia. Además, para la documentación del código se siguieron los lineamientos del proyecto Doxygen, esto también hizo que el desarrollo del proyecto a medida que se iba complejizando fuera más sencillo de seguir.
+
+Durante el desarrollo se cometió el error de proteger una cola con un mutex, cuando en realidad todas las APIs de FreeRTOS son \textit{thread-safe} por lo que no es necesario.
 
 Uno de los puntos a resaltar al finalizar el trabajo, es que aunque los diagramas parezcan complejos, el desarrollo de la aplicación no presenta dificultades si el diseño de la comunicación entre tareas esta bien planteada. Es muy sencillo seguir un diagrama e implementar todas los módulos con las APIs que provee el RTOS, trabajando sobre los procesos de forma independiente y llevando a cabo su intercomunicación hacia el final. La misma aplicación siguiendo un esquema de \textit{superloop} sería mucho más compleja de diseñar e implementar.
 

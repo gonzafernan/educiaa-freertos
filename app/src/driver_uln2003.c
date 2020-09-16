@@ -8,7 +8,7 @@
 */
 
 /* Aplicación includes */
-#include "../inc/driver_uln2003.h"
+#include "driver_uln2003.h"
 
 /*! \var DriverIn_t *pxDriverA
 	\brief Arrays de entradas al driver del motor A
