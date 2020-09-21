@@ -11,8 +11,8 @@ El proyecto se basa en el firmware del proyecto CIAA en su versión 3, se puede 
 El trabajo consiste en el movimiento controlado del robot EEZYBOTARM MK3 publicado por EEZY robots y diseñado por Carlo Franciscone. 
 
 <p float="left">
-<img src="docs/edu_ciaa.jpg" alt="edu-ciaa" height="300"/> 
-<img src="docs/robot_arm.jpg" alt="robot-arm" height="300"/>
+<img src="docs/edu_ciaa.jpg" alt="edu-ciaa" height="200"/> 
+<img src="docs/robot_arm.jpg" alt="robot-arm" height="200"/>
 </p>
 
 Por lo tanto, además de la EDU-CIAA el hardware necesario son:
