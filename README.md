@@ -1,4 +1,4 @@
-![](https://img.shields.io/github/last-commit/FernandezGFG/CIAA-RTOS)
+![](https://img.shields.io/github/last-commit/gonzafernan/educiaa-freertos)
 # RTOS en placa de desarrollo EDU-CIAA para el control de un accionamiento electromecánico básico
 
 El objetivo del trabajo es la implementación de una aplicación basada en el sistema operativo de tiempo real FreeRTOS, sobre la placa de desarrollo EDU-CIAA, para el control de un sistema electromecánico básico que tiene como fin únicamente la demostración visual de lo que sucede en la electrónica. Se busca implementar todos los conceptos fundamentales de FreeRTOS, basándose en el libro *Mastering the FreeRTOS Real Time Kernel*, por más que algunos de estos conceptos tengan una aplicación forzada y se alejen de lo práctico o lo más conveniente. Esto es porque la principal finalidad del proyecto es aprender a utilizar FreeRTOS por sobre obtener un controlador del sistema con buen criterio de diseño y eficiente.
@@ -45,5 +45,5 @@ La escritura del código en C sigue los lineamientos de FreeRTOS que se encuentr
 ## Créditos
 Es importante agradecer a Eric Pernia, uno de los desarrolladores del firmware de la placa EDU-CIAA que solucionó dudas mientras me iniciaba con la placa de desarrollo. El proyecto fue desarrollado para la cátedra Microcontroladores y Electrónica de Potencia de la Facultad de Ingeniería de la Universidad Nacional de Cuyo. El profesor Ing. Eduardo Iriarte salvó muchísimas dudas tanto de electrónica, específicas de la placa EDU-CIAA y conceptuales de RTOS y programación de sistemas embebidos en C.
 
-## Licencia ![](https://img.shields.io/github/license/FernandezGFG/CIAA-RTOS)
+## Licencia ![](https://img.shields.io/github/license/gonzafernan/educiaa-freertos)
 MIT © Gonzalo G. Fernández
